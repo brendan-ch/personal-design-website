@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import styles from './DesktopSideNavigation.module.css'
 import Link from "next/link";
 import LogoStandalone from "@/icons/LogoStandalone";
-import InfoOverlay from "./InfoOverlay";
+import InfoOverlay from "../common/InfoOverlay";
 import Anchor from "./Anchor";
 import ActionButton from "./ActionButton";
 import { useState } from "react";
