@@ -18,6 +18,18 @@
 
 .containerVisible {
   display: flex;
+
+  animation-name: fadein;
+  animation-duration: 100ms;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  } 100% {
+    opacity: 100%;
+  }
 }
 
 .contentContainer {
