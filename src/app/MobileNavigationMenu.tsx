@@ -56,7 +56,7 @@ export default function MobileNavigationMenu({ visible, onClose }: Props) {
           hideLogo
         /> */}
         <div className={`${utils.mobileNavContent} ${utils.mobileNavContentWithoutLogo}`}>
-          <button>
+          <button className={utils.mobileNavContentButton} onClick={onClose}>
             <Exit
               width={24}
               height={24}
@@ -85,9 +85,11 @@ export default function MobileNavigationMenu({ visible, onClose }: Props) {
             href="/wip"
           />
         </div>
-        <Footer
-          onNoteOpen={() => { }}
-        />
+        <div className={styles.footerWrapper}>
+          <Footer
+            onNoteOpen={() => { }}
+          />
+        </div>
       </div>
     </div>
   );
