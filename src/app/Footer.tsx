@@ -32,9 +32,9 @@ export default function Footer({
         </Link>
       </div>
       <div className={styles.row}>
-        <Link href="www.bchen.dev">
+        <a href="https://www.bchen.dev" target="_blank" rel="noreferrer">
           <p>Visit bchen.dev</p>
-        </Link>
+        </a>
       </div>
     </div>
   );
