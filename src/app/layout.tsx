@@ -1,8 +1,6 @@
-import ActionButton from './ActionButton'
-import Anchor from './Anchor'
 import DesktopSideNavigation from './DesktopSideNavigation'
-import InfoOverlay from './InfoOverlay'
 import './globals.css'
+import styles from './layout.module.css'
 
 export const metadata = {
   title: 'Create Next App',
@@ -20,11 +18,15 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
       </head>
       <body>
-        <DesktopSideNavigation
+        <div className={styles.rootContainer}>
+
+          <DesktopSideNavigation
           // onNoteOpen={() => {}}
           // selected={selected}
-        />
-        {children}
+          />
+          {children}
+        </div>
+
       </body>
     </html>
   )
