@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import styles from './MobileNavigationMenu.module.css';
+import utils from './utils.module.css';
 import Footer from './Footer';
-import MobileNavigationBar from './MobileNavigationBar';
+import { usePathname } from 'next/navigation';
+import Exit from '@/icons/Exit';
 
 interface ButtonProps {
   toggled?: boolean,
@@ -28,9 +30,8 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
 }
 
 interface Props {
-  selected?: string,
-  visible?: boolean,
-  onClose?: () => any,
+  visible: boolean,
+  onClose: () => any,
 }
 
 /**
@@ -38,42 +39,54 @@ interface Props {
  * @param props
  * @returns
  */
-export default function MobileNavMenu({ selected, visible, onClose }: Props) {
+export default function MobileNavigationMenu({ visible, onClose }: Props) {
+  const pathname = usePathname()
+
   return (
     <div
       className={!visible ? `${styles.container} ${styles.containerInvisible}` : `${styles.container} ${styles.containerVisible}`}
       role="menu"
     >
       <div className={styles.contentContainer}>
-        <MobileNavigationBar
+        {/* <MobileNavigationBar
           style={{
             zIndex: 4,
             position: 'relative',
           }}
-          mobileButtonType="close"
-          onMobileButtonClick={onClose}
           hideLogo
-        />
+        /> */}
+        <div className={`${utils.mobileNavContent} ${utils.mobileNavContentWithoutLogo}`}>
+          <button>
+            <Exit
+              width={24}
+              height={24}
+            />
+          </button>
+        </div>
         <div className={styles.buttons}>
           <MobileNavMenuButton
-            toggled={selected === 'Home'}
+            toggled={pathname === '/'}
             text="Featured Works"
             href="/"
           />
           <MobileNavMenuButton
-            toggled={selected === 'My Work'}
+            toggled={pathname === '/ui-ux-design'}
             text="UI/UX Design"
-            href="/work"
+            href="/ui-ux-design"
           />
-          {/* to-do: emphasize this button */}
           <MobileNavMenuButton
-            toggled={selected === 'Contact Me'}
+            toggled={pathname === '/graphic-design'}
             text="Graphic Design"
-            href="/contact"
+            href="/graphic-design"
+          />
+          <MobileNavMenuButton
+            toggled={pathname === '/wip'}
+            text="Work in Progress"
+            href="/wip"
           />
         </div>
         <Footer
-          onNoteOpen={() => {}}
+          onNoteOpen={() => { }}
         />
       </div>
     </div>
