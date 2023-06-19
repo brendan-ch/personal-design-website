@@ -49,7 +49,7 @@ export default function MobileNavigationMenu({ visible, onClose }: Props) {
   return (
     <div
       className={!visible ? `${styles.container} ${styles.containerInvisible}` : `${styles.container} ${styles.containerVisible}`}
-      role="menu"
+      role="dialog"
     >
       <WelcomeOverlay
         visible={noteVisible}
