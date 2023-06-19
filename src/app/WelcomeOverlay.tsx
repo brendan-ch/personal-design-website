@@ -47,6 +47,7 @@ export default function WelcomeOverlay({
           text="Start exploring"
         />
         <ActionButton
+          href="https://bchen.dev"
           text="Learn more about me"
         />
       </div>
