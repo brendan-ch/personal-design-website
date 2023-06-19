@@ -10,7 +10,7 @@
   display: flex;
 
   animation-name: fadein;
-  animation-duration: 200ms;
+  animation-duration: 100ms;
 }
 
 @keyframes fadein {
