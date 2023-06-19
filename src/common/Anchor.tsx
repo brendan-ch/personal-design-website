@@ -13,7 +13,7 @@ export default function Anchor({
   hideBorder,
 }: Props) {
   return (
-    <div className={hideBorder ? `${styles.container} ${styles.noLine}` : styles.container}>
+    <div className={hideBorder ? `${styles.container} ${styles.noLine}` : styles.container} role="heading" aria-level={1}>
       <p className={`${utils.monoText} ${utils.smallText}`}>{text}</p>
     </div>
   )
