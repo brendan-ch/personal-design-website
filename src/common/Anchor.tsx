@@ -7,6 +7,13 @@ interface Props {
   hideBorder?: boolean,
 }
 
+/**
+ * Anchor element which can be used as a heading.
+ * Note that on screen readers, this component takes precedence over other heading elements.
+ * 
+ * @param param0
+ * @returns
+ */
 export default function Anchor({
   text,
   // href,
