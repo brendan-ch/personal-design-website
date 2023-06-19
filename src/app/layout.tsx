@@ -1,4 +1,5 @@
 import DesktopSideNavigation from './DesktopSideNavigation'
+import MobileNavigationBar from './MobileNavigationBar'
 import './globals.css'
 import styles from './layout.module.css'
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body>
         <div className={styles.rootContainer}>
 
+          <MobileNavigationBar />
           <DesktopSideNavigation />
           {children}
         </div>
