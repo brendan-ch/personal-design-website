@@ -10,8 +10,9 @@
   --blue: #5D5CB2;
   --red: #BE3223;
 
-  --outer-guide-width: 72em;
-  --inner-guide-width: 48em;
+  /* Width of the desktop sidebar, to keep consistency across app */
+  --desktop-sidebar-width: 304px;
+  --mobile-width-breakpoint: 720px;
 }
 
 html,
@@ -137,12 +138,4 @@ label {
 code {
   font-family: space-mono, monospace;
   font-weight: 400;
-}
-
-@media only screen and (max-width: 720px) {
-  .collapseOnMobile {
-    flex-direction: column !important;
-    /* Reset the gap */
-    gap: 0px !important;
-  }
 }
