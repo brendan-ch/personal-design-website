@@ -10,6 +10,11 @@
   gap: 8px;
 }
 
+.row p:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--gray2);
+}
+
 .row p {
   font-size: 16px;
   color: var(--gray2)
