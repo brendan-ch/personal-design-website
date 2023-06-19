@@ -4,6 +4,8 @@
   gap: 140px;
 
   width: var(--desktop-sidebar-width);
+
+  padding-left: 16px;
 }
 
 .container path {
