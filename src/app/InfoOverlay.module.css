@@ -33,3 +33,11 @@
 
   background-color: var(--background);
 }
+
+@media only screen and (max-width: 800px) {
+  .contentContainer {
+    height: 100vh;
+    padding: 16px;
+    justify-content: center;
+  }
+}
