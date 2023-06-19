@@ -17,8 +17,6 @@ interface Props {
 /**
  * Navigation bar on mobile and desktop.
  * @param props
- * 
- * @todo make tab list customizable, and add tests for it
  */
 export default function MobileNavigationBar({ style, hideLogo }: Props) {
   const [menuVisible, setMenuVisible] = useState(false);
