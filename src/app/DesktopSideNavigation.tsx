@@ -8,15 +8,13 @@ import InfoOverlay from "./InfoOverlay";
 import Anchor from "./Anchor";
 import ActionButton from "./ActionButton";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
-interface Props {
-  selected?: 'Featured Works' | 'UI/UX Design' | 'Graphic Design' | 'Work in Progress',
-}
-
-export default function DesktopSideNavigation({
-  selected,
-}: Props) {
+export default function DesktopSideNavigation() {
+  const pathname = usePathname();
   const [overlayVisible, setOverlayVisible] = useState(false);
+
+  console.log(pathname);
 
   return (
     <div className={styles.container}>
@@ -51,16 +49,16 @@ export default function DesktopSideNavigation({
       {/* Navigation buttons */}
       <div className={styles.navigationButtons}>
         <Link href="/">
-          <p className={selected === 'Featured Works' ? styles.selected : undefined}>Featured Works</p>
+          <p className={pathname === '/' ? styles.selected : undefined}>Featured Works</p>
         </Link>
         <Link href="/ui-ux-design">
-          <p className={selected === 'UI/UX Design' ? styles.selected : undefined}>UI/UX Design</p>
+          <p className={pathname === '/ui-ux-design' ? styles.selected : undefined}>UI/UX Design</p>
         </Link>
         <Link href="/graphic-design">
-          <p className={selected === 'Graphic Design' ? styles.selected : undefined}>Graphic Design</p>
+          <p className={pathname === '/graphic-design' ? styles.selected : undefined}>Graphic Design</p>
         </Link>
         <Link href="/wip">
-          <p className={selected === 'Work in Progress' ? styles.selected : undefined}>Work in Progress</p>
+          <p className={pathname === '/wip' ? styles.selected : undefined}>Work in Progress</p>
         </Link>
       </div>
       <Footer onNoteOpen={() => setOverlayVisible(true)} />

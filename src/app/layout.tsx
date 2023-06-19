@@ -20,10 +20,7 @@ export default function RootLayout({
       <body>
         <div className={styles.rootContainer}>
 
-          <DesktopSideNavigation
-          // onNoteOpen={() => {}}
-          // selected={selected}
-          />
+          <DesktopSideNavigation />
           {children}
         </div>
 
