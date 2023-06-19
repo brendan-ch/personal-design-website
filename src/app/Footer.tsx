@@ -20,20 +20,20 @@ export default function Footer({
       </div>
       <div className={styles.row}>
         <Link href="/privacy">
-          Privacy Policy
+          <p>Privacy Policy</p>
         </Link>
         <Link href="/fair-use">
-          Fair Use Notice
+          <p>Fair Use Notice</p>
         </Link>
       </div>
       <div className={styles.row}>
         <Link href="/open-source-licenses">
-          Open Source Licenses
+          <p>Open Source Licenses</p>
         </Link>
       </div>
       <div className={styles.row}>
         <Link href="www.bchen.dev">
-          Visit bchen.dev
+          <p>Visit bchen.dev</p>
         </Link>
       </div>
     </div>
