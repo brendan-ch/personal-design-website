@@ -12,7 +12,6 @@
 
   /* Width of the desktop sidebar, to keep consistency across app */
   --desktop-sidebar-width: 304px;
-  --mobile-width-breakpoint: 720px;
 }
 
 html,
