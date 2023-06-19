@@ -24,7 +24,18 @@ export default function WelcomeOverlay({
     >
       <Anchor text="A note from Brendan" />
       <p>I’m Brendan, a designer and developer in Orange, CA. Welcome to my website!</p>
-      <p>This place is a creative outlet for me to showcase my design works. If you’d like, feel free to check out <a rel="noreferrer" target="_blank" href="https://bchen.dev/work">my other projects</a>, or <a rel="noreferrer" target="_blank" href="https://bchen.dev">learn more about what I do</a>.</p>
+      <p>
+        This place is a creative outlet for me to showcase my design works.
+        If you’d like, feel free to check out <a rel="noreferrer" target="_blank" href="https://bchen.dev/work">
+          <u>
+            my other projects
+          </u>
+        </a>, or <a rel="noreferrer" target="_blank" href="https://bchen.dev">
+          <u>
+            learn more about what I do
+          </u>
+        </a>.
+      </p>
       <p>Happy exploring!</p>
       <div style={{
         display: 'flex',
