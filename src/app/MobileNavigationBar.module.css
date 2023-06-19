@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-color: var(--background);
+}
+
+.logoStandalone {
+  display: flex;
+
+  padding: 16px;
+}
+
+.logoStandalone path {
+  fill: var(--cyan);
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  width: 100%;
+  max-width: var(--outer-guide-width);
+  height: 60px;
+  padding: 0px;
+}
+
+.contentContainerWithoutLogo {
+  justify-content: flex-end !important;
+}
+
+.contentContainer > a {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+}
+
+.projectContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.projectContainer:hover {
+  cursor: pointer;
+}
+
+.container > h2 {
+  margin: 0px;
+}
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  padding: 18px;
+}
+
+.menuContainer path {
+
+  fill: var(--white);
+}
+
+@media only screen and (min-width: 721px) {
+  .container {
+    display: none
+  }
+}
