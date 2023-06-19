@@ -1,0 +1,34 @@
+.container {
+  z-index: 999;
+
+  display: none;
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: var(--background-translucent);
+
+  align-items: center;
+  justify-content: center;
+}
+
+.containerVisible {
+  display: flex;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+
+  padding: 40px 32px;
+
+  flex: 1;
+  max-width: 800px;
+  height: 342px;
+
+  background-color: var(--background);
+}
