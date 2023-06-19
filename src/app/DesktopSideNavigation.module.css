@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
+
+  width: var(--desktop-sidebar-width);
+}
+
+.navigationButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected {
+  font-weight: bold;
+  color: var(--cyan);
+}
