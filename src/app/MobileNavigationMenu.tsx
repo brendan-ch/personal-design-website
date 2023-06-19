@@ -37,7 +37,7 @@ interface Props {
 }
 
 /**
- * Navigation menu that displays a list of links.
+ * Navigation menu that displays a list of links. Also contains the welcome note.
  * @param props
  * @returns
  */
