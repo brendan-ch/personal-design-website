@@ -5,7 +5,7 @@
   --gray2: #999999;
   --gray3: #666666;
   --gray4: #2E2E2E;
-  --emphasis: #efefef;
+  --white: #efefef;
   --cyan: #376E77;
   --blue: #5D5CB2;
   --red: #BE3223;
@@ -31,8 +31,8 @@ html {
 }
 
 a {
-  color: var(--emphasis);
-  fill: var(--emphasis);
+  color: var(--white);
+  fill: var(--white);
   text-decoration: none;
 }
 
@@ -86,7 +86,7 @@ button {
 
 h1 {
   font-weight: 400;
-  color: var(--emphasis);
+  color: var(--white);
   padding: 0px;
   margin: 0px;
   font-size: 33px;
@@ -94,7 +94,7 @@ h1 {
 
 h2 {
   font-weight: 400;
-  color: var(--emphasis);
+  color: var(--white);
   font-size: 24px;
   line-height: 32px;
   padding: 0px;
@@ -103,7 +103,7 @@ h2 {
 
 /* Unless overridden */
 p {
-  color: var(--emphasis);
+  color: var(--white);
   font-size: 20px;
   padding: 0px;
   margin: 0px;
@@ -111,14 +111,14 @@ p {
 
 li {
   list-style-position: outside;
-  color: var(--emphasis);
+  color: var(--white);
   font-size: 20px;
   padding: 0px;
   margin: 0px;
 }
 
 ol {
-  color: var(--emphasis);
+  color: var(--white);
   font-size: 20px;
   padding: 0px;
   margin: 0px;
