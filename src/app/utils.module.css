@@ -26,3 +26,12 @@
 .mobileNavContent path {
   fill: var(--white)
 }
+
+.mobileNavContentButton {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  padding: 18px;
+}

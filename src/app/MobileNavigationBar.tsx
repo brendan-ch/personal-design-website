@@ -37,7 +37,7 @@ export default function MobileNavigationBar({ style, hideLogo }: Props) {
 
       </Link>
       <button
-        className={styles.menuContainer}
+        className={utils.mobileNavContentButton}
         onClick={() => setMenuVisible(true)}
         tabIndex={0}
       >

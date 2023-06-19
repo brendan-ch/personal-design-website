@@ -12,19 +12,6 @@
   fill: var(--cyan);
 }
 
-.menuContainer {
-  display: flex;
-  flex-direction: column;
-  
-  justify-content: center;
-  padding: 18px;
-}
-
-.menuContainer path {
-
-  fill: var(--white);
-}
-
 @media only screen and (min-width: 721px) {
   .noDisplayDesktop {
     display: none
