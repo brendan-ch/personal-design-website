@@ -1,13 +1,14 @@
 'use client'
 
 import Link from 'next/link';
-import { CSSProperties, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import styles from './MobileNavigationBar.module.css';
 import utils from './utils.module.css';
 import Exit from '../icons/Exit';
 import Hamburger from '../icons/Hamburger';
 import LogoStandalone from '../icons/LogoStandalone';
 import MobileNavigationMenu from './MobileNavigationMenu';
+import { usePathname } from 'next/navigation';
 
 interface Props {
   style?: CSSProperties,
@@ -20,6 +21,12 @@ interface Props {
  */
 export default function MobileNavigationBar({ style, hideLogo }: Props) {
   const [menuVisible, setMenuVisible] = useState(false);
+
+  const pathname = usePathname()
+  
+  useEffect(() => {
+    setMenuVisible(false)
+  }, [pathname])
 
   return (
     <nav className={hideLogo ? `${utils.mobileNavContent} ${utils.mobileNavContentWithoutLogo} ${styles.noDisplayDesktop}` : `${utils.mobileNavContent} ${styles.noDisplayDesktop}`} style={style}>
