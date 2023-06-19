@@ -14,8 +14,6 @@ export default function DesktopSideNavigation() {
   const pathname = usePathname();
   const [overlayVisible, setOverlayVisible] = useState(false);
 
-  console.log(pathname);
-
   return (
     <div className={styles.container}>
       <InfoOverlay
