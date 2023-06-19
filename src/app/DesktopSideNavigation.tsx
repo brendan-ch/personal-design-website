@@ -5,7 +5,7 @@ import styles from './DesktopSideNavigation.module.css'
 import Link from "next/link";
 import LogoStandalone from "@/icons/LogoStandalone";
 import InfoOverlay from "../common/InfoOverlay";
-import Anchor from "./Anchor";
+import Anchor from "../common/Anchor";
 import ActionButton from "../common/ActionButton";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
