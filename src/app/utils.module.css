@@ -22,3 +22,7 @@
 .mobileNavContentWithoutLogo {
   justify-content: flex-end !important;
 }
+
+.mobileNavContent path {
+  fill: var(--white)
+}
