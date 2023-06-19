@@ -6,9 +6,14 @@
   width: var(--desktop-sidebar-width);
 }
 
+.container path {
+  fill: var(--cyan)
+}
+
 .navigationButtons {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 .selected {

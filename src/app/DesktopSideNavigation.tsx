@@ -3,6 +3,7 @@
 import Footer from "./Footer";
 import styles from './DesktopSideNavigation.module.css'
 import Link from "next/link";
+import LogoStandalone from "@/icons/LogoStandalone";
 
 interface Props {
   onNoteOpen: () => any,
@@ -16,7 +17,10 @@ export default function DesktopSideNavigation({
   return (
     <div className={styles.container}>
       {/* Standalone logo */}
-      <div></div>
+      <LogoStandalone
+        width={72}
+        height={72}
+      />
 
       {/* Navigation buttons */}
       <div className={styles.navigationButtons}>
