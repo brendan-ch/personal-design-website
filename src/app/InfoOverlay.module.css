@@ -28,7 +28,8 @@
 
   flex: 1;
   max-width: 800px;
-  height: 342px;
+
+  gap: 24px;
 
   background-color: var(--background);
 }
