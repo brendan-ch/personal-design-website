@@ -6,6 +6,8 @@ import utils from './utils.module.css';
 import Footer from './Footer';
 import { usePathname } from 'next/navigation';
 import Exit from '@/icons/Exit';
+import { useState } from 'react';
+import WelcomeOverlay from './WelcomeOverlay';
 
 interface ButtonProps {
   toggled?: boolean,
@@ -40,6 +42,8 @@ interface Props {
  * @returns
  */
 export default function MobileNavigationMenu({ visible, onClose }: Props) {
+  const [noteVisible, setNoteVisible] = useState(false)
+  
   const pathname = usePathname()
 
   return (
@@ -47,6 +51,10 @@ export default function MobileNavigationMenu({ visible, onClose }: Props) {
       className={!visible ? `${styles.container} ${styles.containerInvisible}` : `${styles.container} ${styles.containerVisible}`}
       role="menu"
     >
+      <WelcomeOverlay
+        visible={noteVisible}
+        onClose={() => setNoteVisible(false)}
+      />
       <div className={styles.contentContainer}>
         {/* <MobileNavigationBar
           style={{
@@ -87,7 +95,7 @@ export default function MobileNavigationMenu({ visible, onClose }: Props) {
         </div>
         <div className={styles.footerWrapper}>
           <Footer
-            onNoteOpen={() => { }}
+            onNoteOpen={() => setNoteVisible(true)}
           />
         </div>
       </div>
