@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import styles from './MobileNavigationMenu.module.css';
 import Footer from './Footer';
 import MobileNavigationBar from './MobileNavigationBar';
