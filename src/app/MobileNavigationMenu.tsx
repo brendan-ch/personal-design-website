@@ -53,7 +53,10 @@ export default function MobileNavigationMenu({ visible, onClose }: Props) {
     >
       <WelcomeOverlay
         visible={noteVisible}
-        onClose={() => setNoteVisible(false)}
+        onClose={() => {
+          setNoteVisible(false)
+          onClose()
+        }}
       />
       <div className={styles.contentContainer}>
         {/* <MobileNavigationBar
