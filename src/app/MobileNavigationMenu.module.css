@@ -8,6 +8,17 @@
 
 .containerVisible {
   display: flex;
+
+  animation-name: fadein;
+  animation-duration: 200ms;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  } 100% {
+    opacity: 100%;
+  }
 }
 
 .containerInvisible {
