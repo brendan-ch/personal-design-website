@@ -1,5 +1,5 @@
 import styles from './Anchor.module.css';
-import utils from './utils.module.css';
+import utils from '../app/utils.module.css';
 
 interface Props {
   text: string,
