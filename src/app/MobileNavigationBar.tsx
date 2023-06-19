@@ -22,7 +22,7 @@ export default function MobileNavigationBar({ style, hideLogo }: Props) {
   const [menuVisible, setMenuVisible] = useState(false);
 
   return (
-    <nav className={hideLogo ? `${utils.mobileNavContent} ${utils.mobileNavContentWithoutLogo}` : utils.mobileNavContent} style={style}>
+    <nav className={hideLogo ? `${utils.mobileNavContent} ${utils.mobileNavContentWithoutLogo} ${styles.noDisplayDesktop}` : `${utils.mobileNavContent} ${styles.noDisplayDesktop}`} style={style}>
       <MobileNavigationMenu
         visible={menuVisible}
         onClose={() => setMenuVisible(false)}
