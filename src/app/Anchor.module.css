@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  border-top: 1px var(--white) solid;
+}
+
+.noLine {
+  border-top: none !important;
+}
