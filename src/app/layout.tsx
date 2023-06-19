@@ -1,4 +1,3 @@
-import { useRouter } from 'next/navigation'
 import ActionButton from './ActionButton'
 import Anchor from './Anchor'
 import DesktopSideNavigation from './DesktopSideNavigation'
@@ -15,37 +14,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const router = useRouter();
-  // let selected = 'Featured Works';
-
   return (
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
       </head>
       <body>
-        <InfoOverlay
-          // onClose={() => { }}
-          visible={false}
-        >
-          <Anchor text="A note from Brendan" />
-          <p>I’m Brendan, a designer and developer in Orange, CA. Welcome to my website!</p>
-          <p>This place is a creative outlet for me to showcase my design works. If you’d like, feel free to check out my other projects, or learn more about what I do.</p>
-          <p>Happy exploring!</p>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 8,
-          }}>
-            <ActionButton
-              highlighted
-              text="Start exploring"
-            />
-            <ActionButton
-              text="Learn more about me"
-            />
-          </div>
-        </InfoOverlay>
         <DesktopSideNavigation
           // onNoteOpen={() => {}}
           // selected={selected}
