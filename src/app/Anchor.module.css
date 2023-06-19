@@ -3,6 +3,8 @@
   flex-direction: column;
 
   border-top: 1px var(--white) solid;
+
+  padding-top: 8px;
 }
 
 .noLine {
