@@ -16,7 +16,9 @@ interface Props {
 }
 
 /**
- * Navigation bar on mobile and desktop.
+ * Navigation bar used on mobile.
+ * Note that element is hidden past a certain breakpoint.
+ * 
  * @param props
  */
 export default function MobileNavigationBar({ style, hideLogo }: Props) {
