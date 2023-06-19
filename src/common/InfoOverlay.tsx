@@ -21,10 +21,11 @@ export default function InfoOverlay({
     <div
       className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}
       onClick={onClose}
+      role="dialog"
     >
       {/* On mobile, display full page */}
       {/* On desktop display overlay */}
-      <div className={styles.contentContainer}>
+      <div className={styles.contentContainer} onClick={(e) => e.stopPropagation()}>
         {/* Children component, including any action buttons and anchors */}
         {children}
       </div>
