@@ -6,7 +6,7 @@ import Link from "next/link";
 import LogoStandalone from "@/icons/LogoStandalone";
 import InfoOverlay from "../common/InfoOverlay";
 import Anchor from "./Anchor";
-import ActionButton from "./ActionButton";
+import ActionButton from "../common/ActionButton";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
