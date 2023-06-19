@@ -4,4 +4,5 @@
 
 .monoText {
   font-family: space-mono, monospace;
+  letter-spacing: -0.01em;
 }
