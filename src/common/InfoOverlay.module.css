@@ -1,0 +1,55 @@
+.container {
+  z-index: 999;
+
+  display: none;
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: var(--background-translucent);
+
+  align-items: center;
+  justify-content: center;
+}
+
+.containerVisible {
+  display: flex;
+
+  animation-name: fadein;
+  animation-duration: 100ms;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  } 100% {
+    opacity: 100%;
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+
+  padding: 40px 32px;
+
+  flex: 1;
+  max-width: 800px;
+
+  gap: 24px;
+
+  background-color: var(--background);
+}
+
+@media only screen and (max-width: 800px) {
+  .contentContainer {
+    height: 100vh;
+    padding: 16px;
+    justify-content: center;
+  }
+}
