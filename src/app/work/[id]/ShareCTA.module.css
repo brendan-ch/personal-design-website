@@ -24,3 +24,8 @@
 
   width: 100%;
 }
+
+.underlineOnHover:hover > p {
+  text-decoration: underline;
+  text-decoration-color: var(--white);
+}

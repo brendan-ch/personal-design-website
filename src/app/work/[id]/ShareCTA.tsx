@@ -66,11 +66,11 @@ export default function ShareCTA({ links, copyLink }: Props) {
       <div className={styles.clickable}>
         <p className={`${utils.monoText} ${styles.gray}`}>Share this project</p>
       </div>
-      <button className={styles.clickable} onClick={handleCopy}>
+      <button className={`${styles.clickable} ${styles.underlineOnHover}`} onClick={handleCopy}>
         <p>{copied ? 'Link copied to clipboard!' : 'Copy link'}</p>
       </button>
       {links.map((value) => (
-        <a className={styles.clickable} href={value.url} key={value.url} target="_blank" rel="noreferrer">
+        <a className={`${styles.clickable} ${styles.underlineOnHover}`} href={value.url} key={value.url} target="_blank" rel="noreferrer">
           <p>
             {value.name}
           </p>
