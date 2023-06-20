@@ -45,6 +45,7 @@ export default function WelcomeOverlay({
         <ActionButton
           highlighted
           text="Start exploring"
+          onClick={onClose}
         />
         <ActionButton
           href="https://bchen.dev"
