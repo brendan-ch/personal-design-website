@@ -16,7 +16,12 @@ export default function EmbedFrame(props: Props) {
   return (
     <div className={styles.container} style={props.style}>
       {shouldLoad ? (
-        <iframe className={styles.iframe} src={props.src} />
+        // TO-DO: on mobile, open the frame in a separate tab
+        <iframe
+          allowFullScreen
+          className={styles.iframe}
+          src={props.src}
+        />
       ) : (
         <div className={styles.buttonContainer}>
           <ActionButton
