@@ -48,6 +48,7 @@ export default function MobileNavigationMenu({ visible, onClose }: Props) {
 
   return (
     <div
+      data-testId="mobileNavigationMenu"
       className={!visible ? `${styles.container} ${styles.containerInvisible}` : `${styles.container} ${styles.containerVisible}`}
       role="dialog"
     >
