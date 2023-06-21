@@ -7,7 +7,7 @@ import utils from '../../utils.module.css'
 /**
  * Represents a link to an external page.
  */
-interface PageExternalLink {
+export interface PageExternalLink {
   /**
    * Name of the link to display to the user.
    */
