@@ -24,6 +24,7 @@ export default function EmbedFrame(props: Props) {
           allowFullScreen
           className={styles.iframe}
           src={props.src}
+          role="presentation"
         />
       ) : (
         <>
