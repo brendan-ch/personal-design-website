@@ -7,6 +7,12 @@
   letter-spacing: -0.01em;
 }
 
+.h0Text {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 56px;
+}
+
 /* Styles for elements resembling the mobile navigation bar */
 .mobileNavContent {
   display: flex;

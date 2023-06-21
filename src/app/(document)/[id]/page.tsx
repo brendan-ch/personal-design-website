@@ -3,6 +3,7 @@ import path from 'path'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import MDXContent from './MDXContent'
+import utils from '../../utils.module.css'
 
 /**
  * Frontmatter used for the document page.
@@ -64,7 +65,7 @@ export default async function Document({ params }: Props) {
     <main>
       {/* Desktop sidebar */}
 
-      <p>This is the document page</p>
+      <h1 className={utils.h0Text}>{frontmatter.title}</h1>
       <MDXContent source={serialized} />
     </main>
   )
