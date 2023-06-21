@@ -2,6 +2,7 @@ import fs from 'fs/promises'
 import path from 'path'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import MDXContent from './MDXContent'
 
 /**
  * Frontmatter used for the document page.
@@ -64,6 +65,7 @@ export default async function Document({ params }: Props) {
       {/* Desktop sidebar */}
 
       <p>This is the document page</p>
+      <MDXContent source={serialized} />
     </main>
   )
 }
