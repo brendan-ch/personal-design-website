@@ -2,6 +2,7 @@
 
 import Anchor from "@/common/Anchor"
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
+import styles from './MDXContent.module.css'
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -16,6 +17,9 @@ const MDXComponents = {
       text={`${props.children}`}
     />
   ),
+  p: (props: React.HTMLProps<HTMLParagraphElement>) => (
+    <p className={styles.text} {...props}></p>
+  )
 }
 
 /**
