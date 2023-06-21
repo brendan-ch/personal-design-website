@@ -19,17 +19,19 @@ export default function Footer({
         </button>
       </div>
       <div className={styles.row}>
-        <Link href="/privacy">
+        {/* to-do: switch back to Link component once
+        this issue is fixed: https://github.com/vercel/next.js/issues/51565 */}
+        <a href="/privacy">
           <p>Privacy Policy</p>
-        </Link>
-        <Link href="/fair-use">
+        </a>
+        <a href="/fair-use">
           <p>Fair Use Notice</p>
-        </Link>
+        </a>
       </div>
       <div className={styles.row}>
-        <Link href="/open-source-licenses">
+        <a href="/open-source-licenses">
           <p>Open Source Licenses</p>
-        </Link>
+        </a>
       </div>
       <div className={styles.row}>
         <a href="https://www.bchen.dev" target="_blank" rel="noreferrer">
