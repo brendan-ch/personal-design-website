@@ -8,13 +8,13 @@ import utils from '../../utils.module.css'
 /**
  * Frontmatter used for the document page.
  */
-interface Frontmatter {
+export interface Frontmatter {
   title: string,
   lastUpdated: string,
   description: string,
 }
 
-interface Document<T> {
+export interface Document<T> {
   frontmatter: T,
   serialized: MDXRemoteSerializeResult,
 }
