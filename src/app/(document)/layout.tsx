@@ -19,9 +19,9 @@ export default function RootLayout({
       <body>
         <div className={styles.rootContainer}>
 
-          {/* to-do: implement back button bar */}
-          {/* children will contain sidebar (as MDX renderer) and main content renderer */}
-          {/* since root layout cannot be a client component */}
+          {/* to-do: implement back button + table of contents sidebar */}
+          {/* since root layout cannot be a client component, */}
+          {/* have content be a separate client component */}
 
           {children}
         </div>
