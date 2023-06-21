@@ -1,6 +1,6 @@
 import DesktopSideNavigation from './DesktopSideNavigation'
 import MobileNavigationBar from './MobileNavigationBar'
-import './globals.css'
+import '../globals.css'
 import styles from './layout.module.css'
 
 export const metadata = {
