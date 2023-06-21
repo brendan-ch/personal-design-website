@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  
+  width: 100%;
+}
+
+.container p {
+  font-size: 16px;
+}
+
+.gray {
+  color: var(--gray2);
+}
+
+.clickable {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  width: 100%;
+}
+
+.underlineOnHover:hover > p {
+  text-decoration: underline;
+  text-decoration-color: var(--white);
+}

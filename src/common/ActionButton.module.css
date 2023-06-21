@@ -18,6 +18,11 @@
   color: var(--background);
 }
 
+.highlighted:hover {
+  background: var(--gray);
+  border: 1px solid var(--gray);
+}
+
 .disabled p {
   color: var(--gray2) !important;
 }
