@@ -20,17 +20,15 @@ const MDXComponents = {
       .replaceAll(' ', '-')
 
     return (
-      <Anchor
-        text={`${props.children}`}
-        id={generatedLink}
-        style={{
-          marginTop: 24,
-          borderTopColor: BACKGROUND,
-          position: 'sticky',
-          top: 16,
-          backgroundColor: WHITE,
-        }}
-      />
+      <div className={styles.anchorWrapper}>
+        <Anchor
+          text={`${props.children}`}
+          id={generatedLink}
+          style={{
+            borderTopColor: BACKGROUND,
+          }}
+        />
+      </div>
     )
   },
   p: (props: React.HTMLProps<HTMLParagraphElement>) => (
