@@ -44,6 +44,10 @@ const MDXComponents = {
       {props.children}
     </ul>
   ),
+  pre: (props: React.HTMLProps<HTMLPreElement>) => (
+    <pre className={styles.pre} {...props}>
+    </pre>
+  )
 }
 
 /**
