@@ -24,7 +24,7 @@ export default async function DocumentLayout({ params, children }: Props) {
           <MDXSidebar source={serialized} />
         </div>
       </div>
-      <div>
+      <div className={styles.contentContainer}>
         {children}
       </div>
     </div>
