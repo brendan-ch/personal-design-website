@@ -2,12 +2,26 @@ import MDXSidebar from './MDXSidebar'
 import styles from './layout.module.css'
 import utils from '../../utils.module.css'
 import getDocument from './getDocument'
+import { Metadata, ResolvingMetadata } from 'next'
 
 interface Props {
   params: {
     id: string,
   },
   children: React.ReactNode,
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { frontmatter } = await getDocument(params.id)
+  
+  return {
+    title: frontmatter.title,
+    description: frontmatter.description,
+    // TO-DO: dynamically generate image based on page
+  }
 }
 
 export default async function DocumentLayout({ params, children }: Props) {
