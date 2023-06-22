@@ -1,6 +1,7 @@
 'use client'
 
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
+import utils from '../../utils.module.css'
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -17,7 +18,7 @@ const MDXComponents = {
       .replaceAll(' ', '-')
 
     return (
-      <a href={`#${generatedLink}`}>
+      <a href={`#${generatedLink}`} className={`${utils.monoText} ${utils.smallText}`}>
         {props.children}
       </a>
     )

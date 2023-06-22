@@ -1,6 +1,7 @@
 import MDXSidebar from './MDXSidebar'
 import { getDocument } from './page'
 import styles from './layout.module.css'
+import utils from '../../utils.module.css'
 
 interface Props {
   params: {
@@ -17,7 +18,9 @@ export default async function DocumentLayout({ params, children }: Props) {
     // Render children as well
     <div className={styles.container}>
       <div className={styles.sidebar}>
-        <a href="/">Back to Home</a>
+        <a className={`${utils.monoText} ${utils.smallText}`} href="/">
+          Back to Home
+        </a>
 
         {/* to-do: pass content */}
         <div className={styles.tableOfContents}>
