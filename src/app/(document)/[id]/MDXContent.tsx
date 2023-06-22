@@ -35,7 +35,7 @@ const MDXComponents = {
     <p className={styles.text} {...props}></p>
   ),
   ol: (props: React.HTMLProps<HTMLOListElement>) => (
-    <ol className={styles.list}>
+    <ol className={`${styles.list} ${styles.orderedList}`}>
       {props.children}
     </ol>
   ),

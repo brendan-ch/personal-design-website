@@ -21,3 +21,8 @@
   margin: 0px;
   padding-left: 32px;
 }
+
+.orderedList > li::marker {
+  font-family: 'Space Mono', monospace;
+  font-size: 16px;
+}
