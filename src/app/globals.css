@@ -109,6 +109,13 @@ p {
   margin: 0px;
 }
 
+a {
+  color: var(--white);
+  font-size: 20px;
+  padding: 0px;
+  margin: 0px;
+}
+
 li {
   list-style-position: outside;
   color: var(--white);
