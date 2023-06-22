@@ -12,11 +12,20 @@ interface MDXContentProps {
  * Map of MDX components which map to React components.
  */
 const MDXComponents = {
-  h1: (props: React.HTMLProps<HTMLHeadingElement>) => (
-    <Anchor
-      text={`${props.children}`}
-    />
-  ),
+  h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
+    const generatedLink = (props.children as string)
+      .toLowerCase()
+      .replaceAll(/[^A-Za-z0-9 ]/gi, '')
+      .replaceAll(' ', '-')
+
+    return (
+      <Anchor
+        text={`${props.children}`}
+        hideBorder
+        id={generatedLink}
+      />
+    )
+  },
   p: (props: React.HTMLProps<HTMLParagraphElement>) => (
     <p className={styles.text} {...props}></p>
   )
