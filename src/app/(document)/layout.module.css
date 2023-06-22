@@ -1,4 +1,15 @@
 .rootContainer {
   display: flex;
   flex-direction: column;
+
+  background-color: var(--white);
+  min-height: 100vh;
+}
+
+.rootContainer p {
+  color: var(--background);
+}
+
+.rootContainer a {
+  color: var(--background);
 }
