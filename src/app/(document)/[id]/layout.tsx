@@ -15,7 +15,7 @@ export default async function DocumentLayout({ params, children }: Props) {
   return (
     // Get MDX content here and pass it down to sidebar
     // Render children as well
-    <div>
+    <div className={styles.container}>
       <div className={styles.sidebar}>
         <a href="/">Back to Home</a>
 
