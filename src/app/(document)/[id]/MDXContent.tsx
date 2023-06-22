@@ -33,7 +33,17 @@ const MDXComponents = {
   },
   p: (props: React.HTMLProps<HTMLParagraphElement>) => (
     <p className={styles.text} {...props}></p>
-  )
+  ),
+  ol: (props: React.HTMLProps<HTMLOListElement>) => (
+    <ol className={styles.list}>
+      {props.children}
+    </ol>
+  ),
+  ul: (props: React.HTMLProps<HTMLUListElement>) => (
+    <ul className={styles.list}>
+      {props.children}
+    </ul>
+  ),
 }
 
 /**
