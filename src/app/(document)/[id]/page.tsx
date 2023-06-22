@@ -4,6 +4,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { cache } from 'react'
 import utils from '../../utils.module.css'
+import styles from './page.module.css'
 import MDXContent from './MDXContent'
 
 /**
@@ -65,7 +66,7 @@ export default async function Document({ params }: Props) {
   const { frontmatter, serialized } = await getDocument(params.id)
 
   return (
-    <main>
+    <main className={styles.container}>
       {/* Desktop sidebar */}
 
       <h1 className={utils.h0Text}>{frontmatter.title}</h1>
