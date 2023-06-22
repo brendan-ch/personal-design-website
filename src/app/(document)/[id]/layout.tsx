@@ -1,7 +1,7 @@
 import MDXSidebar from './MDXSidebar'
-import { getDocument } from './page'
 import styles from './layout.module.css'
 import utils from '../../utils.module.css'
+import getDocument from './getDocument'
 
 interface Props {
   params: {
