@@ -14,6 +14,6 @@
 
 @media only screen and (min-width: 721px) {
   .noDisplayDesktop {
-    display: none
+    display: none !important;
   }
 }
