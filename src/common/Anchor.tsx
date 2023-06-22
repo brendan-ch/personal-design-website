@@ -11,6 +11,11 @@ interface Props {
    * This is useful for allowing links to anchor elements.
    */
   id?: string,
+
+  /**
+   * Custom styling for the anchor component.
+   */
+  style?: React.CSSProperties,
 }
 
 /**
@@ -25,9 +30,16 @@ export default function Anchor({
   // href,
   hideBorder,
   id,
+  style,
 }: Props) {
   return (
-    <div className={hideBorder ? `${styles.container} ${styles.noLine}` : styles.container} role="heading" aria-level={1} id={id}>
+    <div
+      className={hideBorder ? `${styles.container} ${styles.noLine}` : styles.container}
+      role="heading"
+      aria-level={1}
+      id={id}
+      style={style}
+    >
       <p className={`${utils.monoText} ${utils.smallText}`}>{text}</p>
     </div>
   )
