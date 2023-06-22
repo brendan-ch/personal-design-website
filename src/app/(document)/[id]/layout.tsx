@@ -19,7 +19,7 @@ export default async function DocumentLayout({ params, children }: Props) {
     <div className={styles.container}>
       <div className={styles.sidebar}>
         <a className={`${utils.monoText} ${utils.smallText}`} href="/">
-          Back to Home
+          ← Back to Home
         </a>
 
         {/* to-do: pass content */}
