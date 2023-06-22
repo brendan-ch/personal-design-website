@@ -30,19 +30,6 @@ html {
   overflow: auto;
 }
 
-a {
-  color: var(--white);
-  fill: var(--white);
-  text-decoration: none;
-}
-
-a:hover {
-  /* color: var(--selected);
-  fill: var(--selected);
-  transition: 0.3s; */
-  cursor: pointer;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -114,6 +101,13 @@ a {
   font-size: 20px;
   padding: 0px;
   margin: 0px;
+
+  fill: var(--white);
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 li {
