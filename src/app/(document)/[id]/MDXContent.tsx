@@ -3,6 +3,7 @@
 import Anchor from "@/common/Anchor"
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import styles from './MDXContent.module.css'
+import { BACKGROUND, WHITE } from "@/app/Constants"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -21,8 +22,14 @@ const MDXComponents = {
     return (
       <Anchor
         text={`${props.children}`}
-        hideBorder
         id={generatedLink}
+        style={{
+          marginTop: 24,
+          borderTopColor: BACKGROUND,
+          position: 'sticky',
+          top: 16,
+          backgroundColor: WHITE,
+        }}
       />
     )
   },
