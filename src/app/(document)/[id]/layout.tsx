@@ -1,3 +1,4 @@
+import MDXSidebar from './MDXSidebar'
 import { getDocument } from './page'
 
 interface Props {
@@ -18,7 +19,7 @@ export default async function DocumentLayout({ params, children }: Props) {
         <a href="/">Back to Home</a>
 
         {/* to-do: pass content */}
-        {/* <MDXSidebar /> */}
+        <MDXSidebar source={serialized} />
       </div>
       <div>
         {children}
