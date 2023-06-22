@@ -1,3 +1,4 @@
+import { WHITE } from '../Constants'
 import '../globals.css'
 import styles from './layout.module.css'
 
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
+        <meta name="theme-color" content={WHITE} />
       </head>
       <body>
         <div className={styles.rootContainer}>
