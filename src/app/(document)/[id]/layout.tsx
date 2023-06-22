@@ -2,9 +2,10 @@ interface Props {
   params: {
     id: string,
   },
+  children: React.ReactNode,
 }
 
-export default async function DocumentLayout({ params }: Props) {
+export default async function DocumentLayout({ params, children }: Props) {
   return (
     // Get MDX content here and pass it down to sidebar
     // Render children as well
@@ -14,6 +15,9 @@ export default async function DocumentLayout({ params }: Props) {
 
         {/* to-do: pass content */}
         {/* <MDXSidebar /> */}
+      </div>
+      <div>
+        {children}
       </div>
     </div>
   )
