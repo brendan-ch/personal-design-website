@@ -1,0 +1,21 @@
+.sidebar {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: start;
+
+  padding: 37px 24px;
+
+  /* Grow with content, to accommodate for sticky scrolling of TOC */
+  min-height: 100vh;
+  flex: 1;
+
+  width: 304px;
+}
+
+.tableOfContents {
+  display: inline-flex;
+  gap: 16px;
+  
+  position: sticky;
+  top: 24px;
+}
