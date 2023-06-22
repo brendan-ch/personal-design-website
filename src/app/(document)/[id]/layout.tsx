@@ -1,3 +1,5 @@
+import { getDocument } from './page'
+
 interface Props {
   params: {
     id: string,
@@ -6,6 +8,8 @@ interface Props {
 }
 
 export default async function DocumentLayout({ params, children }: Props) {
+  const { frontmatter, serialized } = await getDocument(params.id)
+
   return (
     // Get MDX content here and pass it down to sidebar
     // Render children as well

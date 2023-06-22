@@ -1,9 +1,10 @@
 import fs from 'fs/promises'
 import path from 'path'
-import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import MDXContent from './MDXContent'
+import { serialize } from 'next-mdx-remote/serialize'
+import { cache } from 'react'
 import utils from '../../utils.module.css'
+import MDXContent from './MDXContent'
 
 /**
  * Frontmatter used for the document page.
@@ -21,9 +22,11 @@ export interface Document<T> {
 
 /**
  * Retrieve markdown data from the content folder.
+ * Results from this function are cached and deduplicated; the same call
+ * twice will return the cached result.
  * @param id ID of the given page.
  */
-async function getDocument(id: string): Promise<Document<Frontmatter>> {
+export const getDocument = cache(async (id: string): Promise<Document<Frontmatter>> => {
   const filePath = path.join(process.cwd(), 'src', 'content', 'document', `${id}.mdx`)
   const raw = await fs.readFile(filePath, 'utf-8')
 
@@ -38,7 +41,7 @@ async function getDocument(id: string): Promise<Document<Frontmatter>> {
     frontmatter,
     serialized,
   }
-}
+})
 
 export const dynamicParams = false
 
