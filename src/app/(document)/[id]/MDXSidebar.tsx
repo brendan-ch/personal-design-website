@@ -17,7 +17,7 @@ const MDXComponents = {
       .replaceAll(' ', '-')
 
     return (
-      <a href={generatedLink}>
+      <a href={`#${generatedLink}`}>
         {props.children}
       </a>
     )
