@@ -7,6 +7,8 @@ interface MDXContentProps {
   source: MDXRemoteSerializeResult,
 }
 
+const Nothing = () => <></>
+
 /**
  * Map of MDX components which map to React components.
  */
@@ -23,13 +25,10 @@ const MDXComponents = {
       </a>
     )
   },
-  // TO-DO: make h2 and h3 elements indented links
-  p: () => (
-    <></>
-  ),
-  a: () => (
-    <></>
-  )
+  p: Nothing,
+  a: Nothing,
+  ul: Nothing,
+  ol: Nothing,
 }
 
 /**
