@@ -29,6 +29,7 @@ const MDXComponents = {
   a: Nothing,
   ul: Nothing,
   ol: Nothing,
+  pre: Nothing,
 }
 
 /**
