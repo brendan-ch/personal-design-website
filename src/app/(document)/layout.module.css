@@ -25,3 +25,15 @@
 .rootContainer h3 {
   color: var(--background);
 }
+
+.rootContainer ol {
+  color: var(--background);
+}
+
+.rootContainer ul {
+  color: var(--background);
+}
+
+.rootContainer li {
+  color: var(--background);
+}
