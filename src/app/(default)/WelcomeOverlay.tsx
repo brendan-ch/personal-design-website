@@ -48,6 +48,7 @@ export default function WelcomeOverlay({
           onClick={onClose}
         />
         <ActionButton
+          useRegularLink
           href="https://bchen.dev"
           text="Learn more about me"
         />
