@@ -30,6 +30,7 @@ const MDXComponents = {
   ul: Nothing,
   ol: Nothing,
   pre: Nothing,
+  img: Nothing,
 }
 
 /**
