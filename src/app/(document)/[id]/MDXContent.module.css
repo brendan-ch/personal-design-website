@@ -11,6 +11,9 @@
 
   position: sticky;
   top: 0;
+
+  /* Make it float above images */
+  z-index: 1;
 }
 
 .text {
