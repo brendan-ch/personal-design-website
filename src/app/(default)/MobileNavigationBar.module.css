@@ -1,0 +1,19 @@
+.noDisplayDesktop {
+  display: flex;
+}
+
+.logoStandalone {
+  display: flex;
+
+  padding: 16px;
+}
+
+.logoStandalone path {
+  fill: var(--cyan);
+}
+
+@media only screen and (min-width: 721px) {
+  .noDisplayDesktop {
+    display: none !important;
+  }
+}

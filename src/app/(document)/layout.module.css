@@ -1,0 +1,39 @@
+.rootContainer {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--white);
+  min-height: 100vh;
+}
+
+.rootContainer p {
+  color: var(--background);
+}
+
+.rootContainer a {
+  color: var(--background);
+}
+
+.rootContainer h1 {
+  color: var(--background);
+}
+
+.rootContainer h2 {
+  color: var(--background);
+}
+
+.rootContainer h3 {
+  color: var(--background);
+}
+
+.rootContainer ol {
+  color: var(--background);
+}
+
+.rootContainer ul {
+  color: var(--background);
+}
+
+.rootContainer li {
+  color: var(--background);
+}

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch",
+    "test": "jest --watch --coverage",
     "test:ci": "jest --ci --coverage",
     "typecheck": "tsc --noEmit"
   },
@@ -22,6 +22,7 @@
     "next-mdx-remote": "^4.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "remark-unwrap-images": "^3.0.1",
     "typescript": "5.1.3"
   },
   "devDependencies": {

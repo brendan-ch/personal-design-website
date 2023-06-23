@@ -1,0 +1,44 @@
+.smallText {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.monoText {
+  font-family: space-mono, monospace;
+  letter-spacing: -0.01em;
+}
+
+.h0Text {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 56px;
+}
+
+/* Styles for elements resembling the mobile navigation bar */
+.mobileNavContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  width: 100%;
+  height: 60px;
+  padding: 0px;
+}
+
+.mobileNavContentWithoutLogo {
+  justify-content: flex-end !important;
+}
+
+.mobileNavContent path {
+  fill: var(--white)
+}
+
+.mobileNavContentButton {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  padding: 18px;
+}

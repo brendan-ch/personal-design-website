@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.row p:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--gray2);
+}
+
+.row p {
+  font-size: 16px;
+  color: var(--gray2)
+}
