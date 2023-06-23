@@ -3,10 +3,9 @@
 import Link from 'next/link';
 import { CSSProperties, useEffect, useState } from 'react';
 import styles from './MobileNavigationBar.module.css';
-import utils from './utils.module.css';
-import Exit from '../icons/Exit';
-import Hamburger from '../icons/Hamburger';
-import LogoStandalone from '../icons/LogoStandalone';
+import utils from '../utils.module.css';
+import Hamburger from '@/icons/Hamburger';
+import LogoStandalone from '@/icons/LogoStandalone';
 import MobileNavigationMenu from './MobileNavigationMenu';
 import { usePathname } from 'next/navigation';
 

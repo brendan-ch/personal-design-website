@@ -5,6 +5,8 @@
   border-top: 1px var(--white) solid;
 
   padding-top: 8px;
+
+  width: 100%;
 }
 
 .noLine {

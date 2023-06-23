@@ -5,6 +5,17 @@ interface Props {
   text: string,
   // href?: string,
   hideBorder?: boolean,
+
+  /**
+   * If provided, the ID is passed to the underlying div element.
+   * This is useful for allowing links to anchor elements.
+   */
+  id?: string,
+
+  /**
+   * Custom styling for the anchor component.
+   */
+  style?: React.CSSProperties,
 }
 
 /**
@@ -18,9 +29,17 @@ export default function Anchor({
   text,
   // href,
   hideBorder,
+  id,
+  style,
 }: Props) {
   return (
-    <div className={hideBorder ? `${styles.container} ${styles.noLine}` : styles.container} role="heading" aria-level={1}>
+    <div
+      className={hideBorder ? `${styles.container} ${styles.noLine}` : styles.container}
+      role="heading"
+      aria-level={1}
+      id={id}
+      style={style}
+    >
       <p className={`${utils.monoText} ${utils.smallText}`}>{text}</p>
     </div>
   )

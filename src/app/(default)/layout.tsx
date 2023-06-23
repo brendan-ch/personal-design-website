@@ -1,7 +1,8 @@
 import DesktopSideNavigation from './DesktopSideNavigation'
 import MobileNavigationBar from './MobileNavigationBar'
-import './globals.css'
+import '../globals.css'
 import styles from './layout.module.css'
+import { BACKGROUND } from '../Constants'
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
+        <meta name="theme-color" content={BACKGROUND} />
       </head>
       <body>
         <div className={styles.rootContainer}>
