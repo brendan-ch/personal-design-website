@@ -3,6 +3,7 @@ import fs from 'fs/promises'
 import { cache } from "react"
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import remarkUnwrapImages from 'remark-unwrap-images'
 
 /**
  * Frontmatter used for the document page.
@@ -31,6 +32,9 @@ const getDocument = cache(async (id: string): Promise<Document<Frontmatter>> => 
   // Serialize the MDX content and parse the frontmatter
   const serialized = await serialize(raw, {
     parseFrontmatter: true,
+    mdxOptions: {
+      remarkPlugins: [remarkUnwrapImages]
+    },
   })
 
   const frontmatter = serialized.frontmatter as unknown as Frontmatter
