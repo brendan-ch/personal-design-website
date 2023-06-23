@@ -35,3 +35,12 @@
   display: flex;
   width: 100%;
 }
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 3/2;
+
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}

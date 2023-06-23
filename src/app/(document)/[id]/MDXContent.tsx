@@ -4,6 +4,7 @@ import Anchor from "@/common/Anchor"
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import styles from './MDXContent.module.css'
 import { BACKGROUND, WHITE } from "@/app/Constants"
+import Image from "next/image"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -47,7 +48,12 @@ const MDXComponents = {
   pre: (props: React.HTMLProps<HTMLPreElement>) => (
     <pre className={styles.pre} {...props}>
     </pre>
-  )
+  ),
+  img: (props: React.HTMLProps<HTMLImageElement>) => props.src && props.alt ? (
+    <div className={styles.imageContainer}>
+      <Image src={props.src} alt={props.alt} fill />
+    </div>
+  ) : <></>,
 }
 
 /**
