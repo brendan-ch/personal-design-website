@@ -8,6 +8,11 @@ interface MDXContentProps {
   source: MDXRemoteSerializeResult,
 }
 
+/**
+ * Offset from the viewport's top for a link to be highlighted.
+ */
+const HIGHLIGHT_TOP_MARGIN = 0
+
 const Nothing = () => <></>
 
 /**
@@ -34,7 +39,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
         const top = rect?.top
         // if top is less than or equal to previous element's,
         // update the highlighted link
-        if (previousTop !== undefined && top !== undefined && top <= Math.abs(previousTop)) {
+        if (previousTop !== undefined && top !== undefined && top <= HIGHLIGHT_TOP_MARGIN) {
           previousTop = top
           linkToHighlight = link
         }
