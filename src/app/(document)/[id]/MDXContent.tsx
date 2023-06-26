@@ -21,14 +21,17 @@ const MDXComponents = {
       .replaceAll(' ', '-')
 
     return (
-      <div className={`${styles.anchorWrapper} anchorWrapper`}>
-        <Anchor
-          text={`${props.children}`}
-          id={generatedLink}
-          style={{
-            borderTopColor: BACKGROUND,
-          }}
-        />
+      <div className={styles.anchorLinkWrapper}>
+        <div id={generatedLink} />
+        <div className={`${styles.anchorWrapper} anchorWrapper`}>
+          <Anchor
+            text={`${props.children}`}
+            // id={generatedLink}
+            style={{
+              borderTopColor: BACKGROUND,
+            }}
+          />
+        </div>
       </div>
     )
   },
