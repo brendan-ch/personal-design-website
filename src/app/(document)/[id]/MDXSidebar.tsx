@@ -2,13 +2,10 @@
 
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import utils from '../../utils.module.css'
+import { useEffect, useState } from "react"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
-  /**
-   * ID of the heading currently being highlighted.
-   */
-  highlightedId?: string,
 }
 
 const Nothing = () => <></>
@@ -18,7 +15,39 @@ const Nothing = () => <></>
  * @param param0
  * @returns
 */
-export default function MDXSidebar({ source, highlightedId }: MDXContentProps) {
+export default function MDXSidebar({ source }: MDXContentProps) {
+  const [highlighted, setHighlighted] = useState<string | undefined>(undefined)
+
+  // Listen to scroll events
+  useEffect(() => {
+    function handleSetHighlighted() {
+      // Get each heading link on the page
+      const links = document.getElementsByClassName('anchorWrapper')
+      let linkToHighlight = links.item(0)
+      let previousTop = linkToHighlight?.getBoundingClientRect()?.top
+
+      // For each link, check which one is closest to the top of the viewport
+      for (let i = 1; i < links.length; i += 1) {
+        const link = links.item(i)
+        const rect = link?.getBoundingClientRect()
+
+        const top = rect?.top
+        // if top is less than or equal to previous element's,
+        // update the highlighted link
+        if (previousTop !== undefined && top !== undefined && top <= previousTop) {
+          previousTop = top
+          linkToHighlight = link
+        }
+      }
+
+      setHighlighted(linkToHighlight?.textContent || undefined)
+    }
+
+    window.addEventListener('scrollend', handleSetHighlighted)
+
+    return () => window.removeEventListener('scrollend', handleSetHighlighted)
+  }, [])
+
   /**
    * Map of MDX components which map to React components.
    */
@@ -34,7 +63,7 @@ export default function MDXSidebar({ source, highlightedId }: MDXContentProps) {
           href={`#${generatedLink}`}
           className={`${utils.monoText} ${utils.smallText}`}
         >
-          {highlightedId === generatedLink ? (
+          {highlighted === props.children ? (
             <b>
               {props.children}
             </b>

@@ -21,7 +21,7 @@ const MDXComponents = {
       .replaceAll(' ', '-')
 
     return (
-      <div className={styles.anchorWrapper}>
+      <div className={`${styles.anchorWrapper} anchorWrapper`}>
         <Anchor
           text={`${props.children}`}
           id={generatedLink}
