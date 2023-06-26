@@ -11,7 +11,7 @@ interface MDXContentProps {
 /**
  * Offset from the viewport's top for a link to be highlighted.
  */
-const HIGHLIGHT_TOP_MARGIN = 0
+const HIGHLIGHT_TOP_MARGIN = 48
 
 const Nothing = () => <></>
 
@@ -49,6 +49,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
     }
 
     window.addEventListener('scrollend', handleSetHighlighted)
+    handleSetHighlighted()
 
     return () => window.removeEventListener('scrollend', handleSetHighlighted)
   }, [])
