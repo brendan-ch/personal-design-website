@@ -1,6 +1,7 @@
 import Exit from '@/icons/Exit'
 import ShareCTA from './ShareCTA'
 import styles from './layout.module.css'
+import utils from '../../../utils.module.css'
 import getWork from './getWork'
 import { Metadata, ResolvingMetadata } from 'next'
 
@@ -41,12 +42,12 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
       </div>
       <div className={styles.rightSidebar}>
         {/* Title and description based on frontmatter */}
-        <div className={styles.description}>
+        <div className={styles.descriptionContainer}>
           <div className={styles.titleContainer}>
-            <p>{frontmatter.title}</p>
-            <p>{frontmatter.date}</p>
+            <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.title}</p>
+            <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.date}</p>
           </div>
-          <p>{frontmatter.description}</p>
+          <p className={utils.smallText}>{frontmatter.description}</p>
         </div>
         {/* Share CTA */}
         <ShareCTA
