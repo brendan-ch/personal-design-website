@@ -1,6 +1,8 @@
 import Exit from '@/icons/Exit'
 import ShareCTA from './ShareCTA'
 import styles from './layout.module.css'
+import getWork from './getWork'
+import { Metadata, ResolvingMetadata } from 'next'
 
 interface LayoutProps {
   params: {
@@ -9,8 +11,21 @@ interface LayoutProps {
   children: React.ReactNode,
 }
 
-export default function WorkLayout({ children, params }: LayoutProps) {
+export async function generateMetadata(
+  { params }: LayoutProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { frontmatter } = await getWork(params.id)
   
+  return {
+    title: frontmatter.title,
+    description: frontmatter.description,
+    // TO-DO: dynamically generate image based on page
+  }
+}
+
+export default async function WorkLayout({ children, params }: LayoutProps) {
+  const { frontmatter, serialized } = await getWork(params.id)
   
   return (
     <div className={styles.container}>
