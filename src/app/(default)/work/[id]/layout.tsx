@@ -29,11 +29,12 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
   
   return (
     <div className={styles.container}>
+      {/* Exit button, positioned relative to container */}
       <button className={styles.exitButton}>
         <Exit className={styles.exitButtonIcon} />
       </button>
       <div className={styles.leftSidebar}>
-        {/* MDX sidebar */}
+        {/* MDX sidebar with header links */}
       </div>
       <div className={styles.content}>
         {children}
