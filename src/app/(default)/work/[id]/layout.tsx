@@ -37,9 +37,7 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
       <div className={styles.leftSidebar}>
         {/* MDX sidebar with header links */}
       </div>
-      <div className={styles.content}>
-        {children}
-      </div>
+      {children}
       <div className={styles.rightSidebar}>
         {/* Title and description based on frontmatter */}
         <div className={styles.descriptionContainer}>
