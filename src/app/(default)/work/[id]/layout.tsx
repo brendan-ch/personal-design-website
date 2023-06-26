@@ -41,6 +41,13 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
       </div>
       <div className={styles.rightSidebar}>
         {/* Title and description based on frontmatter */}
+        <div className={styles.description}>
+          <div className={styles.titleContainer}>
+            <p>{frontmatter.title}</p>
+            <p>{frontmatter.date}</p>
+          </div>
+          <p>{frontmatter.description}</p>
+        </div>
         {/* Share CTA */}
         <ShareCTA
           copyLink="https://design.bchen.dev"
