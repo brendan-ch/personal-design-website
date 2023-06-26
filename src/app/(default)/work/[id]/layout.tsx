@@ -1,3 +1,4 @@
+import Exit from '@/icons/Exit'
 import ShareCTA from './ShareCTA'
 import styles from './layout.module.css'
 
@@ -8,6 +9,9 @@ interface LayoutProps {
 export default function WorkLayout({ children }: LayoutProps) {
   return (
     <div className={styles.container}>
+      <button className={styles.exitButton}>
+        <Exit className={styles.exitButtonIcon} />
+      </button>
       <div className={styles.leftSidebar}>
         {/* MDX sidebar */}
       </div>
