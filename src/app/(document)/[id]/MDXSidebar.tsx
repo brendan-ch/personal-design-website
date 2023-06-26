@@ -34,7 +34,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
         const top = rect?.top
         // if top is less than or equal to previous element's,
         // update the highlighted link
-        if (previousTop !== undefined && top !== undefined && top <= previousTop) {
+        if (previousTop !== undefined && top !== undefined && top <= Math.abs(previousTop)) {
           previousTop = top
           linkToHighlight = link
         }
