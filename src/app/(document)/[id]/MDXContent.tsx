@@ -23,6 +23,9 @@ const MDXComponents = {
     return (
       <div className={styles.anchorLinkWrapper}>
         <div id={generatedLink} />
+        {/* anchorWrapper is required for heading links to work
+        in a performant manner */}
+        {/* see useEffect hook in MDXSidebar component */}
         <div className={`${styles.anchorWrapper} anchorWrapper`}>
           <Anchor
             text={`${props.children}`}
