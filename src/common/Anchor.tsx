@@ -35,8 +35,6 @@ export default function Anchor({
   return (
     <div
       className={hideBorder ? `${styles.container} ${styles.noLine}` : styles.container}
-      role="heading"
-      aria-level={1}
       id={id}
       style={style}
     >
