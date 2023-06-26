@@ -3,10 +3,15 @@ import ShareCTA from './ShareCTA'
 import styles from './layout.module.css'
 
 interface LayoutProps {
+  params: {
+    id: string,
+  },
   children: React.ReactNode,
 }
 
-export default function WorkLayout({ children }: LayoutProps) {
+export default function WorkLayout({ children, params }: LayoutProps) {
+  
+  
   return (
     <div className={styles.container}>
       <button className={styles.exitButton}>
