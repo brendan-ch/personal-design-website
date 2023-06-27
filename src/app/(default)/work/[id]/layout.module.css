@@ -33,11 +33,23 @@
 .leftSidebar {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   padding-top: 112px;
   padding-left: 16px;
 
   width: 254px;
+  
+  min-height: 100vh;
+  position: relative;
+}
+
+.tableOfContents {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  position: sticky;
+  top: 112px;
+  left: 0;
 }
 
 .rightSidebar {
@@ -47,4 +59,9 @@
   padding-right: 16px;
 
   padding-top: 112px;
+
+  width: 254px;
+
+  min-height: 100vh;
+  position: relative;
 }
