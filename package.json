@@ -9,7 +9,8 @@
     "lint": "next lint",
     "test": "jest --watch --coverage",
     "test:ci": "jest --ci --coverage",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "generate": "node src/scripts/generateImageSizes.js"
   },
   "dependencies": {
     "@types/node": "20.3.0",
