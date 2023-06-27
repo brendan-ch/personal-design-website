@@ -37,7 +37,9 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
       </button>
       <div className={styles.leftSidebar}>
         {/* MDX sidebar with header links */}
-        <MDXSidebar source={serialized} />
+        <div className={styles.tableOfContents}>
+          <MDXSidebar source={serialized} />
+        </div>
       </div>
       {children}
       <div className={styles.rightSidebar}>
