@@ -10,6 +10,7 @@ interface MDXContentProps {
   imageSizes: ImageSize[],
 }
 
+const Nothing = () => <></>
 
 /**
  * Content renderer for the Work page.
@@ -37,6 +38,9 @@ export default function MDXContent({ source, imageSizes }: MDXContentProps) {
         </div>
       )
     },
+    h1: Nothing,
+    h2: Nothing,
+    h3: Nothing,
   }
 
   return <MDXRemote {...source} components={MDXComponents} />
