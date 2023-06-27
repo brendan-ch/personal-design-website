@@ -4,6 +4,7 @@ import styles from './layout.module.css'
 import utils from '../../../utils.module.css'
 import getWork from './getWork'
 import { Metadata, ResolvingMetadata } from 'next'
+import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
 
 interface LayoutProps {
   params: {
@@ -36,6 +37,7 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
       </button>
       <div className={styles.leftSidebar}>
         {/* MDX sidebar with header links */}
+        <MDXSidebar source={serialized} />
       </div>
       {children}
       <div className={styles.rightSidebar}>
