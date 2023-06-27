@@ -39,3 +39,12 @@
 
   width: 254px;
 }
+
+.rightSidebar {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  padding-top: 112px;
+}
