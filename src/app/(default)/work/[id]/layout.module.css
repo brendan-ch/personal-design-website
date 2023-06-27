@@ -52,6 +52,10 @@
   left: 0;
 }
 
+.tableOfContents a {
+  color: var(--gray2)
+}
+
 .rightSidebar {
   display: flex;
   flex-direction: column;
