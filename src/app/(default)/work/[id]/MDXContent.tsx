@@ -49,5 +49,5 @@ export default function MDXContent({ source, imageSizes }: MDXContentProps) {
     h3: Nothing,
   }
 
-  return <MDXRemote {...source} components={MDXComponents} />
+  return <MDXRemote {...source} components={MDXComponents} lazy />
 }
