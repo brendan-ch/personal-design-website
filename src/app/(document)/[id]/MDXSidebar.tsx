@@ -4,6 +4,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import utils from '../../utils.module.css'
 import { useEffect, useState } from "react"
 import generateHeadingLink from "@/helpers/generateHeadingLink"
+import useScrollHighlight from "@/hooks/useScrollHighlight"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -22,38 +23,7 @@ const Nothing = () => <></>
  * @returns
 */
 export default function MDXSidebar({ source }: MDXContentProps) {
-  const [highlighted, setHighlighted] = useState<string | undefined>(undefined)
-
-  // Listen to scroll events
-  useEffect(() => {
-    function handleSetHighlighted() {
-      // Get each heading link on the page
-      const links = document.getElementsByClassName('anchorWrapper')
-      let linkToHighlight = links.item(0)
-      let previousTop = linkToHighlight?.getBoundingClientRect()?.top
-
-      // For each link, check which one is closest to the top of the viewport
-      for (let i = 1; i < links.length; i += 1) {
-        const link = links.item(i)
-        const rect = link?.getBoundingClientRect()
-
-        const top = rect?.top
-        // if top is less than or equal to previous element's,
-        // update the highlighted link
-        if (previousTop !== undefined && top !== undefined && top <= HIGHLIGHT_TOP_MARGIN) {
-          previousTop = top
-          linkToHighlight = link
-        }
-      }
-
-      setHighlighted(linkToHighlight?.textContent || undefined)
-    }
-
-    window.addEventListener('scrollend', handleSetHighlighted)
-    handleSetHighlighted()
-
-    return () => window.removeEventListener('scrollend', handleSetHighlighted)
-  }, [])
+  const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
 
   /**
    * Map of MDX components which map to React components.
