@@ -43,10 +43,10 @@ export default function useScrollHighlight(className: string, topMargin?: number
       setHighlighted(linkToHighlight?.id || undefined)
     }
 
-    window.addEventListener('scrollend', handleSetHighlighted)
+    window.addEventListener('scroll', handleSetHighlighted)
     handleSetHighlighted()
 
-    return () => window.removeEventListener('scrollend', handleSetHighlighted)
+    return () => window.removeEventListener('scroll', handleSetHighlighted)
   }, [topMarginToCheck, className])
 
   return highlighted
