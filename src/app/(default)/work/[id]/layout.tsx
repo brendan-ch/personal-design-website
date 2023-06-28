@@ -5,6 +5,7 @@ import utils from '../../../utils.module.css'
 import getWork from './getWork'
 import { Metadata, ResolvingMetadata } from 'next'
 import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
+import Link from 'next/link'
 
 interface LayoutProps {
   params: {
@@ -32,9 +33,9 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
   return (
     <div className={styles.container}>
       {/* Exit button, positioned relative to container */}
-      <button className={styles.exitButton}>
+      <Link className={styles.exitButton} href="/">
         <Exit className={styles.exitButtonIcon} />
-      </button>
+      </Link>
       <div className={styles.leftSidebar}>
         {/* MDX sidebar with header links */}
         <div className={styles.tableOfContents}>
