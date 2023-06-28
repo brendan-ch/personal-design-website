@@ -46,6 +46,10 @@
   fill: var(--white);
 }
 
+.exitButtonIconMobile {
+  display: none;
+}
+
 .leftSidebar {
   display: flex;
   flex-direction: column;
@@ -131,10 +135,24 @@
   }
 
   .exitButton {
-    padding: 16px;
+    padding: 18px;
   }
 
   .shareContainer {
     display: none;
+  }
+
+  .exitButtonIcon {
+    display: none;
+  }
+
+  .exitButtonIconMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .exitButtonIconMobile path {
+    fill: var(--white);
   }
 }

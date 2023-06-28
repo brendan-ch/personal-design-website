@@ -48,6 +48,7 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
       {/* Exit button, positioned relative to container */}
       <Link className={styles.exitButton} href="/">
         <Exit className={styles.exitButtonIcon} />
+        <Exit width={24} height={24} className={styles.exitButtonIconMobile} />
       </Link>
       <div className={styles.leftSidebar}>
         {/* MDX sidebar with header links */}
