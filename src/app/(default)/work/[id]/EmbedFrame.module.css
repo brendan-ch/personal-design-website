@@ -45,4 +45,5 @@
 
 .backgroundImage {
   position: absolute;
+  object-fit: cover;
 }
