@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const HIGHLIGHT_TOP_MARGIN_DEFAULT = 48;
 
 /**
- * Hook which returns the heading title the user is currently scrolled to.
+ * Hook which returns the heading ID the user is currently scrolled to.
  * This allows headings to be highlighted as the user scrolls past.
  * 
  * @param className Class name of scroll elements to check.
@@ -40,7 +40,7 @@ export default function useScrollHighlight(className: string, topMargin?: number
         }
       }
 
-      setHighlighted(linkToHighlight?.textContent || undefined)
+      setHighlighted(linkToHighlight?.id || undefined)
     }
 
     window.addEventListener('scrollend', handleSetHighlighted)
