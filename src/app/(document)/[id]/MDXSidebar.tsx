@@ -37,7 +37,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
           href={`#${generatedLink}`}
           className={`${utils.monoText} ${utils.smallText}`}
         >
-          {highlighted === props.children ? (
+          {highlighted === generatedLink ? (
             <b>
               {props.children}
             </b>
