@@ -66,10 +66,12 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
           <p className={utils.smallText}>{frontmatter.description}</p>
         </div>
         {/* Share CTA */}
-        <ShareCTA
-          copyLink={currentPath}
-          links={sharingLinks}
-        />
+        <div className={styles.shareContainer}>
+          <ShareCTA
+            copyLink={currentPath}
+            links={sharingLinks}
+          />
+        </div>
       </div>
     </div>
   )
