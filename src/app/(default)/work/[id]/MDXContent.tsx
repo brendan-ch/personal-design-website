@@ -38,7 +38,9 @@ export default function MDXContent({ source, imageSizes }: MDXContentProps) {
         </div>
       )
     },
-    h1: Nothing,
+    h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
+      return <></>
+    },
     h2: Nothing,
     h3: Nothing,
   }

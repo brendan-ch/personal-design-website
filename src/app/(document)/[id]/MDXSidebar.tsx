@@ -3,6 +3,7 @@
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import utils from '../../utils.module.css'
 import { useEffect, useState } from "react"
+import generateHeadingLink from "@/helpers/generateHeadingLink"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -59,10 +60,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
    */
   const MDXComponents = {
     h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
-      const generatedLink = (props.children as string)
-        .toLowerCase()
-        .replaceAll(/[^A-Za-z0-9 ]/gi, '')
-        .replaceAll(' ', '-')
+      const generatedLink = generateHeadingLink(props.children as string)
   
       return (
         <a
