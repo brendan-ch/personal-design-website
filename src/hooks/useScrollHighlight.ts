@@ -22,7 +22,7 @@ export default function useScrollHighlight(className: string, topMargin?: number
   useEffect(() => {
     function handleSetHighlighted() {
       // Get each heading link on the page
-      const links = document.getElementsByClassName('anchorWrapper')
+      const links = document.getElementsByClassName(className)
       let linkToHighlight = links.item(0)
       let previousTop = linkToHighlight?.getBoundingClientRect()?.top
 
@@ -47,7 +47,7 @@ export default function useScrollHighlight(className: string, topMargin?: number
     handleSetHighlighted()
 
     return () => window.removeEventListener('scrollend', handleSetHighlighted)
-  }, [topMarginToCheck])
+  }, [topMarginToCheck, className])
 
   return highlighted
 }
