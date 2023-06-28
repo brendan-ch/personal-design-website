@@ -5,6 +5,7 @@ import styles from './MDXContent.module.css'
 import Image from "next/image"
 import { ImageSize } from "./getWork"
 import generateHeadingLink from "@/helpers/generateHeadingLink"
+import EmbedFrame from "./EmbedFrame"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -47,6 +48,7 @@ export default function MDXContent({ source, imageSizes }: MDXContentProps) {
     },
     h2: Nothing,
     h3: Nothing,
+    EmbedFrame: EmbedFrame,
   }
 
   return <MDXRemote {...source} components={MDXComponents} lazy />
