@@ -1,5 +1,5 @@
 import Exit from '@/icons/Exit'
-import ShareCTA from './ShareCTA'
+import ShareCTA, { PageExternalLink } from './ShareCTA'
 import styles from './layout.module.css'
 import utils from '../../../utils.module.css'
 import getWork from './getWork'
@@ -30,6 +30,19 @@ export async function generateMetadata(
 export default async function WorkLayout({ children, params }: LayoutProps) {
   const { frontmatter, serialized } = await getWork(params.id)
   
+  // Get current page URL
+  const currentPath = ['https://design.bchen.dev', 'work', params.id].join('/');
+  const sharingLinks: PageExternalLink[] = [
+    {
+      name: 'LinkedIn',
+      url: `https://linkedin.com/share/share-offsite?url=${encodeURIComponent(currentPath)}&title=${encodeURIComponent(frontmatter.title || '')}`
+    },
+    {
+      name: 'Twitter',
+      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentPath)}`
+    },
+  ]
+  
   return (
     <div className={styles.container}>
       {/* Exit button, positioned relative to container */}
@@ -54,8 +67,8 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
         </div>
         {/* Share CTA */}
         <ShareCTA
-          copyLink="https://design.bchen.dev"
-          links={[]}
+          copyLink={currentPath}
+          links={sharingLinks}
         />
       </div>
     </div>
