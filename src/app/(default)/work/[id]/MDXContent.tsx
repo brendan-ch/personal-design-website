@@ -4,6 +4,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import styles from './MDXContent.module.css'
 import Image from "next/image"
 import { ImageSize } from "./getWork"
+import generateHeadingLink from "@/helpers/generateHeadingLink"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -39,7 +40,10 @@ export default function MDXContent({ source, imageSizes }: MDXContentProps) {
       )
     },
     h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
-      return <></>
+      const generatedLink = generateHeadingLink(props.children as string)
+
+      // Return empty div which can be referred to by ID
+      return <div id={generatedLink}></div>
     },
     h2: Nothing,
     h3: Nothing,
