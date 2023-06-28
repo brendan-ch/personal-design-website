@@ -117,6 +117,10 @@
   width: 100%;
 }
 
+.shareContainerMobile {
+  display: none;
+}
+
 @media only screen and (max-width: 1200px) {
   .container {
     flex-direction: column-reverse;
@@ -154,5 +158,15 @@
 
   .exitButtonIconMobile path {
     fill: var(--white);
+  }
+
+  .shareContainerMobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 96px;
   }
 }

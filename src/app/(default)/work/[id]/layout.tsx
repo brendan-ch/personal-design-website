@@ -56,6 +56,12 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
           <MDXSidebar source={serialized} />
         </div>
       </div>
+      <div className={styles.shareContainerMobile}>
+        <ShareCTA
+          copyLink={currentPath}
+          links={sharingLinks}
+        />
+      </div>
       {children}
       <div className={styles.rightSidebar}>
         {/* Title and description based on frontmatter */}
