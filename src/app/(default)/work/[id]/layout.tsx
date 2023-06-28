@@ -47,7 +47,7 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
         <div className={styles.descriptionContainer}>
           <div className={styles.titleContainer}>
             <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.title}</p>
-            <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.date}</p>
+            <p className={`${utils.monoText} ${utils.smallText} ${styles.date}`}>{frontmatter.date}</p>
           </div>
           <p className={utils.smallText}>{frontmatter.description}</p>
         </div>

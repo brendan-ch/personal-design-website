@@ -86,3 +86,7 @@
 
   gap: 8px;
 }
+
+.date {
+  color: var(--gray2);
+}
