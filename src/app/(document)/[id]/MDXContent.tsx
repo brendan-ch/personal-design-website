@@ -66,5 +66,5 @@ const MDXComponents = {
  * @returns
  */
 export default function MDXContent({ source }: MDXContentProps) {
-  return <MDXRemote {...source} components={MDXComponents} lazy />
+  return <MDXRemote {...source} components={MDXComponents} />
 }
