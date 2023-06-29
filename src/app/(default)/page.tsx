@@ -16,6 +16,7 @@ export default async function Home() {
     <main className={styles.main}>
       <Link href="/work/headspace-logo-redesign">Headspace Logo Redesign</Link>
       <GalleryItem
+        description={frontmatter.description}
         title={frontmatter.title}
         date={frontmatter.date}
         imageSrc={frontmatter.previewImage!}
