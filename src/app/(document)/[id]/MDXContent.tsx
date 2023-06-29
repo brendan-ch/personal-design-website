@@ -5,6 +5,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import styles from './MDXContent.module.css'
 import { BACKGROUND, WHITE } from "@/app/Constants"
 import Image from "next/image"
+import generateHeadingLink from "@/helpers/generateHeadingLink"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -15,18 +16,14 @@ interface MDXContentProps {
  */
 const MDXComponents = {
   h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
-    const generatedLink = (props.children as string)
-      .toLowerCase()
-      .replaceAll(/[^A-Za-z0-9 ]/gi, '')
-      .replaceAll(' ', '-')
+    const generatedLink = generateHeadingLink(props.children as string)
 
     return (
       <div className={styles.anchorLinkWrapper}>
-        <div id={generatedLink} />
         {/* anchorWrapper is required for heading links to work
         in a performant manner */}
         {/* see useEffect hook in MDXSidebar component */}
-        <div className={`${styles.anchorWrapper} anchorWrapper`}>
+        <div className={`${styles.anchorWrapper} anchorWrapper`} id={generatedLink}>
           <Anchor
             text={`${props.children}`}
             // id={generatedLink}

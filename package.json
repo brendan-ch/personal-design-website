@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run generate && next dev",
+    "build": "npm run generate && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch --coverage",
     "test:ci": "jest --ci --coverage",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "generate": "node src/scripts/generateImageSizes.js"
   },
   "dependencies": {
     "@types/node": "20.3.0",
@@ -18,6 +19,7 @@
     "@vercel/analytics": "^1.0.1",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
+    "image-size": "^1.0.2",
     "next": "13.4.5",
     "next-mdx-remote": "^4.4.1",
     "react": "18.2.0",

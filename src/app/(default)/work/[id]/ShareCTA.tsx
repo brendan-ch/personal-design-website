@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import styles from './ShareCTA.module.css'
-import utils from '../../utils.module.css'
+import utils from '../../../utils.module.css'
 
 /**
  * Represents a link to an external page.
