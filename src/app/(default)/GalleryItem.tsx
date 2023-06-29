@@ -10,7 +10,7 @@ interface Props {
   imageAlt: string,
   title: string,
   date: string,
-  description?: string,
+  description: string,
   href: string,
 }
 
