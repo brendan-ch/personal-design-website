@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import styles from './page.module.css'
-import Link from 'next/link'
+import utils from '../utils.module.css'
 import getWork from './work/[id]/getWork'
 import GalleryItem from './GalleryItem'
 
@@ -9,12 +9,18 @@ export const metadata: Metadata = {
   description: 'Featured works on the design.bchen.dev website.'
 }
 
+const column1 = ['the-birds', 'abstract-color-art']
+const column2 = ['headspace-logo-redesign', 'abstract-color-art', 'spirit-week-poster']
+
 export default async function Home() {
   const { frontmatter, previewImageSize } = await getWork('headspace-logo-redesign')
 
   return (
     <main className={styles.main}>
-      <Link href="/work/headspace-logo-redesign">Headspace Logo Redesign</Link>
+      <div className={styles.heading}>
+        <h1 className={utils.h0Text}>Featured Works</h1>
+        <p className={`${utils.monoText} ${utils.smallText}`}>by Brendan Chen</p>
+      </div>
       <GalleryItem
         description={frontmatter.description}
         title={frontmatter.title}
@@ -28,50 +34,6 @@ export default async function Home() {
         }}
         href="/work/headspace-logo-redesign"
       />
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
-      <p>Some page content</p>
     </main>
   )
 }
