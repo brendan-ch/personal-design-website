@@ -37,6 +37,8 @@ export default function GalleryItem({
         <Image
           src={imageSrc}
           alt={imageAlt}
+          fill
+          className={styles.image}
         />
       </div>
     </div>
