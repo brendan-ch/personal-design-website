@@ -29,7 +29,13 @@
   flex: 1;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1200px) {
+  .columns {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 880px) {
   .main {
     padding: 32px 16px;
     gap: 48px;

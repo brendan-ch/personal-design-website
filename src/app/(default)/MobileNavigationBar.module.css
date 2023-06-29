@@ -12,7 +12,7 @@
   fill: var(--cyan);
 }
 
-@media only screen and (min-width: 721px) {
+@media only screen and (min-width: 881px) {
   .noDisplayDesktop {
     display: none !important;
   }
