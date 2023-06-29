@@ -33,7 +33,7 @@ export default function GalleryItem({
               {title}
             </b>
           </h1>
-          <p className={utils.monoText}>{date}</p>
+          <p className={`${utils.monoText} ${utils.smallText}`}>{date}</p>
         </div>
         <p>{description}</p>
       </div>
