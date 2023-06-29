@@ -25,7 +25,11 @@ export default function GalleryItem({
       {/* Hover information */}
       <div className={styles.hoverContentWrapper}>
         <div className={styles.headingWrapper}>
-          <h1>{title}</h1>
+          <h1>
+            <b>
+              {title}
+            </b>
+          </h1>
           <p className={utils.monoText}>{date}</p>
         </div>
         <p>{description}</p>
