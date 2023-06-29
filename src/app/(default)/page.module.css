@@ -13,3 +13,18 @@
   /* Align to baseline of heading text */
   align-items: baseline;
 }
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex: 1;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
