@@ -28,3 +28,23 @@
   gap: 24px;
   flex: 1;
 }
+
+@media only screen and (max-width: 720px) {
+  .main {
+    padding: 32px 16px;
+    gap: 48px;
+  }
+
+  .main p {
+    display: none;
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .column {
+    gap: 48px;
+  }
+}
