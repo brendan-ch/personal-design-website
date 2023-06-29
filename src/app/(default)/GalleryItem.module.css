@@ -23,9 +23,18 @@
   padding: 16px;
 }
 
+.mobileContentWrapper {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0px;
+}
+
 .imageContainer {
   width: 100%;
   aspect-ratio: 3/2;
+
+  position: relative;
 }
 
 .image {
@@ -43,5 +52,11 @@
     opacity: 0%;
   } 100% {
     opacity: 100%;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .mobileContentWrapper {
+    display: flex !important;
   }
 }

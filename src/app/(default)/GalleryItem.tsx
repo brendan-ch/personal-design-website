@@ -48,6 +48,14 @@ export default function GalleryItem({
           className={styles.image}
         />
       </div>
+      <div className={styles.mobileContentWrapper}>
+        <h1>
+          <b>
+            {title}
+          </b>
+        </h1>
+        <p className={`${utils.monoText} ${utils.smallText}`}>{date}</p>
+      </div>
     </Link>
-  ) 
+  )
 }
