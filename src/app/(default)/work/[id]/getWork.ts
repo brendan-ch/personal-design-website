@@ -30,13 +30,14 @@ export interface Frontmatter {
   title: string,
   description: string,
   date: string,
-  previewImage: string,
+  previewImage?: string,
 }
 
 export interface Work<T> {
   frontmatter: T,
   serialized: MDXRemoteSerializeResult,
   imageSizes: ImageSize[],
+  previewImageSize?: ImageSize,
 }
 
 /**
@@ -60,12 +61,13 @@ const getWork = cache(async (id: string): Promise<Work<Frontmatter>> => {
   const frontmatter = serialized.frontmatter as unknown as Frontmatter
 
   const parsedImageSizeData = require('../../../../scripts/output/data.json')
-  const { allImages } = parsedImageSizeData.work.find((item: any) => item.id === id)
+  const { allImages, previewImageSize } = parsedImageSizeData.work.find((item: any) => item.id === id)
 
   return {
     frontmatter,
     serialized,
     imageSizes: allImages ? allImages : [],
+    previewImageSize,
   }
 })
 
