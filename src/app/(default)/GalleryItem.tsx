@@ -1,5 +1,7 @@
-import Image from "next/image";
-import { ImageSize } from "./work/[id]/getWork";
+import Image from "next/image"
+import { ImageSize } from "./work/[id]/getWork"
+import styles from './GalleryItem.module.css'
+import utils from '../utils.module.css'
 
 interface Props {
   imageSrc: string,
@@ -19,13 +21,19 @@ export default function GalleryItem({
   description,
 }: Props) {
   return (
-    <div>
+    <div className={styles.container}>
       {/* Hover information */}
-      <div>
-
+      <div className={styles.hoverContentWrapper}>
+        <div className={styles.headingWrapper}>
+          <h1>{title}</h1>
+          <p className={utils.monoText}>{date}</p>
+        </div>
+        <p>{description}</p>
       </div>
       {/* Image container */}
-      <div>
+      <div className={styles.imageContainer} style={{
+        aspectRatio: `${imageSize.width} / ${imageSize.height}`,
+      }}>
         <Image
           src={imageSrc}
           alt={imageAlt}
