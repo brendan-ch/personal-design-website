@@ -2,6 +2,7 @@ import Image from "next/image"
 import { ImageSize } from "./work/[id]/getWork"
 import styles from './GalleryItem.module.css'
 import utils from '../utils.module.css'
+import Link from "next/link"
 
 interface Props {
   imageSrc: string,
@@ -10,6 +11,7 @@ interface Props {
   title: string,
   date: string,
   description?: string,
+  href: string,
 }
 
 export default function GalleryItem({
@@ -19,9 +21,10 @@ export default function GalleryItem({
   title,
   date,
   description,
+  href,
 }: Props) {
   return (
-    <div className={styles.container}>
+    <Link className={styles.container} href={href}>
       {/* Hover information */}
       <div className={styles.hoverContentWrapper}>
         <div className={styles.headingWrapper}>
@@ -45,6 +48,6 @@ export default function GalleryItem({
           className={styles.image}
         />
       </div>
-    </div>
+    </Link>
   ) 
 }

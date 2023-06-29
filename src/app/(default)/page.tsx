@@ -26,6 +26,7 @@ export default async function Home() {
           width: '2000',
           imagePath: frontmatter.previewImage!
         }}
+        href="/work/headspace-logo-redesign"
       />
       <p>Some page content</p>
       <p>Some page content</p>
