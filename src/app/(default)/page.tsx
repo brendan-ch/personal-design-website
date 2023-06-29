@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import utils from '../utils.module.css'
 import getWork from './work/[id]/getWork'
 import GalleryItem from './GalleryItem'
+import getWorks from './work/[id]/getWorks'
 
 export const metadata: Metadata = {
   title: 'Featured Works',
@@ -10,10 +11,14 @@ export const metadata: Metadata = {
 }
 
 const column1 = ['the-birds', 'abstract-color-art']
-const column2 = ['headspace-logo-redesign', 'abstract-color-art', 'spirit-week-poster']
+const column2 = ['headspace-logo-redesign', 'spirit-week-poster']
+
+const columns = [column1, column2]
 
 export default async function Home() {
-  const { frontmatter, previewImageSize } = await getWork('headspace-logo-redesign')
+  const workColumns = await Promise.all(columns.map(async (column) => {
+    return await getWorks(column)
+  }))
 
   return (
     <main className={styles.main}>
@@ -21,19 +26,25 @@ export default async function Home() {
         <h1 className={utils.h0Text}>Featured Works</h1>
         <p className={`${utils.monoText} ${utils.smallText}`}>by Brendan Chen</p>
       </div>
-      <GalleryItem
-        description={frontmatter.description}
-        title={frontmatter.title}
-        date={frontmatter.date}
-        imageSrc={frontmatter.previewImage!}
-        imageAlt="Headspace Logo Redesign"
-        imageSize={previewImageSize ? previewImageSize : {
-          height: '1000',
-          width: '2000',
-          imagePath: frontmatter.previewImage!
-        }}
-        href="/work/headspace-logo-redesign"
-      />
+      {/* Wrap the columns with a div */}
+      <div className={styles.columns}>
+        {workColumns.map((column, i) => (
+          <div className={styles.column} key={i}>
+            {column.map(({ frontmatter, previewImageSize }, j) => (
+              <GalleryItem
+                title={frontmatter.title}
+                date={frontmatter.date}
+                imageSrc={frontmatter.previewImage}
+                imageAlt={`Preview image for ${frontmatter.title}`}
+                imageSize={previewImageSize}
+                key={j}
+                href={`/work/${columns[i][j]}`}
+                description={frontmatter.description}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
     </main>
   )
 }
