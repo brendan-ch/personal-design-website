@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import styles from './page.module.css'
 import utils from '../utils.module.css'
-import getWork from './work/[id]/getWork'
 import GalleryItem from './GalleryItem'
 import getWorks from './work/[id]/getWorks'
 
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Featured works on the design.bchen.dev website.'
 }
 
-const column1 = ['the-birds', 'abstract-color-art']
+const column1 = ['the-birds', 'uhs-planner-cover']
 const column2 = ['headspace-logo-redesign', 'spirit-week-poster']
 
 const columns = [column1, column2]
