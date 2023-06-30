@@ -25,7 +25,6 @@ describe('MobileNavigationBar', () => {
       <MobileNavigationBar />
       <MobileNavigationBar />
     </>)
-    screen.debug()
 
     // Select the hamburger button
     const hamburgers = screen.getAllByTitle('Hamburger')
