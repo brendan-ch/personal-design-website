@@ -12,6 +12,7 @@ const sizeOf = require('image-size');
  * @returns {Promise<object>}
  */
 async function getData() {
+  const { serialize } = await import('next-mdx-remote/serialize');
   const contentDirectory = path.join(process.cwd(), 'src', 'content');
   const prefixes = ['work', 'document'];
 
@@ -25,6 +26,9 @@ async function getData() {
     // Get page data
     const pages = await Promise.all(files.map(async (file) => {
       const content = await readFile(path.join(contentDirectory, prefix, file), 'utf-8');
+      const { frontmatter } = await serialize(content, {
+        parseFrontmatter: true,
+      });
 
       // Compile array of images by reading content
       const imagePathRegex = /\/static\/work\/.+\.(png|jpg|jpeg|gif)/g;
@@ -41,10 +45,23 @@ async function getData() {
         };
       }));
 
+      const previewImage = frontmatter.previewImage;
+      let previewImageSize;
+      if (typeof previewImage === 'string') {
+        // @ts-ignore
+        const { width, height } = await sizeOf(path.join('public', previewImage));
+        previewImageSize = {
+          width,
+          height,
+          imagePath: previewImage,
+        }
+      }
+
       return {
         id: file.substring(0, file.indexOf('.mdx')),
         prefix: prefix,
         allImages: imageSizes,
+        previewImageSize,
       }
     }));
 

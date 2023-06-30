@@ -17,6 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `history.scrollRestoration = "manual"`,
+          }}
+        />
         <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
         <meta name="theme-color" content={BACKGROUND} />
       </head>

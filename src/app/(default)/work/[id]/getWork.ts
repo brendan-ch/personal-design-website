@@ -37,6 +37,7 @@ export interface Work<T> {
   frontmatter: T,
   serialized: MDXRemoteSerializeResult,
   imageSizes: ImageSize[],
+  previewImageSize: ImageSize,
 }
 
 /**
@@ -58,14 +59,18 @@ const getWork = cache(async (id: string): Promise<Work<Frontmatter>> => {
   })
 
   const frontmatter = serialized.frontmatter as unknown as Frontmatter
+  if (!frontmatter.previewImage) {
+    throw new Error('No preview image provided')
+  }
 
   const parsedImageSizeData = require('../../../../scripts/output/data.json')
-  const { allImages } = parsedImageSizeData.work.find((item: any) => item.id === id)
+  const { allImages, previewImageSize } = parsedImageSizeData.work.find((item: any) => item.id === id)
 
   return {
     frontmatter,
     serialized,
     imageSizes: allImages ? allImages : [],
+    previewImageSize,
   }
 })
 
