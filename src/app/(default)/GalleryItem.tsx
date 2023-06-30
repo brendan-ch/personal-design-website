@@ -24,7 +24,7 @@ export default function GalleryItem({
   href,
 }: Props) {
   return (
-    <Link className={styles.container} href={href}>
+    <a className={styles.container} href={href}>
       {/* Hover information */}
       <div className={styles.hoverContentWrapper}>
         <div className={styles.headingWrapper}>
@@ -56,6 +56,6 @@ export default function GalleryItem({
         </h2>
         <p className={`${utils.monoText} ${utils.smallText}`}>{date}</p>
       </div>
-    </Link>
+    </a>
   )
 }
