@@ -16,7 +16,7 @@ function HamburgerNotification(props: React.SVGProps<SVGSVGElement>) {
         d="M25 4H1V2h24v2zM31 17.5H1v-2h30v2zM31 30H1v-2h30v2z"
         fill="#121212"
       />
-      <circle cx={29} cy={4} r={3} fill="#121212" />
+      <path d="M32 4a3 3 0 11-6 0 3 3 0 016 0z" fill="#121212" />
     </svg>
   );
 }
