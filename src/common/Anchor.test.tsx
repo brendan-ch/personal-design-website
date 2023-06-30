@@ -13,7 +13,7 @@ describe('Anchor', () => {
   })
 
   it('Renders different class list based on hideBorder prop', () => {
-    render(<>
+    const elements = render(<>
       <Anchor
         text="Hello there"
       />
@@ -22,9 +22,9 @@ describe('Anchor', () => {
         hideBorder
       />
     </>)
+    const children = elements.asFragment().children
 
-    const anchors = screen.getAllByRole('heading')
-    expect(anchors.length).toBe(2)
-    expect(anchors[0].classList).not.toStrictEqual(anchors[1].classList)
+    expect(children.length).toBe(2)
+    expect(children[0].classList).not.toStrictEqual(children[1].classList)
   })
 })

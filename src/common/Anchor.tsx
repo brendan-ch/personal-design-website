@@ -35,12 +35,10 @@ export default function Anchor({
   return (
     <div
       className={hideBorder ? `${styles.container} ${styles.noLine}` : styles.container}
-      role="heading"
-      aria-level={1}
       id={id}
       style={style}
     >
-      <p className={`${utils.monoText} ${utils.smallText}`}>{text}</p>
+      <h1 className={`${utils.monoText} ${utils.smallText}`}>{text}</h1>
     </div>
   )
 }

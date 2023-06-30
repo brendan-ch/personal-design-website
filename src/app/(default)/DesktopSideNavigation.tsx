@@ -4,13 +4,23 @@ import Footer from "./Footer";
 import styles from './DesktopSideNavigation.module.css'
 import Link from "next/link";
 import LogoStandalone from "@/icons/LogoStandalone";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import WelcomeOverlay from "./WelcomeOverlay";
 
 export default function DesktopSideNavigation() {
   const pathname = usePathname();
   const [overlayVisible, setOverlayVisible] = useState(false);
+
+  // Connect with browser storage to control initial overlay state
+  useEffect(() => {
+    const value = window.localStorage.getItem('welcomeShown')
+    if (!value) {
+      setOverlayVisible(true)
+      
+      window.localStorage.setItem('welcomeShown', '1')
+    }
+  }, [])
 
   return (
     <div className={styles.container}>

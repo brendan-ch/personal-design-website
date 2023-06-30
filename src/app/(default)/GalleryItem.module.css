@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+}
+
+.hoverContentWrapper {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: var(--background-translucent);
+  flex-direction: column;
+
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+
+  gap: 40px;
+
+  padding: 16px;
+}
+
+.mobileContentWrapper {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0px;
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 3/2;
+
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.container:hover .hoverContentWrapper {
+  display: flex;
+  animation-name: fadein;
+  animation-duration: 200ms;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  } 100% {
+    opacity: 100%;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .container {
+    gap: 0px;
+  }
+
+  .container:hover .hoverContentWrapper {
+    display: none !important;
+  }
+
+  .mobileContentWrapper {
+    display: flex !important;
+  }
+}

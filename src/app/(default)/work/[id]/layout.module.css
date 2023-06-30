@@ -1,0 +1,172 @@
+.container {
+  z-index: 2;
+  background-color: var(--background);
+
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  min-height: 100vh;
+  flex: 1;
+
+  animation-name: moveUpFadeIn;
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0, 0, 0, 1);
+}
+
+@keyframes moveUpFadeIn {
+  0% {
+    top: 100px;
+    opacity: 0%;
+  }
+  100% {
+    top: 0px;
+    opacity: 100%;
+  }
+}
+
+.exitButton {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+
+  padding: 32px;
+
+  position: fixed;
+  right: 0px;
+  top: 0px;
+
+  background-color: var(--background);
+}
+
+.exitButtonIcon path {
+  fill: var(--white);
+}
+
+.exitButtonIconMobile {
+  display: none;
+}
+
+.leftSidebar {
+  display: flex;
+  flex-direction: column;
+  padding-top: 112px;
+  padding-left: 16px;
+
+  width: 254px;
+  
+  min-height: 100vh;
+  position: relative;
+}
+
+.tableOfContents {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  position: sticky;
+  top: 112px;
+  left: 0;
+}
+
+.tableOfContents a {
+  color: var(--gray2)
+}
+
+.rightSidebar {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 32px;
+
+  gap: 32px;
+
+  padding-top: 112px;
+
+  width: 254px;
+
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  right: 0;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.date {
+  color: var(--gray2);
+}
+
+.shareContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.shareContainerMobile {
+  display: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+
+  .leftSidebar {
+    display: none;
+  }
+
+  .rightSidebar {
+    position: static;
+    width: 100%;
+
+    height: auto;
+  }
+
+  .exitButton {
+    padding: 18px;
+  }
+
+  .shareContainer {
+    display: none;
+  }
+
+  .exitButtonIcon {
+    display: none;
+  }
+
+  .exitButtonIconMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .exitButtonIconMobile path {
+    fill: var(--white);
+  }
+
+  .shareContainerMobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 96px;
+  }
+}

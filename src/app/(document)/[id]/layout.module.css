@@ -11,8 +11,14 @@
   padding: 36px 24px;
 
   /* Grow with content, to accommodate for sticky scrolling of TOC */
-  min-height: 100vh;
+  height: 100vh;
   flex: 1 0;
+  position: sticky;
+  top: 0;
+
+  /* height: 100vh;
+  position: sticky;
+  top: 0; */
 
   max-width: 304px;
 
@@ -23,7 +29,6 @@
   display: flex;
   gap: 16px;
   
-  position: sticky;
   top: 24px;
 
   flex-direction: column;
@@ -36,7 +41,7 @@
   flex: 1;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 880px) {
   .container {
     flex-direction: column;
   }
@@ -50,6 +55,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+
+    position: static;
     
   }
 
