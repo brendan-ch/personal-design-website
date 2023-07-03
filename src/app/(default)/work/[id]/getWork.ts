@@ -2,6 +2,7 @@ import path from 'path'
 import fs from 'fs/promises'
 import { cache } from "react"
 import { serialize } from 'next-mdx-remote/serialize'
+import { compileMDX } from 'next-mdx-remote/rsc'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
@@ -35,6 +36,7 @@ export interface Frontmatter {
 
 export interface Work<T> {
   frontmatter: T,
+  raw: string,
   serialized: MDXRemoteSerializeResult,
   imageSizes: ImageSize[],
   previewImageSize: ImageSize,
@@ -71,6 +73,7 @@ const getWork = cache(async (id: string): Promise<Work<Frontmatter>> => {
     serialized,
     imageSizes: allImages ? allImages : [],
     previewImageSize,
+    raw,
   }
 })
 
