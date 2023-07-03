@@ -6,6 +6,7 @@ import getWork from './getWork'
 import { Metadata, ResolvingMetadata } from 'next'
 import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 interface LayoutProps {
   params: {
@@ -28,7 +29,7 @@ export async function generateMetadata(
 }
 
 export default async function WorkLayout({ children, params }: LayoutProps) {
-  const { frontmatter, serialized } = await getWork(params.id)
+  const { frontmatter, raw } = await getWork(params.id)
   
   // Get current page URL
   const currentPath = ['https://design.bchen.dev', 'work', params.id].join('/');
@@ -54,7 +55,10 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
         <div className={styles.leftSidebar}>
           {/* MDX sidebar with header links */}
           <div className={styles.tableOfContents}>
-            <MDXSidebar source={serialized} />
+            <Suspense>
+              {/* @ts-expect-error Server Component */}
+              <MDXSidebar id={params.id} />
+            </Suspense>
           </div>
         </div>
         <div className={styles.shareContainerMobile}>

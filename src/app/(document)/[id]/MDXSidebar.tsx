@@ -1,13 +1,10 @@
-'use client'
-
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
+import { compileMDX } from "next-mdx-remote/rsc"
 import utils from '../../utils.module.css'
-import { useEffect, useState } from "react"
 import generateHeadingLink from "@/helpers/generateHeadingLink"
-import useScrollHighlight from "@/hooks/useScrollHighlight"
+import getPrecompiledWork from "@/app/(default)/work/[id]/getPrecompiledWork"
 
 interface MDXContentProps {
-  source: MDXRemoteSerializeResult,
+  id: string,
 }
 
 /**
@@ -22,9 +19,7 @@ const Nothing = () => <></>
  * @param param0
  * @returns
 */
-export default function MDXSidebar({ source }: MDXContentProps) {
-  const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
-
+export default async function MDXSidebar({ id }: MDXContentProps) {
   /**
    * Map of MDX components which map to React components.
    */
@@ -37,13 +32,14 @@ export default function MDXSidebar({ source }: MDXContentProps) {
           href={`#${generatedLink}`}
           className={`${utils.monoText} ${utils.smallText}`}
         >
-          {highlighted === generatedLink ? (
+          {/* {highlighted === generatedLink ? (
             <b>
               {props.children}
             </b>
           ) : (
             props.children
-          )}
+          )} */}
+          {props.children}
         </a>
       )
     },
@@ -56,5 +52,10 @@ export default function MDXSidebar({ source }: MDXContentProps) {
     EmbedFrame: Nothing,
   }
 
-  return <MDXRemote {...source} components={MDXComponents} />
+  // const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
+  const { content } = await getPrecompiledWork(id, MDXComponents)
+
+  return <>
+    {content}
+  </>
 }
