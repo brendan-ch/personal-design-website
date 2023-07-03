@@ -56,7 +56,7 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
           {/* MDX sidebar with header links */}
           <div className={styles.tableOfContents}>
             <Suspense>
-              {/* @ts-expect-error Server Component */}
+              {/* @ts-ignore Server Component */}
               <MDXSidebar id={params.id} />
             </Suspense>
           </div>

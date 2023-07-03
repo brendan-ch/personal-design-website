@@ -25,7 +25,7 @@ export async function generateStaticParams() {
 export default async function Work({ params }: Props) {
   return (
     <div className={styles.container}>
-      {/* @ts-expect-error Server Component */}
+      {/* @ts-ignore Server Component */}
       <MDXContent id={params.id} />
     </div>
   )
