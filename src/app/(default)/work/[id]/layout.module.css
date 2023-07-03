@@ -125,7 +125,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .container {
+  .contentFadeIn {
     flex-direction: column-reverse;
     gap: 16px;
   }
