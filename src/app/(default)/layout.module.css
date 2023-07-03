@@ -3,6 +3,7 @@
   flex-direction: row;
 
   min-height: 100vh;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 880px) {
