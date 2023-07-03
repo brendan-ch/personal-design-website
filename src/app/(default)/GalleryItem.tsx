@@ -28,10 +28,14 @@ export default async function GalleryItem({
 }: Props) {
   let base64: string;
 
+  const plaiceholderConfig = {
+    size: 16,
+  }
+
   if (imageSrc.startsWith('/')) {
     // Image inside `/public` folder
     const file = await fs.readFile(path.join(process.cwd(), 'public', imageSrc))
-    const placeholder = await getPlaiceholder(file)
+    const placeholder = await getPlaiceholder(file, plaiceholderConfig)
     base64 = placeholder.base64
   } else {
     // Remote image
@@ -39,7 +43,7 @@ export default async function GalleryItem({
       Buffer.from(await res.arrayBuffer())
     )
 
-    const placeholder = await getPlaiceholder(buffer)
+    const placeholder = await getPlaiceholder(buffer, plaiceholderConfig)
     base64 = placeholder.base64
   }
 
