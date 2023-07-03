@@ -15,8 +15,8 @@ describe('EmbedFrame', () => {
       />
     )
 
-    const buttonText = screen.getByText('Load example')
-    await user.click(buttonText)
+    const button = screen.getByRole('button')
+    await user.click(button)
 
     const iframe: HTMLIFrameElement = screen.getByRole('presentation')
     expect(iframe.src).toStrictEqual('https://example.com/')
