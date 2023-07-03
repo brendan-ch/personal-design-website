@@ -30,10 +30,12 @@ export default function DesktopSideNavigation() {
       />
 
       {/* Standalone logo */}
-      <LogoStandalone
-        width={72}
-        height={72}
-      />
+      <Link href="/">
+        <LogoStandalone
+          width={72}
+          height={72}
+        />
+      </Link>
 
       {/* Navigation buttons */}
       <div className={styles.navigationButtons}>
