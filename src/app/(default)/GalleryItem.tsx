@@ -1,4 +1,7 @@
+import path from 'path'
+import fs from 'fs/promises'
 import Image from "next/image"
+import { getPlaiceholder } from "plaiceholder"
 import { ImageSize } from "./work/[id]/getWork"
 import styles from './GalleryItem.module.css'
 import utils from '../utils.module.css'
@@ -14,7 +17,7 @@ interface Props {
   href: string,
 }
 
-export default function GalleryItem({
+export default async function GalleryItem({
   imageSrc,
   imageSize,
   imageAlt,
@@ -23,6 +26,9 @@ export default function GalleryItem({
   description,
   href,
 }: Props) {
+  const file = await fs.readFile(path.join(process.cwd(), 'public', imageSrc))
+  const { base64 } = await getPlaiceholder(file)
+  
   return (
     <Link className={styles.container} href={href}>
       {/* Hover information */}
@@ -46,6 +52,8 @@ export default function GalleryItem({
           alt={imageAlt}
           fill
           className={styles.image}
+          placeholder="blur"
+          blurDataURL={base64}
         />
       </div>
       <div className={styles.mobileContentWrapper}>
