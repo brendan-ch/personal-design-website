@@ -5,6 +5,7 @@ import EmbedFrame from "./EmbedFrame"
 import getPrecompiledWork from "./getPrecompiledWork"
 import { compileMDX } from "next-mdx-remote/rsc"
 import remarkUnwrapImages from 'remark-unwrap-images'
+import generatePlaceholder from '@/helpers/generatePlaceholder'
 
 interface MDXContentProps {
   id: string,
@@ -25,18 +26,25 @@ export default async function MDXContent({ id }: MDXContentProps) {
    * Map of MDX components which map to React components.
    */
   const MDXComponents = {
-    img: (props: React.HTMLProps<HTMLImageElement>) => {
+    img: async (props: React.HTMLProps<HTMLImageElement>) => {
       if (!props.src || !props.alt) {
         return <></>
       }
 
       const dimensions = imageSizes.find(({ imagePath }) => imagePath === props.src)
+      const { base64 } = await generatePlaceholder(props.src)
 
       return (
         <div className={styles.imageContainer} style={{
           aspectRatio: dimensions ? `${dimensions.width} / ${dimensions.height}` : '3 / 2'
         }}>
-          <Image src={props.src} alt={props.alt} fill />
+          <Image
+            src={props.src}
+            alt={props.alt}
+            fill
+            placeholder="blur"
+            blurDataURL={base64}
+          />
         </div>
       )
     },
@@ -59,6 +67,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
         remarkPlugins: [remarkUnwrapImages]
       },
     },
+    // @ts-ignore MDXComponents may contain server components with `async`
     components: MDXComponents,
   })
   
