@@ -26,9 +26,23 @@ export default async function GalleryItem({
   description,
   href,
 }: Props) {
-  const file = await fs.readFile(path.join(process.cwd(), 'public', imageSrc))
-  const { base64 } = await getPlaiceholder(file)
-  
+  let base64: string;
+
+  if (imageSrc.startsWith('/')) {
+    // Image inside `/public` folder
+    const file = await fs.readFile(path.join(process.cwd(), 'public', imageSrc))
+    const placeholder = await getPlaiceholder(file)
+    base64 = placeholder.base64
+  } else {
+    // Remote image
+    const buffer = await fetch(imageSrc).then(async (res) =>
+      Buffer.from(await res.arrayBuffer())
+    )
+
+    const placeholder = await getPlaiceholder(buffer)
+    base64 = placeholder.base64
+  }
+
   return (
     <Link className={styles.container} href={href}>
       {/* Hover information */}
