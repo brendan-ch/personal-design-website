@@ -19,7 +19,7 @@ export interface PrecompiledDocument {
  * @param id ID of the given page.
  */
 const getPrecompiledDocument = cache(async (id: string): Promise<PrecompiledDocument> => {
-  const filePath = path.join(process.cwd(), 'src', 'content', 'work', `${id}.mdx`)
+  const filePath = path.join(process.cwd(), 'src', 'content', 'document', `${id}.mdx`)
   const raw = await fs.readFile(filePath, 'utf-8')
 
   return {
