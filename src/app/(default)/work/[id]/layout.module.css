@@ -14,19 +14,19 @@
   width: 100vw;
   flex: 1;
   justify-content: center;
+}
 
-  /* animation-name: moveUpFadeIn; */
-  /* animation-duration: 200ms; */
-  /* animation-timing-function: cubic-bezier(0, 0, 0, 1); */
+.contentFadeIn {
+  animation-name: moveUpFadeIn;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0, 0, 0, 1);
 }
 
 @keyframes moveUpFadeIn {
   0% {
-    top: 100px;
     opacity: 0%;
   }
   100% {
-    top: 0px;
     opacity: 100%;
   }
 }

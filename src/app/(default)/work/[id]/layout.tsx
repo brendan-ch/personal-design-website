@@ -45,7 +45,7 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
   
   return (
     <div className={styles.container}>
-      <div className={utils.maxWidthWrapper}>
+      <div className={`${utils.maxWidthWrapper} ${styles.contentFadeIn}`}>
         {/* Exit button, positioned relative to container */}
         <Link className={styles.exitButton} href="/">
           <Exit className={styles.exitButtonIcon} />
