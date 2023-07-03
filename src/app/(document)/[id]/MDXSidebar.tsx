@@ -53,7 +53,14 @@ export default async function MDXSidebar({ id }: MDXContentProps) {
   }
 
   // const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
-  const { content } = await getPrecompiledWork(id, MDXComponents)
+  const { raw } = await getPrecompiledWork(id)
+  const { content } = await compileMDX({
+    source: raw,
+    options: {
+      parseFrontmatter: true,
+    },
+    components: MDXComponents,
+  })
 
   return <>
     {content}
