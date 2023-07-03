@@ -13,9 +13,12 @@ const defaultConfig = {
  * 
  * Should only be used on the server side.
  * @param imageSrc The image source.
+ * @param size Size passed to plaiceholder. Defaults to `16`.
  */
-export default async function generatePlaceholder(imageSrc: string) {
-  let plaiceholderConfig = defaultConfig
+export default async function generatePlaceholder(imageSrc: string, size?: number) {
+  let plaiceholderConfig = size ? {
+    size,
+  } : defaultConfig
 
   if (imageSrc.startsWith('/')) {
     // Image inside `/public` folder
