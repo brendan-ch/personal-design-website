@@ -49,6 +49,7 @@ export default async function MDXSidebar({ id }: MDXContentProps) {
     ol: Nothing,
     pre: Nothing,
     img: Nothing,
+    hr: Nothing,
     EmbedFrame: Nothing,
   }
 
