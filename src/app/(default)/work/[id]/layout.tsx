@@ -4,7 +4,7 @@ import styles from './layout.module.css'
 import utils from '../../../utils.module.css'
 import getWork from './getWork'
 import { Metadata, ResolvingMetadata } from 'next'
-import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
+import MDXSidebar from './MDXSidebar'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
