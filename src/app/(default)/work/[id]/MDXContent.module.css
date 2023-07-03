@@ -10,7 +10,7 @@
 }
 
 .imagePlaceholder {
-  filter: blur(16px);
+  filter: blur(32px);
   transform: scale(1.5);
 
   position: absolute;

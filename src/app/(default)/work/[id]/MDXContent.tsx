@@ -32,7 +32,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
       }
 
       const dimensions = imageSizes.find(({ imagePath }) => imagePath === props.src)
-      const { css } = await generatePlaceholder(props.src)
+      const { css } = await generatePlaceholder(props.src, 8)
 
       return (
         <div className={styles.imageContainer} style={{
