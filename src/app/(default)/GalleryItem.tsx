@@ -6,6 +6,7 @@ import { ImageSize } from "./work/[id]/getWork"
 import styles from './GalleryItem.module.css'
 import utils from '../utils.module.css'
 import Link from "next/link"
+import generatePlaceholder from '@/helpers/generatePlaceholder'
 
 interface Props {
   imageSrc: string,
@@ -26,26 +27,7 @@ export default async function GalleryItem({
   description,
   href,
 }: Props) {
-  let base64: string;
-
-  const plaiceholderConfig = {
-    size: 16,
-  }
-
-  if (imageSrc.startsWith('/')) {
-    // Image inside `/public` folder
-    const file = await fs.readFile(path.join(process.cwd(), 'public', imageSrc))
-    const placeholder = await getPlaiceholder(file, plaiceholderConfig)
-    base64 = placeholder.base64
-  } else {
-    // Remote image
-    const buffer = await fetch(imageSrc).then(async (res) =>
-      Buffer.from(await res.arrayBuffer())
-    )
-
-    const placeholder = await getPlaiceholder(buffer, plaiceholderConfig)
-    base64 = placeholder.base64
-  }
+  const { base64 } = await generatePlaceholder(imageSrc)
 
   return (
     <Link className={styles.container} href={href}>
