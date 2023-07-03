@@ -1,7 +1,4 @@
-import path from 'path'
-import fs from 'fs/promises'
 import Image from "next/image"
-import { getPlaiceholder } from "plaiceholder"
 import { ImageSize } from "./work/[id]/getWork"
 import styles from './GalleryItem.module.css'
 import utils from '../utils.module.css'
@@ -27,7 +24,7 @@ export default async function GalleryItem({
   description,
   href,
 }: Props) {
-  const { base64 } = await generatePlaceholder(imageSrc)
+  const { base64, css } = await generatePlaceholder(imageSrc, 8)
 
   return (
     <Link className={styles.container} href={href}>
@@ -47,13 +44,12 @@ export default async function GalleryItem({
       <div className={styles.imageContainer} style={{
         aspectRatio: `${imageSize.width} / ${imageSize.height}`,
       }}>
+        <div className={styles.imagePlaceholder} style={css}></div>
         <Image
           src={imageSrc}
           alt={imageAlt}
           fill
           className={styles.image}
-          placeholder="blur"
-          blurDataURL={base64}
         />
       </div>
       <div className={styles.mobileContentWrapper}>
