@@ -32,18 +32,17 @@ export default async function MDXContent({ id }: MDXContentProps) {
       }
 
       const dimensions = imageSizes.find(({ imagePath }) => imagePath === props.src)
-      const { base64 } = await generatePlaceholder(props.src)
+      const { css } = await generatePlaceholder(props.src)
 
       return (
         <div className={styles.imageContainer} style={{
           aspectRatio: dimensions ? `${dimensions.width} / ${dimensions.height}` : '3 / 2'
         }}>
+          <div className={styles.imagePlaceholder} style={css}></div>
           <Image
             src={props.src}
             alt={props.alt}
             fill
-            placeholder="blur"
-            blurDataURL={base64}
           />
         </div>
       )
