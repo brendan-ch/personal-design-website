@@ -1,7 +1,7 @@
 import { compileMDX } from "next-mdx-remote/rsc"
-import utils from '../../utils.module.css'
+import utils from '../../../utils.module.css'
 import generateHeadingLink from "@/helpers/generateHeadingLink"
-import getPrecompiledDocument from "./getPrecompiledDocument"
+import getPrecompiledWork from "@/app/(default)/work/[id]/getPrecompiledWork"
 
 interface MDXContentProps {
   id: string,
@@ -49,12 +49,11 @@ export default async function MDXSidebar({ id }: MDXContentProps) {
     ol: Nothing,
     pre: Nothing,
     img: Nothing,
-    hr: Nothing,
     EmbedFrame: Nothing,
   }
 
   // const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
-  const { raw } = await getPrecompiledDocument(id)
+  const { raw } = await getPrecompiledWork(id)
   const { content } = await compileMDX({
     source: raw,
     options: {

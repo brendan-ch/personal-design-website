@@ -28,12 +28,15 @@ export default function EmbedFrame(props: Props) {
         />
       ) : (
         <>
-          <div className={styles.buttonContainer}>
+          <div className={`${styles.buttonContainer} ${styles.desktopButtonContainer}`}>
             <ActionButton
               text={props.loadButtonText}
               onClick={() => setShouldLoad(true)}
               highlighted
             />
+          </div>
+          <div className={`${styles.buttonContainer} ${styles.mobileButtonContainer}`}>
+            <ActionButton highlighted href={props.src} useRegularLink text={props.loadButtonText} />
           </div>
           <div className={styles.backgroundImageContainer}>
             <Image

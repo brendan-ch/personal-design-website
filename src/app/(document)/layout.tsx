@@ -1,6 +1,7 @@
 import { WHITE } from '../Constants'
 import '../globals.css'
 import styles from './layout.module.css'
+import utils from '../utils.module.css'
 
 export const metadata = {
   title: 'Create Next App',
@@ -20,12 +21,9 @@ export default function RootLayout({
       </head>
       <body>
         <div className={styles.rootContainer}>
-
-          {/* to-do: implement back button + table of contents sidebar */}
-          {/* since root layout cannot be a client component, */}
-          {/* have content be a separate client component */}
-
-          {children}
+          <div className={utils.maxWidthWrapper}>
+            {children}
+          </div>
         </div>
 
       </body>

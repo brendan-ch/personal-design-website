@@ -1,3 +1,5 @@
+import withPlaiceholder from '@plaiceholder/next'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -7,7 +9,8 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
+    formats: ["image/avif", "image/webp"]
   },
 }
 
-module.exports = nextConfig
+export default withPlaiceholder(nextConfig)

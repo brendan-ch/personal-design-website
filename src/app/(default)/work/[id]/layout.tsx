@@ -4,8 +4,9 @@ import styles from './layout.module.css'
 import utils from '../../../utils.module.css'
 import getWork from './getWork'
 import { Metadata, ResolvingMetadata } from 'next'
-import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
+import MDXSidebar from './MDXSidebar'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 interface LayoutProps {
   params: {
@@ -28,7 +29,7 @@ export async function generateMetadata(
 }
 
 export default async function WorkLayout({ children, params }: LayoutProps) {
-  const { frontmatter, serialized } = await getWork(params.id)
+  const { frontmatter, raw } = await getWork(params.id)
   
   // Get current page URL
   const currentPath = ['https://design.bchen.dev', 'work', params.id].join('/');
@@ -45,39 +46,44 @@ export default async function WorkLayout({ children, params }: LayoutProps) {
   
   return (
     <div className={styles.container}>
-      {/* Exit button, positioned relative to container */}
-      <Link className={styles.exitButton} href="/">
-        <Exit className={styles.exitButtonIcon} />
-        <Exit width={24} height={24} className={styles.exitButtonIconMobile} />
-      </Link>
-      <div className={styles.leftSidebar}>
-        {/* MDX sidebar with header links */}
-        <div className={styles.tableOfContents}>
-          <MDXSidebar source={serialized} />
-        </div>
-      </div>
-      <div className={styles.shareContainerMobile}>
-        <ShareCTA
-          copyLink={currentPath}
-          links={sharingLinks}
-        />
-      </div>
-      {children}
-      <div className={styles.rightSidebar}>
-        {/* Title and description based on frontmatter */}
-        <div className={styles.descriptionContainer}>
-          <div className={styles.titleContainer}>
-            <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.title}</p>
-            <p className={`${utils.monoText} ${utils.smallText} ${styles.date}`}>{frontmatter.date}</p>
+      <div className={`${utils.maxWidthWrapper} ${styles.contentFadeIn}`}>
+        {/* Exit button, positioned relative to container */}
+        <Link className={styles.exitButton} href="/">
+          <Exit className={styles.exitButtonIcon} />
+          <Exit width={24} height={24} className={styles.exitButtonIconMobile} />
+        </Link>
+        <div className={styles.leftSidebar}>
+          {/* MDX sidebar with header links */}
+          <div className={styles.tableOfContents}>
+            <Suspense>
+              {/* @ts-ignore Server Component */}
+              <MDXSidebar id={params.id} />
+            </Suspense>
           </div>
-          <p className={utils.smallText}>{frontmatter.description}</p>
         </div>
-        {/* Share CTA */}
-        <div className={styles.shareContainer}>
+        <div className={styles.shareContainerMobile}>
           <ShareCTA
             copyLink={currentPath}
             links={sharingLinks}
           />
+        </div>
+        {children}
+        <div className={styles.rightSidebar}>
+          {/* Title and description based on frontmatter */}
+          <div className={styles.descriptionContainer}>
+            <div className={styles.titleContainer}>
+              <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.title}</p>
+              <p className={`${utils.monoText} ${utils.smallText} ${styles.date}`}>{frontmatter.date}</p>
+            </div>
+            <p className={utils.smallText}>{frontmatter.description}</p>
+          </div>
+          {/* Share CTA */}
+          <div className={styles.shareContainer}>
+            <ShareCTA
+              copyLink={currentPath}
+              links={sharingLinks}
+            />
+          </div>
         </div>
       </div>
     </div>

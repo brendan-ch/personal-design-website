@@ -2,6 +2,7 @@ import DesktopSideNavigation from './DesktopSideNavigation'
 import MobileNavigationBar from './MobileNavigationBar'
 import '../globals.css'
 import styles from './layout.module.css'
+import utils from '../utils.module.css'
 import { BACKGROUND } from '../Constants'
 
 export const metadata = {
@@ -27,10 +28,12 @@ export default function RootLayout({
       </head>
       <body>
         <div className={styles.rootContainer}>
+          <div className={utils.maxWidthWrapper}>
+            <MobileNavigationBar />
+            <DesktopSideNavigation />
+            {children}
+          </div>
 
-          <MobileNavigationBar />
-          <DesktopSideNavigation />
-          {children}
         </div>
 
       </body>

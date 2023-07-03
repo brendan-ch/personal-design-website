@@ -30,6 +30,7 @@ export default async function Home() {
         {workColumns.map((column, i) => (
           <div className={styles.column} key={i}>
             {column.map(({ frontmatter, previewImageSize }, j) => (
+              // @ts-ignore Server Component
               <GalleryItem
                 title={frontmatter.title}
                 date={frontmatter.date}
