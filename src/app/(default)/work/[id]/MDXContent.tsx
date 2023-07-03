@@ -1,15 +1,13 @@
-'use client'
-
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import styles from './MDXContent.module.css'
 import Image from "next/image"
-import { ImageSize } from "./getWork"
 import generateHeadingLink from "@/helpers/generateHeadingLink"
 import EmbedFrame from "./EmbedFrame"
+import getPrecompiledWork from "./getPrecompiledWork"
+import { compileMDX } from "next-mdx-remote/rsc"
+import remarkUnwrapImages from 'remark-unwrap-images'
 
 interface MDXContentProps {
-  source: MDXRemoteSerializeResult,
-  imageSizes: ImageSize[],
+  id: string,
 }
 
 const Nothing = () => <></>
@@ -20,7 +18,9 @@ const Nothing = () => <></>
  * @param param0
  * @returns
 */
-export default function MDXContent({ source, imageSizes }: MDXContentProps) {
+export default async function MDXContent({ id }: MDXContentProps) {
+  const { raw, imageSizes } = await getPrecompiledWork(id)
+
   /**
    * Map of MDX components which map to React components.
    */
@@ -51,5 +51,18 @@ export default function MDXContent({ source, imageSizes }: MDXContentProps) {
     EmbedFrame: EmbedFrame,
   }
 
-  return <MDXRemote {...source} components={MDXComponents} lazy />
+  const { content } = await compileMDX({
+    source: raw,
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        remarkPlugins: [remarkUnwrapImages]
+      },
+    },
+    components: MDXComponents,
+  })
+  
+  return <>
+    {content}
+  </>
 }

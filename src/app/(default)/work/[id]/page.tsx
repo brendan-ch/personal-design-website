@@ -23,11 +23,10 @@ export async function generateStaticParams() {
 }
 
 export default async function Work({ params }: Props) {
-  const { frontmatter, serialized, imageSizes } = await getWork(params.id)
-
   return (
     <div className={styles.container}>
-      <MDXContent source={serialized} imageSizes={imageSizes} />
+      {/* @ts-expect-error Server Component */}
+      <MDXContent id={params.id} />
     </div>
   )
 }
