@@ -16,7 +16,6 @@
 
   /* Grow with content, to accommodate for sticky scrolling of TOC */
   height: 100vh;
-  flex: 1 0;
   position: sticky;
   top: 0;
 
@@ -24,7 +23,8 @@
   position: sticky;
   top: 0; */
 
-  max-width: 304px;
+  width: 304px;
+  flex-shrink: 0;
 
   gap: 48px;
 }
@@ -43,6 +43,8 @@
   flex-direction: column;
   
   flex: 1;
+
+  min-width: 0;
 }
 
 @media only screen and (max-width: 880px) {
