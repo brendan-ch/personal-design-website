@@ -49,8 +49,10 @@ const MDXComponents = {
     </ul>
   ),
   pre: (props: React.HTMLProps<HTMLPreElement>) => (
-    <pre className={styles.pre} {...props}>
-    </pre>
+    <div className={styles.preWrapper}>
+      <pre className={styles.pre} {...props}>
+      </pre>
+    </div>
   ),
   img: (props: React.HTMLProps<HTMLImageElement>) => props.src && props.alt ? (
     <div className={styles.imageContainer}>
