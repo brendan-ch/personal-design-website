@@ -56,6 +56,13 @@ export default async function MDXContent({ id }: MDXContentProps) {
     h2: Nothing,
     h3: Nothing,
     EmbedFrame: EmbedFrame,
+    blockquote: (props: React.HTMLProps<HTMLQuoteElement>) => {
+      return (
+        <blockquote className={styles.blockquote}>
+          {props.children}
+        </blockquote>
+      )
+    },
   }
 
   const { content } = await compileMDX({
