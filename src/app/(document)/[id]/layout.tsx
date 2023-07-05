@@ -25,6 +25,8 @@ export async function generateMetadata(
 }
 
 export default async function DocumentLayout({ params, children }: Props) {
+  const { serialized } = await getDocument(params.id)
+
   return (
     // Get MDX content here and pass it down to sidebar
     // Render children as well
@@ -36,8 +38,7 @@ export default async function DocumentLayout({ params, children }: Props) {
 
         {/* to-do: pass content */}
         <div className={styles.tableOfContents}>
-          {/* @ts-ignore Server Component */}
-          <MDXSidebar id={params.id} />
+          <MDXSidebar source={serialized} />
         </div>
       </div>
       <div className={styles.contentContainer}>
