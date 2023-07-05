@@ -56,6 +56,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
     img: Nothing,
     hr: Nothing,
     EmbedFrame: Nothing,
+    blockquote: Nothing,
   }
 
   return <MDXRemote components={MDXComponents} {...source} />
