@@ -1,9 +1,8 @@
 'use client'
 
-import { MDXRemoteSerializeResult, compileMDX } from "next-mdx-remote/rsc"
+import { MDXRemoteSerializeResult } from "next-mdx-remote/rsc"
 import utils from '../../utils.module.css'
 import generateHeadingLink from "@/helpers/generateHeadingLink"
-import getPrecompiledDocument from "./getPrecompiledDocument"
 import { MDXRemote } from "next-mdx-remote"
 import useScrollHighlight from "@/hooks/useScrollHighlight"
 
