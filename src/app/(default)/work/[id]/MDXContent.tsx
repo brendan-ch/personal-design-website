@@ -63,6 +63,10 @@ export default async function MDXContent({ id }: MDXContentProps) {
         </blockquote>
       )
     },
+    a: (props: React.HTMLProps<HTMLAnchorElement>) => (
+      <a target="_blank" rel="noreferrer" {...props}>
+      </a>
+    )
   }
 
   const { content } = await compileMDX({
@@ -76,7 +80,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
     // @ts-ignore MDXComponents may contain server components with `async`
     components: MDXComponents,
   })
-  
+
   return <>
     {content}
   </>

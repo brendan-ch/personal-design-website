@@ -59,6 +59,10 @@ const MDXComponents = {
       <Image src={props.src} alt={props.alt} fill />
     </div>
   ) : <></>,
+  a: (props: React.HTMLProps<HTMLAnchorElement>) => (
+    <a target="_blank" rel="noreferrer" {...props}>
+    </a>
+  )
 }
 
 /**
