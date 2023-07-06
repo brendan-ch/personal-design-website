@@ -45,9 +45,9 @@ export default function DesktopSideNavigation() {
         <Link href="/ui-ux-design">
           <p className={pathname === '/ui-ux-design' ? styles.selected : undefined}>UI/UX Design</p>
         </Link>
-        <Link href="/graphic-design">
+        {/* <Link href="/graphic-design">
           <p className={pathname === '/graphic-design' ? styles.selected : undefined}>Graphic Design</p>
-        </Link>
+        </Link> */}
         <Link href="/wip">
           <p className={pathname === '/wip' ? styles.selected : undefined}>Work in Progress</p>
         </Link>
