@@ -1,10 +1,9 @@
-
+import styles from './page.module.css'
 
 export default function UIUX() {
   return (
-    <main>
-
-      <p>This is the UI/UX design page</p>
+    <main className={styles.main}>
+      <p>Coming soon...</p>
     </main>
   );
 }
