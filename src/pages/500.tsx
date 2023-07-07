@@ -23,6 +23,10 @@ export default function ServerError() {
           fill
         />
       </div>
+      <p>Image by{' '}
+        <a href="https://unsplash.com/@sushioutlaw" target="_blank" rel="norerferrer">Brian McGowan</a>
+      {' on '}
+        <a href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a>.</p>
     </main>
   )
 }

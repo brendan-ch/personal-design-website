@@ -22,6 +22,10 @@ export default function NotFound() {
           fill
         />
       </div>
+      <p>Image by{' '}
+        <a href="https://unsplash.com/@veverkolog" target="_blank" rel="norerferrer">Dušan veverkolog</a>
+      {' on '}
+        <a href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a>.</p>
     </main>
   )
 }
