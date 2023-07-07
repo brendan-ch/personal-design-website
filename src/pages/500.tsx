@@ -3,6 +3,7 @@ import styles from './404.module.css'
 import utils from '../app/utils.module.css'
 import Image from 'next/image'
 import { Metadata } from 'next'
+import Head from 'next/head'
 
 export const metadata: Metadata = {
   title: 'Page Not Found',
@@ -14,6 +15,9 @@ export default function ServerError() {
 
   return (
     <main className={styles.main}>
+      <Head>
+        <title>Internal Server Error</title>
+      </Head>
       <h1 className={utils.h0Text}>Internal Server Error</h1>
       <p>Something went wrong when loading this page. Maybe try again later?</p>
       <Link href="/">Back to home</Link>
