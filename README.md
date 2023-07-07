@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Copyright and Licensing
 
-I, Brendan Chen, reserve full copyright for content under the `/src/content` and `/public/static` folders of the website.
+I, Brendan Chen, reserve full copyright for content under the `/src/content` and `/public/static` folders of the website. This includes, but is not limited to, Markdown (`.mdx`) and image content.
 
 The rest of the project is licensed under the MIT license.
 
