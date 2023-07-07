@@ -30,6 +30,8 @@ This website uses MDX via [`next-mdx-remote`](https://github.com/hashicorp/next-
 
 Content under `/src/content/work` are rendered as projects under the path `/work/[project-name]` ([see an example](https://design.bchen.dev/work/cmes-admin-panel)). Content under `/src/content/document` are rendered under the path `/[document-name]` ([see an example](https://design.bchen.dev/privacy)).
 
+Run `npm run generate` to generate image dimensions for newly added images in MDX files. This is only necessary if content is changed when the development server is running.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
