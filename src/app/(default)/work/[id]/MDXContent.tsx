@@ -1,15 +1,14 @@
-'use client'
-
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import styles from './MDXContent.module.css'
 import Image from "next/image"
-import { ImageSize } from "./getWork"
 import generateHeadingLink from "@/helpers/generateHeadingLink"
 import EmbedFrame from "./EmbedFrame"
+import getPrecompiledWork from "./getPrecompiledWork"
+import { compileMDX } from "next-mdx-remote/rsc"
+import remarkUnwrapImages from 'remark-unwrap-images'
+import generatePlaceholder from '@/helpers/generatePlaceholder'
 
 interface MDXContentProps {
-  source: MDXRemoteSerializeResult,
-  imageSizes: ImageSize[],
+  id: string,
 }
 
 const Nothing = () => <></>
@@ -20,23 +19,31 @@ const Nothing = () => <></>
  * @param param0
  * @returns
 */
-export default function MDXContent({ source, imageSizes }: MDXContentProps) {
+export default async function MDXContent({ id }: MDXContentProps) {
+  const { raw, imageSizes } = await getPrecompiledWork(id)
+
   /**
    * Map of MDX components which map to React components.
    */
   const MDXComponents = {
-    img: (props: React.HTMLProps<HTMLImageElement>) => {
+    img: async (props: React.HTMLProps<HTMLImageElement>) => {
       if (!props.src || !props.alt) {
         return <></>
       }
 
       const dimensions = imageSizes.find(({ imagePath }) => imagePath === props.src)
+      const { css } = await generatePlaceholder(props.src, 8)
 
       return (
         <div className={styles.imageContainer} style={{
           aspectRatio: dimensions ? `${dimensions.width} / ${dimensions.height}` : '3 / 2'
         }}>
-          <Image src={props.src} alt={props.alt} fill />
+          <div className={styles.imagePlaceholder} style={css}></div>
+          <Image
+            src={props.src}
+            alt={props.alt}
+            fill
+          />
         </div>
       )
     },
@@ -49,7 +56,32 @@ export default function MDXContent({ source, imageSizes }: MDXContentProps) {
     h2: Nothing,
     h3: Nothing,
     EmbedFrame: EmbedFrame,
+    blockquote: (props: React.HTMLProps<HTMLQuoteElement>) => {
+      return (
+        <blockquote className={styles.blockquote}>
+          {props.children}
+        </blockquote>
+      )
+    },
+    a: (props: React.HTMLProps<HTMLAnchorElement>) => (
+      <a target="_blank" rel="noreferrer" {...props}>
+      </a>
+    )
   }
 
-  return <MDXRemote {...source} components={MDXComponents} lazy />
+  const { content } = await compileMDX({
+    source: raw,
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        remarkPlugins: [remarkUnwrapImages]
+      },
+    },
+    // @ts-ignore MDXComponents may contain server components with `async`
+    components: MDXComponents,
+  })
+
+  return <>
+    {content}
+  </>
 }

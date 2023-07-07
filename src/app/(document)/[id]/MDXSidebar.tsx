@@ -1,9 +1,9 @@
 'use client'
 
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
+import { MDXRemoteSerializeResult } from "next-mdx-remote/rsc"
 import utils from '../../utils.module.css'
-import { useEffect, useState } from "react"
 import generateHeadingLink from "@/helpers/generateHeadingLink"
+import { MDXRemote } from "next-mdx-remote"
 import useScrollHighlight from "@/hooks/useScrollHighlight"
 
 interface MDXContentProps {
@@ -24,7 +24,7 @@ const Nothing = () => <></>
 */
 export default function MDXSidebar({ source }: MDXContentProps) {
   const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
-
+    
   /**
    * Map of MDX components which map to React components.
    */
@@ -44,6 +44,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
           ) : (
             props.children
           )}
+          {/* {props.children} */}
         </a>
       )
     },
@@ -53,8 +54,10 @@ export default function MDXSidebar({ source }: MDXContentProps) {
     ol: Nothing,
     pre: Nothing,
     img: Nothing,
+    hr: Nothing,
     EmbedFrame: Nothing,
+    blockquote: Nothing,
   }
 
-  return <MDXRemote {...source} components={MDXComponents} />
+  return <MDXRemote components={MDXComponents} {...source} />
 }

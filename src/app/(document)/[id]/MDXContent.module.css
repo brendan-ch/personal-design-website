@@ -38,13 +38,29 @@
   font-size: 16px;
 }
 
-.pre {
+.preWrapper {
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
+
+  overflow-x: scroll;
+}
+
+.pre {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  /* white-space: pre-wrap; */
+  /* word-break: break-all; */
 }
 
 .pre > code {
   display: flex;
   width: 100%;
+
+  flex-direction: column;
 }
 
 .imageContainer {

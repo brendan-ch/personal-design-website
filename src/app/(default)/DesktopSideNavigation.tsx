@@ -30,22 +30,24 @@ export default function DesktopSideNavigation() {
       />
 
       {/* Standalone logo */}
-      <LogoStandalone
-        width={72}
-        height={72}
-      />
+      <Link href="/">
+        <LogoStandalone
+          width={72}
+          height={72}
+        />
+      </Link>
 
       {/* Navigation buttons */}
       <div className={styles.navigationButtons}>
         <Link href="/">
           <p className={pathname === '/' ? styles.selected : undefined}>Featured Works</p>
         </Link>
-        <Link href="/ui-ux-design">
+        {/* <Link href="/ui-ux-design">
           <p className={pathname === '/ui-ux-design' ? styles.selected : undefined}>UI/UX Design</p>
-        </Link>
-        <Link href="/graphic-design">
+        </Link> */}
+        {/* <Link href="/graphic-design">
           <p className={pathname === '/graphic-design' ? styles.selected : undefined}>Graphic Design</p>
-        </Link>
+        </Link> */}
         <Link href="/wip">
           <p className={pathname === '/wip' ? styles.selected : undefined}>Work in Progress</p>
         </Link>

@@ -25,7 +25,7 @@ export async function generateMetadata(
 }
 
 export default async function DocumentLayout({ params, children }: Props) {
-  const { frontmatter, serialized } = await getDocument(params.id)
+  const { serialized } = await getDocument(params.id)
 
   return (
     // Get MDX content here and pass it down to sidebar

@@ -49,14 +49,20 @@ const MDXComponents = {
     </ul>
   ),
   pre: (props: React.HTMLProps<HTMLPreElement>) => (
-    <pre className={styles.pre} {...props}>
-    </pre>
+    <div className={styles.preWrapper}>
+      <pre className={styles.pre} {...props}>
+      </pre>
+    </div>
   ),
   img: (props: React.HTMLProps<HTMLImageElement>) => props.src && props.alt ? (
     <div className={styles.imageContainer}>
       <Image src={props.src} alt={props.alt} fill />
     </div>
   ) : <></>,
+  a: (props: React.HTMLProps<HTMLAnchorElement>) => (
+    <a target="_blank" rel="noreferrer" {...props}>
+    </a>
+  )
 }
 
 /**

@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   description: 'Featured works on the design.bchen.dev website.'
 }
 
-const column1 = ['the-birds', 'uhs-planner-cover']
-const column2 = ['headspace-logo-redesign', 'spirit-week-poster']
+const column1 = ['cmes-admin-panel', 'the-birds', 'uhs-planner-cover']
+const column2 = ['headspace-logo-redesign', 'spirit-week-poster', 'abstract-color-art']
 
 const columns = [column1, column2]
 
@@ -30,6 +30,7 @@ export default async function Home() {
         {workColumns.map((column, i) => (
           <div className={styles.column} key={i}>
             {column.map(({ frontmatter, previewImageSize }, j) => (
+              // @ts-ignore Server Component
               <GalleryItem
                 title={frontmatter.title}
                 date={frontmatter.date}

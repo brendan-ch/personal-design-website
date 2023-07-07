@@ -5,4 +5,31 @@
   position: relative;
   margin-top: 0px;
   margin-bottom: 0px;
+
+  overflow: hidden;
+}
+
+.imagePlaceholder {
+  filter: blur(32px);
+  transform: scale(1.5);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.blockquote {
+  margin: 24px;
+  padding-left: 16px;
+
+  border-left: 2px var(--white) solid;
+}
+
+.blockquote > p {
+  font-size: 16px;
+  font-style: oblique;
+
+  margin-top: 0px;
 }

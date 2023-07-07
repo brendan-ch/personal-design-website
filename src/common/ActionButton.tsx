@@ -40,7 +40,7 @@ export default function ActionButton({ text, onClick, href, useRegularLink, high
     );
   } else if (href) {
     return (
-      <a href={href} className={className}>
+      <a href={href} className={className} rel="noreferrer" target="_blank">
         <p>
           {text}
         </p>
