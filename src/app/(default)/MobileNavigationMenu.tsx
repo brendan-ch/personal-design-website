@@ -81,16 +81,16 @@ export default function MobileNavigationMenu({ visible, onClose }: Props) {
             text="Featured Works"
             href="/"
           />
-          <MobileNavMenuButton
+          {/* <MobileNavMenuButton
             toggled={pathname === '/ui-ux-design'}
             text="UI/UX Design"
             href="/ui-ux-design"
-          />
-          <MobileNavMenuButton
+          /> */}
+          {/* <MobileNavMenuButton
             toggled={pathname === '/graphic-design'}
             text="Graphic Design"
             href="/graphic-design"
-          />
+          /> */}
           <MobileNavMenuButton
             toggled={pathname === '/wip'}
             text="Work in Progress"

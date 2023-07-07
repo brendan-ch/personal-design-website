@@ -11,6 +11,7 @@ const nextConfig = {
     ],
     formats: ["image/avif", "image/webp"]
   },
+  outputFileTracing: false,
 }
 
 export default withPlaiceholder(nextConfig)
