@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import utils from '../utils.module.css'
-import styles from './not-found.module.css'
+import styles from './404.module.css'
+import utils from '../app/utils.module.css'
 import Image from 'next/image'
 import { Metadata } from 'next'
 
