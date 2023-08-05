@@ -6,7 +6,18 @@ import getWorks from './work/[id]/getWorks'
 
 export const metadata: Metadata = {
   title: 'Featured Works',
-  description: 'Featured works on the design.bchen.dev website.'
+  description: 'Featured works on the design.bchen.dev website.',
+  openGraph: {
+    title: 'Featured Works',
+    description: 'Featured works on the design.bchen.dev website.',
+    images: [
+      {
+        width: 1200,
+        height: 630,
+        url: '/static/og-featured-works.png'
+      },
+    ],
+  },
 }
 
 const column1 = ['cmes-admin-panel', 'the-birds', 'uhs-planner-cover']
