@@ -12,6 +12,7 @@ export interface Frontmatter {
   title: string,
   lastUpdated: string,
   description: string,
+  ogImage?: string,
 }
 
 export interface Document<T> {
