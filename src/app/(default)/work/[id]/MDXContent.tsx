@@ -26,6 +26,9 @@ export default async function MDXContent({ id }: MDXContentProps) {
    * Map of MDX components which map to React components.
    */
   const MDXComponents = {
+    p: (props: React.HTMLProps<HTMLParagraphElement>) => (
+      <p className={styles.paragraph} {...props} />
+    ),
     img: async (props: React.HTMLProps<HTMLImageElement>) => {
       if (!props.src || !props.alt) {
         return <></>
