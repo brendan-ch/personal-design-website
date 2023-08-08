@@ -7,9 +7,13 @@ import fs from 'fs/promises'
  * @returns
  */
 async function getWorkIds() {
-  const filePath = path.join(process.cwd(), 'src', 'content', 'work')
-  const ids = await fs.readdir(filePath)
-  return ids.map((id) => id.split('.mdx')[0])
+  // const filePath = path.join(process.cwd(), 'src', 'content', 'work')
+  // const ids = await fs.readdir(filePath)
+
+  const parsed = require('../../../scripts/output/data.json')
+  return parsed.work.map((value: any) => value.id) as string[]
+
+  // return ids.map((id) => id.split('.mdx')[0])
 }
 
 /**
@@ -17,19 +21,22 @@ async function getWorkIds() {
  * @returns
  */
 async function getDocumentIds() {
-  const filePath = path.join(process.cwd(), 'src', 'content', 'document')
-  const ids = await fs.readdir(filePath)
-  return ids.map((id) => id.split('.mdx')[0])
+  // const filePath = path.join(process.cwd(), 'src', 'content', 'document')
+  // const ids = await fs.readdir(filePath)
+  // return ids.map((id) => id.split('.mdx')[0])
+
+  const parsed = require('../../../scripts/output/data.json')
+  return parsed.document.map((value: any) => value.id) as string[]
 }
 
 export async function GET(req: NextRequest) {
   const baseUrl = `https://${req.headers.get('host')}`
-  console.log(baseUrl)
+  // console.log(baseUrl)
 
   const workPages = await getWorkIds()
   const docPages = await getDocumentIds()
-  console.log(workPages)
-  console.log(docPages)
+  // console.log(workPages)
+  // console.log(docPages)
 
   const highPriority = [
     '',
@@ -57,11 +64,11 @@ export async function GET(req: NextRequest) {
       </url>`;
     }).join('')}
   </urlset>`
-  console.log(sitemap)
+  // console.log(sitemap)
 
   const text = new NextResponse(sitemap)
   text.headers.set('Content-Type', 'application/xml')
-  console.log(text)
+  // console.log(text)
 
   return text
 }
