@@ -67,7 +67,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
       )
     },
     a: (props: React.HTMLProps<HTMLAnchorElement>) => (
-      <a target="_blank" rel="noreferrer" {...props}>
+      <a target="_blank" rel="noreferrer" className={styles.anchor} {...props}>
       </a>
     )
   }
