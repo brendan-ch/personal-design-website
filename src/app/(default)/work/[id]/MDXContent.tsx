@@ -26,6 +26,9 @@ export default async function MDXContent({ id }: MDXContentProps) {
    * Map of MDX components which map to React components.
    */
   const MDXComponents = {
+    p: (props: React.HTMLProps<HTMLParagraphElement>) => (
+      <p className={styles.paragraph} {...props} />
+    ),
     img: async (props: React.HTMLProps<HTMLImageElement>) => {
       if (!props.src || !props.alt) {
         return <></>
@@ -64,7 +67,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
       )
     },
     a: (props: React.HTMLProps<HTMLAnchorElement>) => (
-      <a target="_blank" rel="noreferrer" {...props}>
+      <a target="_blank" rel="noreferrer" className={styles.anchor} {...props}>
       </a>
     )
   }

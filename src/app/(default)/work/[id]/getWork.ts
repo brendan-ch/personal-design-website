@@ -32,6 +32,7 @@ export interface Frontmatter {
   description: string,
   date: string,
   previewImage: string,
+  ogImage?: string,
 }
 
 export interface Work<T> {

@@ -23,6 +23,13 @@ export async function generateMetadata(
   return {
     title: frontmatter.title,
     description: frontmatter.description,
+    openGraph: {
+      images: frontmatter.ogImage ? {
+        url: frontmatter.ogImage,
+        width: 1200,
+        height: 630,
+      } : undefined,
+    },
     // TO-DO: dynamically generate image based on page
   }
 }

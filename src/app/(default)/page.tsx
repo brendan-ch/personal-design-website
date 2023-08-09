@@ -6,11 +6,22 @@ import getWorks from './work/[id]/getWorks'
 
 export const metadata: Metadata = {
   title: 'Featured Works',
-  description: 'Featured works on the design.bchen.dev website.'
+  description: 'Featured works on the design.bchen.dev website.',
+  openGraph: {
+    title: 'Featured Works',
+    description: 'Featured works on the design.bchen.dev website.',
+    images: [
+      {
+        width: 1200,
+        height: 630,
+        url: '/static/og-featured-works.png'
+      },
+    ],
+  },
 }
 
 const column1 = ['cmes-admin-panel', 'the-birds', 'uhs-planner-cover']
-const column2 = ['headspace-logo-redesign', 'spirit-week-poster', 'abstract-color-art']
+const column2 = ['headspace-logo-redesign', 'standard-catalog', 'spirit-week-poster', 'abstract-color-art']
 
 const columns = [column1, column2]
 

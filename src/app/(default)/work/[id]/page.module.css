@@ -9,26 +9,6 @@
   padding-bottom: 144px;
 }
 
-.container p {
-  font-size: 16px;
-  margin-top: 16px;
-}
-
-.container a {
-  font-size: 16px;
-  text-decoration: underline;
-  margin-top: 8px;
-}
-
-.container ul {
-  margin-top: 16px;
-  margin-bottom: 0px;
-}
-
-.container li {
-  font-size: 16px;
-}
-
 @media only screen and (max-width: 1200px) {
   .container {
     padding-top: 0px;
