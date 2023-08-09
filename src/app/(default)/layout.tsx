@@ -1,5 +1,6 @@
 import DesktopSideNavigation from './DesktopSideNavigation'
 import MobileNavigationBar from './MobileNavigationBar'
+import { Analytics } from '@vercel/analytics/react'
 import '../globals.css'
 import styles from './layout.module.css'
 import utils from '../utils.module.css'
@@ -36,6 +37,7 @@ export default function RootLayout({
 
         </div>
 
+        <Analytics />
       </body>
     </html>
   )
