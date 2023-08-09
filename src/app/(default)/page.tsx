@@ -5,11 +5,11 @@ import GalleryItem from './GalleryItem'
 import getWorks from './work/[id]/getWorks'
 
 export const metadata: Metadata = {
-  title: 'Featured Works',
-  description: 'Featured works on the design.bchen.dev website.',
+  title: 'Design by Brendan Chen',
+  description: "I'm Brendan, a designer, developer, and college student living in Orange, California. This website is a creative outlet for me to showcase my design works.",
   openGraph: {
-    title: 'Featured Works',
-    description: 'Featured works on the design.bchen.dev website.',
+    title: 'Design by Brendan Chen',
+    description: "I'm Brendan, a designer, developer, and college student living in Orange, California.",
     images: [
       {
         width: 1200,
