@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
 }
 
-const column1 = ['cmes-admin-panel', 'standard-catalog', 'the-birds', 'uhs-planner-cover']
-const column2 = ['headspace-logo-redesign', 'spirit-week-poster', 'abstract-color-art']
+const column1 = ['cmes-admin-panel', 'the-birds', 'uhs-planner-cover']
+const column2 = ['headspace-logo-redesign', 'standard-catalog', 'spirit-week-poster', 'abstract-color-art']
 
 const columns = [column1, column2]
 
