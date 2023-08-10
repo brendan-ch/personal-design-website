@@ -31,15 +31,18 @@ async function getData() {
       });
 
       // Compile array of images by reading content
-      const imagePathRegex = /\/static\/work\/.+\.(png|jpg|jpeg|gif)/g;
+      const imagePathRegex = /\(\/static\/work\/.+\.(png|jpg|jpeg|gif)/g;
       const images = [...content.matchAll(imagePathRegex)].map((matchValue) => matchValue[0]);
 
       const imageSizes = await Promise.all(images.map(async (imagePath) => {
+        // Remove the beginning parenthesis from the file path
+        const validImagePath = imagePath.substring(1);
+
         // @ts-ignore
-        const { width, height } = await sizeOf(path.join('public', imagePath));
+        const { width, height } = await sizeOf(path.join('public', validImagePath));
 
         return {
-          imagePath,
+          validImagePath,
           width,
           height,
         };
