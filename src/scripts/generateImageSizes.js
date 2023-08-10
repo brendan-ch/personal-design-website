@@ -42,7 +42,7 @@ async function getData() {
         const { width, height } = await sizeOf(path.join('public', validImagePath));
 
         return {
-          validImagePath,
+          imagePath: validImagePath,
           width,
           height,
         };
