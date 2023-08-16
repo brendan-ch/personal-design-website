@@ -5,13 +5,14 @@ import GalleryItem from './GalleryItem'
 
 interface Props {
   columns: Work<Frontmatter>[][],
+  headline: string,
 }
 
-export default function HomeContent({ columns }: Props) {
+export default function HomeContent({ columns, headline }: Props) {
   return (
     <main className={styles.main}>
       <div className={styles.heading}>
-        <h1 className={utils.h0Text}>Featured Works</h1>
+        <h1 className={utils.h0Text}>{headline}</h1>
         <p className={`${utils.monoText} ${utils.smallText}`}>by Brendan Chen</p>
       </div>
       {/* Wrap the columns with a div */}
