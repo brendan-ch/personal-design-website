@@ -6,29 +6,15 @@ import Exit from '@/icons/Exit'
 import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
 import ShareCTA, { PageExternalLink } from './ShareCTA'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { Frontmatter } from './getWork'
+import getWork, { Frontmatter } from './getWork'
 
 interface Props {
   children: React.ReactNode,
 
   /**
-   * List of links to display in the share menu.
+   * ID of the work page.
    */
-  sharingLinks: PageExternalLink[],
-  /**
-   * Permalink which the user may copy.
-   */
-  currentPath: string,
-
-  /**
-   * Serialized content to pass to the sidebar.
-   */
-  serialized: MDXRemoteSerializeResult,
-
-  /**
-   * Frontmatter used to display page information.
-   */
-  frontmatter: Frontmatter,
+  id: string,
 
   /**
    * Control the behavior of the exit button.
@@ -37,13 +23,26 @@ interface Props {
   goBackOnExit?: boolean,
 }
 
-export default function LayoutContent({
+export default async function LayoutContent({
   children,
-  currentPath,
-  sharingLinks,
-  frontmatter,
-  serialized,
+  id,
+  goBackOnExit,
 }: Props) {
+  const { frontmatter, serialized } = await getWork(id)
+
+  // Get current page URL
+  const currentPath = ['https://design.bchen.dev', 'work', id].join('/');
+  const sharingLinks: PageExternalLink[] = [
+    {
+      name: 'LinkedIn',
+      url: `https://linkedin.com/share/share-offsite?url=${encodeURIComponent(currentPath)}&title=${encodeURIComponent(frontmatter.title || '')}`
+    },
+    {
+      name: 'Twitter',
+      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentPath)}`
+    },
+  ]
+  
   return (
     <div className={styles.container}>
       <div className={`${utils.maxWidthWrapper} ${styles.contentFadeIn}`}>
