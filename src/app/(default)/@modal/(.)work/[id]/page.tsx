@@ -25,7 +25,7 @@ export default async function Work({ params }: Props) {
   return (
     <div className={styles.container}>
       {/* @ts-ignore Server Component */}
-      <MDXContent id={params.id} />
+      <p>Some page component</p>
     </div>
   )
 }
