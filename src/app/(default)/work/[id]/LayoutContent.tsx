@@ -10,10 +10,31 @@ import { Frontmatter } from './getWork'
 
 interface Props {
   children: React.ReactNode,
+
+  /**
+   * List of links to display in the share menu.
+   */
   sharingLinks: PageExternalLink[],
+  /**
+   * Permalink which the user may copy.
+   */
   currentPath: string,
+
+  /**
+   * Serialized content to pass to the sidebar.
+   */
   serialized: MDXRemoteSerializeResult,
+
+  /**
+   * Frontmatter used to display page information.
+   */
   frontmatter: Frontmatter,
+
+  /**
+   * Control the behavior of the exit button.
+   * By default it returns the user to the home page.
+   */
+  goBackOnExit?: boolean,
 }
 
 export default function LayoutContent({
