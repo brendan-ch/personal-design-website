@@ -31,9 +31,12 @@ export async function generateMetadata(
 
 export default async function WorkLayout({ children, params }: LayoutProps) {
   return (
-    <div>
-      <p>Some layout component</p>
+    // @ts-ignore Server Component
+    <LayoutContent
+      id={params.id}
+      goBackOnExit
+    >
       {children}
-    </div>
+    </LayoutContent>
   )
 }
