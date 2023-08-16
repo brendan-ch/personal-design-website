@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import Exit from '@/icons/Exit';
 import { useState } from 'react';
 import WelcomeOverlay from './WelcomeOverlay';
+import { Page } from './DesktopSideNavigation';
 
 interface ButtonProps {
   toggled?: boolean,
@@ -34,6 +35,7 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
 interface Props {
   visible: boolean,
   onClose: () => any,
+  pages: Page[],
 }
 
 /**
@@ -41,7 +43,7 @@ interface Props {
  * @param props
  * @returns
  */
-export default function MobileNavigationMenu({ visible, onClose }: Props) {
+export default function MobileNavigationMenu({ visible, onClose, pages }: Props) {
   const [noteVisible, setNoteVisible] = useState(false)
   
   const pathname = usePathname()
@@ -81,21 +83,14 @@ export default function MobileNavigationMenu({ visible, onClose }: Props) {
             text="Featured Works"
             href="/"
           />
-          {/* <MobileNavMenuButton
-            toggled={pathname === '/ui-ux-design'}
-            text="UI/UX Design"
-            href="/ui-ux-design"
-          /> */}
-          {/* <MobileNavMenuButton
-            toggled={pathname === '/graphic-design'}
-            text="Graphic Design"
-            href="/graphic-design"
-          /> */}
-          <MobileNavMenuButton
-            toggled={pathname === '/wip'}
-            text="Work in Progress"
-            href="/wip"
-          />
+          {pages.map(({ href, title }) => (
+            <MobileNavMenuButton
+              toggled={pathname === href}
+              text={title}
+              href={href}
+              key={href}
+            />
+          ))}
         </div>
         <div className={styles.footerWrapper}>
           <Footer
