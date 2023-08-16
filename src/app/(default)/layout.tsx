@@ -29,10 +29,8 @@ const pages: Page[] = [
 
 export default function RootLayout({
   children,
-  modal,
 }: {
   children: React.ReactNode,
-  modal: React.ReactNode,
 }) {
   return (
     <html lang="en">
@@ -51,7 +49,6 @@ export default function RootLayout({
             <MobileNavigationBar pages={pages} />
             <DesktopSideNavigation pages={pages} />
             {children}
-            {modal}
           </div>
 
         </div>
