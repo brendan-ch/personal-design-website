@@ -18,6 +18,7 @@ export interface Frontmatter {
 export interface Document<T> {
   frontmatter: T,
   serialized: MDXRemoteSerializeResult,
+  id: string,
 }
 
 /**
@@ -43,6 +44,7 @@ const getDocument = cache(async (id: string): Promise<Document<Frontmatter>> => 
   return {
     frontmatter,
     serialized,
+    id,
   }
 })
 
