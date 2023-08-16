@@ -78,11 +78,6 @@ export default function MobileNavigationMenu({ visible, onClose, pages }: Props)
           </button>
         </div>
         <div className={styles.buttons}>
-          <MobileNavMenuButton
-            toggled={pathname === '/'}
-            text="Featured Works"
-            href="/"
-          />
           {pages.map(({ href, title }) => (
             <MobileNavMenuButton
               toggled={pathname === href}
