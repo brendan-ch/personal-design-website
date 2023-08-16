@@ -41,6 +41,7 @@ export interface Work<T> {
   serialized: MDXRemoteSerializeResult,
   imageSizes: ImageSize[],
   previewImageSize: ImageSize,
+  id: string,
 }
 
 /**
@@ -75,6 +76,7 @@ const getWork = cache(async (id: string): Promise<Work<Frontmatter>> => {
     imageSizes: allImages ? allImages : [],
     previewImageSize,
     raw,
+    id,
   }
 })
 
