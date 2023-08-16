@@ -1,5 +1,6 @@
 import getWork from './getWork'
 import { Metadata, ResolvingMetadata } from 'next'
+import LayoutContent from './LayoutContent'
 
 interface LayoutProps {
   params: {
@@ -30,9 +31,12 @@ export async function generateMetadata(
 
 export default async function WorkLayout({ children, params }: LayoutProps) {
   return (
-    <div>
-      <p>Some layout component</p>
+    // @ts-ignore Server Component
+    <LayoutContent
+      id={params.id}
+      goBackOnExit={false}
+    >
       {children}
-    </div>
+    </LayoutContent>
   )
 }
