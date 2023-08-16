@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import WelcomeOverlay from "./WelcomeOverlay";
 
-interface Page {
+export interface Page {
   title: string,
   href: string,
 }
