@@ -46,7 +46,7 @@ export default function RootLayout({
       <body>
         <div className={styles.rootContainer}>
           <div className={utils.maxWidthWrapper}>
-            <MobileNavigationBar />
+            <MobileNavigationBar pages={pages} />
             <DesktopSideNavigation pages={pages} />
             {children}
           </div>
