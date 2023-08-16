@@ -1,10 +1,19 @@
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import MobileNavigationBar from "./MobileNavigationBar"
 import userEvent from '@testing-library/user-event'
+import { Page } from "./DesktopSideNavigation"
+
+const mockPages: Page[] = [
+  {
+    title: 'Featured Works',
+    href: '/'
+  },
+]
 
 describe('MobileNavigationBar', () => {
   it('Applies custom styling', () => {
     render(<MobileNavigationBar
+      pages={mockPages}
       style={{
         display: 'block',
         opacity: 42
@@ -22,8 +31,8 @@ describe('MobileNavigationBar', () => {
     const user = userEvent.setup()
 
     render(<>
-      <MobileNavigationBar />
-      <MobileNavigationBar />
+      <MobileNavigationBar pages={mockPages} />
+      <MobileNavigationBar pages={mockPages} />
     </>)
 
     // Select the hamburger button

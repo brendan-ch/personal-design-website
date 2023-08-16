@@ -2,6 +2,14 @@ import { render, screen } from "@testing-library/react"
 import MobileNavigationMenu, { MobileNavMenuButton } from "./MobileNavigationMenu"
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
+import { Page } from "./DesktopSideNavigation"
+
+const mockPages: Page[] = [
+  {
+    title: 'Featured Works',
+    href: '/'
+  },
+]
 
 describe('MobileNavMenuButton', () => {
   it('Renders a link to specifed href', () => {
@@ -28,8 +36,8 @@ describe('MobileNavMenuButton', () => {
 describe('MobileNavigationMenu', () => {
   it('Renders differently based on visibility', () => {
     render(<>
-      <MobileNavigationMenu visible onClose={() => {}} />
-      <MobileNavigationMenu visible={false} onClose={() => {}} />
+      <MobileNavigationMenu pages={mockPages} visible onClose={() => { }} />
+      <MobileNavigationMenu pages={mockPages} visible={false} onClose={() => { }} />
     </>)
 
     const menus = screen.getAllByTestId('mobileNavigationMenu')
@@ -39,10 +47,11 @@ describe('MobileNavigationMenu', () => {
   it('Calls onClose prop', async () => {
     const fn = jest.fn()
     const user = userEvent.setup()
-    
+
     render(
       <>
         <MobileNavigationMenu
+          pages={mockPages}
           onClose={fn}
           visible
         />
@@ -51,7 +60,7 @@ describe('MobileNavigationMenu', () => {
 
     const exitTitle = screen.getByTitle('Exit')
     await user.click(exitTitle)
-    
+
     expect(fn).toHaveBeenCalled()
   })
 })
