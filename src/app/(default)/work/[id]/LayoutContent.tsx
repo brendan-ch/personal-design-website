@@ -1,12 +1,10 @@
 import styles from './LayoutContent.module.css'
 import utils from '../../../utils.module.css'
 
-import Link from 'next/link'
-import Exit from '@/icons/Exit'
 import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
 import ShareCTA, { PageExternalLink } from './ShareCTA'
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import getWork, { Frontmatter } from './getWork'
+import getWork from './getWork'
+import ExitButton from './ExitButton'
 
 interface Props {
   children: React.ReactNode,
@@ -53,10 +51,7 @@ export default async function LayoutContent({
     <div className={styles.container}>
       <div className={`${utils.maxWidthWrapper} ${styles.contentFadeIn}`}>
         {/* Exit button, positioned relative to container */}
-        <Link className={styles.exitButton} href="/">
-          <Exit className={styles.exitButtonIcon} />
-          <Exit width={24} height={24} className={styles.exitButtonIconMobile} />
-        </Link>
+        <ExitButton goBackOnExit={goBackOnExit} />
         <div className={styles.leftSidebar}>
           {/* MDX sidebar with header links */}
           <div className={styles.tableOfContents}>
