@@ -8,7 +8,16 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import WelcomeOverlay from "./WelcomeOverlay";
 
-export default function DesktopSideNavigation() {
+interface Page {
+  title: string,
+  href: string,
+}
+
+interface Props {
+  pages: Page[],
+}
+
+export default function DesktopSideNavigation({ pages }: Props) {
   const pathname = usePathname();
   const [overlayVisible, setOverlayVisible] = useState(false);
 
@@ -39,18 +48,11 @@ export default function DesktopSideNavigation() {
 
       {/* Navigation buttons */}
       <div className={styles.navigationButtons}>
-        <Link href="/">
-          <p className={pathname === '/' ? styles.selected : undefined}>Featured Works</p>
-        </Link>
-        {/* <Link href="/ui-ux-design">
-          <p className={pathname === '/ui-ux-design' ? styles.selected : undefined}>UI/UX Design</p>
-        </Link> */}
-        {/* <Link href="/graphic-design">
-          <p className={pathname === '/graphic-design' ? styles.selected : undefined}>Graphic Design</p>
-        </Link> */}
-        <Link href="/wip">
-          <p className={pathname === '/wip' ? styles.selected : undefined}>Work in Progress</p>
-        </Link>
+        {pages.map(({ href, title }) => (
+          <Link href={href} key={href}>
+            <p className={pathname === href ? styles.selected : undefined}>{title}</p>
+          </Link>
+        ))}
       </div>
       <Footer onNoteOpen={() => setOverlayVisible(true)} />
     </div>
