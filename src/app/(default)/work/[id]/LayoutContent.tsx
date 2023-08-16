@@ -23,6 +23,12 @@ interface Props {
   goBackOnExit?: boolean,
 }
 
+/**
+ * Layout content shared between intercepted route (@modal/(.)work/[id]) and
+ * default rout (/work/[id]).
+ * @param param0
+ * @returns
+ */
 export default async function LayoutContent({
   children,
   id,
