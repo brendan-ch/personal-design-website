@@ -28,7 +28,7 @@ export default function HomeContent({ columns, headline }: Props) {
                 imageAlt={`Preview image for ${frontmatter.title}`}
                 imageSize={previewImageSize}
                 key={j}
-                href={`/work/${columns[i][j]}`}
+                href={`/work/${columns[i][j].id}`}
                 description={frontmatter.description}
               />
             ))}
