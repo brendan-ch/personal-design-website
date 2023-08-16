@@ -29,6 +29,6 @@ export default async function Home() {
   }))
 
   return (
-    <HomeContent columns={workColumns} />
+    <HomeContent columns={workColumns} headline="Featured Works" />
   )
 }
