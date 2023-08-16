@@ -1,4 +1,3 @@
-import { PageExternalLink } from './ShareCTA'
 import getWork from './getWork'
 import { Metadata, ResolvingMetadata } from 'next'
 import LayoutContent from './LayoutContent'
@@ -31,27 +30,11 @@ export async function generateMetadata(
 }
 
 export default async function WorkLayout({ children, params }: LayoutProps) {
-  const { frontmatter, serialized } = await getWork(params.id)
-  
-  // Get current page URL
-  const currentPath = ['https://design.bchen.dev', 'work', params.id].join('/');
-  const sharingLinks: PageExternalLink[] = [
-    {
-      name: 'LinkedIn',
-      url: `https://linkedin.com/share/share-offsite?url=${encodeURIComponent(currentPath)}&title=${encodeURIComponent(frontmatter.title || '')}`
-    },
-    {
-      name: 'Twitter',
-      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentPath)}`
-    },
-  ]
-  
   return (
+    // @ts-ignore Server Component
     <LayoutContent
-      sharingLinks={sharingLinks}
-      currentPath={currentPath}
-      frontmatter={frontmatter}
-      serialized={serialized}
+      id={params.id}
+      goBackOnExit={false}
     >
       {children}
     </LayoutContent>
