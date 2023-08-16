@@ -22,8 +22,8 @@ const pages: Page[] = [
     href: '/ui-ux',
   },
   {
-    title: 'Work in Progress',
-    href: '/wip',
+    title: 'Graphic Design',
+    href: '/graphic-design',
   },
 ]
 
