@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import styles from '../../../work/[id]/page.module.css'
-import MDXContent from '@/app/(document)/[id]/MDXContent'
+import MDXContent from '@/app/(default)/work/[id]/MDXContent'
 
 export const dynamicParams = false
 
@@ -22,8 +22,6 @@ export async function generateStaticParams() {
 }
 
 export default async function Work({ params }: Props) {
-  console.log('Intercepted route rendered')
-
   return (
     <div className={styles.container}>
       {/* @ts-ignore Server Component */}
