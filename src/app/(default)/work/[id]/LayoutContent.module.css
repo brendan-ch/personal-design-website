@@ -31,28 +31,6 @@
   }
 }
 
-.exitButton {
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-
-  padding: 32px;
-
-  position: fixed;
-  right: 0px;
-  top: 0px;
-
-  background-color: var(--background);
-}
-
-.exitButtonIcon path {
-  fill: var(--white);
-}
-
-.exitButtonIconMobile {
-  display: none;
-}
-
 .leftSidebar {
   display: flex;
   flex-direction: column;
@@ -141,26 +119,8 @@
     height: auto;
   }
 
-  .exitButton {
-    padding: 18px;
-  }
-
   .shareContainer {
     display: none;
-  }
-
-  .exitButtonIcon {
-    display: none;
-  }
-
-  .exitButtonIconMobile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .exitButtonIconMobile path {
-    fill: var(--white);
   }
 
   .shareContainerMobile {

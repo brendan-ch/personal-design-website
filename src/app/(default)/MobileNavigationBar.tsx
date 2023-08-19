@@ -8,10 +8,12 @@ import Hamburger from '@/icons/Hamburger';
 import LogoStandalone from '@/icons/LogoStandalone';
 import MobileNavigationMenu from './MobileNavigationMenu';
 import { usePathname } from 'next/navigation';
+import { Page } from './DesktopSideNavigation';
 
 interface Props {
   style?: CSSProperties,
   hideLogo?: boolean,
+  pages: Page[],
 }
 
 /**
@@ -20,7 +22,7 @@ interface Props {
  * 
  * @param props
  */
-export default function MobileNavigationBar({ style, hideLogo }: Props) {
+export default function MobileNavigationBar({ style, hideLogo, pages }: Props) {
   const [menuVisible, setMenuVisible] = useState(false);
 
   const pathname = usePathname()
@@ -32,6 +34,7 @@ export default function MobileNavigationBar({ style, hideLogo }: Props) {
   return (
     <nav className={hideLogo ? `${utils.mobileNavContent} ${utils.mobileNavContentWithoutLogo} ${styles.noDisplayDesktop}` : `${utils.mobileNavContent} ${styles.noDisplayDesktop}`} style={style}>
       <MobileNavigationMenu
+        pages={pages}
         visible={menuVisible}
         onClose={() => setMenuVisible(false)}
       />

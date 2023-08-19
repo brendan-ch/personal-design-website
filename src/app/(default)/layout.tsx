@@ -1,4 +1,4 @@
-import DesktopSideNavigation from './DesktopSideNavigation'
+import DesktopSideNavigation, { Page } from './DesktopSideNavigation'
 import MobileNavigationBar from './MobileNavigationBar'
 import { Analytics } from '@vercel/analytics/react'
 import '../globals.css'
@@ -11,10 +11,26 @@ export const metadata = {
   description: 'Design works by Brendan Chen.',
 }
 
+// Control pages to display in desktop/mobile navigation bars.
+const pages: Page[] = [
+  {
+    title: 'Featured Works',
+    href: '/',
+  },
+  {
+    title: 'UI/UX Design',
+    href: '/ui-ux',
+  },
+  {
+    title: 'Graphic Design',
+    href: '/graphic-design',
+  },
+]
+
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
 }) {
   return (
     <html lang="en">
@@ -30,8 +46,8 @@ export default function RootLayout({
       <body>
         <div className={styles.rootContainer}>
           <div className={utils.maxWidthWrapper}>
-            <MobileNavigationBar />
-            <DesktopSideNavigation />
+            <MobileNavigationBar pages={pages} />
+            <DesktopSideNavigation pages={pages} />
             {children}
           </div>
 
