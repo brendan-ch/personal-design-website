@@ -71,7 +71,17 @@ export default async function MDXContent({ id }: MDXContentProps) {
     a: (props: React.HTMLProps<HTMLAnchorElement>) => (
       <a target="_blank" rel="noreferrer" className={styles.anchor} {...props}>
       </a>
-    )
+    ),
+    ol: (props: React.HTMLProps<HTMLOListElement>) => (
+      <ol className={`${styles.list} ${styles.orderedList}`}>
+        {props.children}
+      </ol>
+    ),
+    ul: (props: React.HTMLProps<HTMLUListElement>) => (
+      <ul className={styles.list}>
+        {props.children}
+      </ul>
+    ),
   }
 
   const { content } = await compileMDX({
