@@ -90,7 +90,8 @@ export default async function MDXContent({ id }: MDXContentProps) {
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        remarkPlugins: [remarkUnwrapImages]
+        remarkPlugins: [remarkUnwrapImages],
+        development: process.env.NODE_ENV === 'development',
       },
     },
     // @ts-ignore MDXComponents may contain server components with `async`
