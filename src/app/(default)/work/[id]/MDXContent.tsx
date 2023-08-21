@@ -20,6 +20,7 @@ const Nothing = () => <></>
  * @returns
 */
 export default async function MDXContent({ id }: MDXContentProps) {
+  console.log(`MDXContent         ${id}`)
   const { raw, imageSizes } = await getPrecompiledWork(id)
 
   /**

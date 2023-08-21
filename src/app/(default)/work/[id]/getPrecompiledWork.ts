@@ -29,6 +29,9 @@ export interface PrecompiledWork {
  * @param id ID of the given page.
  */
 const getPrecompiledWork = cache(async (id: string): Promise<PrecompiledWork> => {
+  const now = Date.now()
+  console.log(`getPrecompiledWork ${id}`)
+
   const filePath = path.join(process.cwd(), 'src', 'content', 'work', `${id}.mdx`)
   const raw = await fs.readFile(filePath, 'utf-8')
 
@@ -47,6 +50,8 @@ const getPrecompiledWork = cache(async (id: string): Promise<PrecompiledWork> =>
 
   const parsedImageSizeData = require('../../../../scripts/output/data.json')
   const { allImages, previewImageSize } = parsedImageSizeData.work.find((item: any) => item.id === id)
+
+  console.log(`getPrecompiledWork ${id} after ${Date.now() - now} ms`)
 
   return {
     imageSizes: allImages ? allImages : [],
