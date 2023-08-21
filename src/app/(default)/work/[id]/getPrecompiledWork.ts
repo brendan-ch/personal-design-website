@@ -35,19 +35,6 @@ const getPrecompiledWork = cache(async (id: string): Promise<PrecompiledWork> =>
   const filePath = path.join(process.cwd(), 'src', 'content', 'work', `${id}.mdx`)
   const raw = await fs.readFile(filePath, 'utf-8')
 
-  // Serialize the MDX content and parse the frontmatter
-  const compiled = await compileMDX({
-    source: raw,
-    options: {
-      parseFrontmatter: true,
-    },
-  })
-
-  const frontmatter = compiled.frontmatter as unknown as Frontmatter
-  if (!frontmatter.previewImage) {
-    throw new Error('No preview image provided')
-  }
-
   const parsedImageSizeData = require('../../../../scripts/output/data.json')
   const { allImages, previewImageSize } = parsedImageSizeData.work.find((item: any) => item.id === id)
 
