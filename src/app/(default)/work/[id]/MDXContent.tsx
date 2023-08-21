@@ -85,20 +85,20 @@ export default async function MDXContent({ id }: MDXContentProps) {
     ),
   }
 
-  // const { content } = await compileMDX({
-  //   source: raw,
-  //   options: {
-  //     parseFrontmatter: true,
-  //     mdxOptions: {
-  //       remarkPlugins: [remarkUnwrapImages],
-  //       // development: process.env.NODE_ENV === 'development',
-  //     },
-  //   },
-  //   // @ts-ignore MDXComponents may contain server components with `async`
-  //   components: MDXComponents,
-  // })
+  const { content } = await compileMDX({
+    source: raw,
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        remarkPlugins: [remarkUnwrapImages],
+        development: process.env.NODE_ENV === 'development',
+      },
+    },
+    // @ts-ignore MDXComponents may contain server components with `async`
+    components: MDXComponents,
+  })
 
   return <>
-    <p>Hello World</p>
+    {content}
   </>
 }

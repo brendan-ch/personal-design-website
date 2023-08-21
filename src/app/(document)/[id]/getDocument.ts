@@ -37,7 +37,7 @@ const getDocument = cache(async (id: string): Promise<Document<Frontmatter>> => 
     mdxOptions: {
       remarkPlugins: [remarkUnwrapImages],
       // See this issue: https://github.com/hashicorp/next-mdx-remote/issues/307#issuecomment-1363415249
-      // development: process.env.NODE_ENV === 'development',
+      development: process.env.NODE_ENV === 'development',
     },
   })
 
