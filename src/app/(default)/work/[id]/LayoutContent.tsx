@@ -32,14 +32,14 @@ export default async function LayoutContent({
   id,
   goBackOnExit,
 }: Props) {
-  const { frontmatter, serialized } = await getWork(id)
+  // const { frontmatter, serialized } = await getWork(id)
 
   // Get current page URL
   const currentPath = ['https://design.bchen.dev', 'work', id].join('/');
   const sharingLinks: PageExternalLink[] = [
     {
       name: 'LinkedIn',
-      url: `https://linkedin.com/share/share-offsite?url=${encodeURIComponent(currentPath)}&title=${encodeURIComponent(frontmatter.title || '')}`
+      url: `https://linkedin.com/share/share-offsite?url=${encodeURIComponent(currentPath)}&title=${encodeURIComponent('Title')}`
     },
     {
       name: 'Twitter',
@@ -55,7 +55,7 @@ export default async function LayoutContent({
         <div className={styles.leftSidebar}>
           {/* MDX sidebar with header links */}
           <div className={styles.tableOfContents}>
-            <MDXSidebar source={serialized} />
+            {/* <MDXSidebar source={serialized} /> */}
           </div>
         </div>
         <div className={styles.shareContainerMobile}>
@@ -69,10 +69,10 @@ export default async function LayoutContent({
           {/* Title and description based on frontmatter */}
           <div className={styles.descriptionContainer}>
             <div className={styles.titleContainer}>
-              <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.title}</p>
-              <p className={`${utils.monoText} ${utils.smallText} ${styles.date}`}>{frontmatter.date}</p>
+              <p className={`${utils.monoText} ${utils.smallText}`}>Title</p>
+              <p className={`${utils.monoText} ${utils.smallText} ${styles.date}`}>Date</p>
             </div>
-            <p className={utils.smallText}>{frontmatter.description}</p>
+            {/* <p className={utils.smallText}>{frontmatter.description}</p> */}
           </div>
           {/* Share CTA */}
           <div className={styles.shareContainer}>
