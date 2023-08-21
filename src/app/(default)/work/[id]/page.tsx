@@ -1,8 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
 import styles from './page.module.css'
-import getWork from "./getWork"
-import MDXContent from './MDXContent'
 
 export const dynamicParams = false
 
@@ -25,8 +23,9 @@ export async function generateStaticParams() {
 export default async function Work({ params }: Props) {
   return (
     <div className={styles.container}>
+      <p>Default modal</p>
       {/* @ts-ignore Server Component */}
-      <MDXContent id={params.id} />
+      {/* <MDXContent id={params.id} /> */}
     </div>
   )
 }

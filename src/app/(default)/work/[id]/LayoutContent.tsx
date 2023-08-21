@@ -1,9 +1,6 @@
 import styles from './LayoutContent.module.css'
 import utils from '../../../utils.module.css'
 
-import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
-import ShareCTA, { PageExternalLink } from './ShareCTA'
-import getWork from './getWork'
 import ExitButton from './ExitButton'
 
 interface Props {
@@ -32,20 +29,20 @@ export default async function LayoutContent({
   id,
   goBackOnExit,
 }: Props) {
-  const { frontmatter, serialized } = await getWork(id)
+  // const { frontmatter, serialized } = await getWork(id)
 
   // Get current page URL
-  const currentPath = ['https://design.bchen.dev', 'work', id].join('/');
-  const sharingLinks: PageExternalLink[] = [
-    {
-      name: 'LinkedIn',
-      url: `https://linkedin.com/share/share-offsite?url=${encodeURIComponent(currentPath)}&title=${encodeURIComponent(frontmatter.title || '')}`
-    },
-    {
-      name: 'Twitter',
-      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentPath)}`
-    },
-  ]
+  // const currentPath = ['https://design.bchen.dev', 'work', id].join('/');
+  // const sharingLinks: PageExternalLink[] = [
+  //   {
+  //     name: 'LinkedIn',
+  //     url: `https://linkedin.com/share/share-offsite?url=${encodeURIComponent(currentPath)}&title=${encodeURIComponent(frontmatter.title || '')}`
+  //   },
+  //   {
+  //     name: 'Twitter',
+  //     url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentPath)}`
+  //   },
+  // ]
   
   return (
     <div className={styles.container}>
@@ -55,31 +52,31 @@ export default async function LayoutContent({
         <div className={styles.leftSidebar}>
           {/* MDX sidebar with header links */}
           <div className={styles.tableOfContents}>
-            <MDXSidebar source={serialized} />
+            {/* <MDXSidebar source={serialized} /> */}
           </div>
         </div>
         <div className={styles.shareContainerMobile}>
-          <ShareCTA
+          {/* <ShareCTA
             copyLink={currentPath}
             links={sharingLinks}
-          />
+          /> */}
         </div>
         {children}
         <div className={styles.rightSidebar}>
           {/* Title and description based on frontmatter */}
           <div className={styles.descriptionContainer}>
             <div className={styles.titleContainer}>
-              <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.title}</p>
-              <p className={`${utils.monoText} ${utils.smallText} ${styles.date}`}>{frontmatter.date}</p>
+              <p className={`${utils.monoText} ${utils.smallText}`}>Title</p>
+              <p className={`${utils.monoText} ${utils.smallText} ${styles.date}`}>Date</p>
             </div>
-            <p className={utils.smallText}>{frontmatter.description}</p>
+            <p className={utils.smallText}>Description</p>
           </div>
           {/* Share CTA */}
           <div className={styles.shareContainer}>
-            <ShareCTA
+            {/* <ShareCTA
               copyLink={currentPath}
               links={sharingLinks}
-            />
+            /> */}
           </div>
         </div>
       </div>
