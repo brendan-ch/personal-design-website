@@ -1,5 +1,5 @@
 import styles from './LayoutContent.module.css'
-import utils from '../../../utils.module.css'
+import utils from '../../utils.module.css'
 
 import ExitButton from './ExitButton'
 

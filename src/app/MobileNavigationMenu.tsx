@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import styles from './MobileNavigationMenu.module.css';
-import utils from '../utils.module.css';
+import utils from './utils.module.css';
 import Footer from './Footer';
 import { usePathname } from 'next/navigation';
 import Exit from '@/icons/Exit';
