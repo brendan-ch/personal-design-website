@@ -10,7 +10,7 @@
     "test": "jest --watch --coverage",
     "test:ci": "jest --ci --coverage",
     "typecheck": "tsc --noEmit",
-    "generate": "node src/scripts/generateImageSizes.js"
+    "generate": "node src/scripts/generateImageData.js"
   },
   "dependencies": {
     "@plaiceholder/next": "^3.0.0",
