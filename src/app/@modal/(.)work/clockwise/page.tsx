@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
-import styles from '../../../work/[id]/page.module.css'
+import styles from '../../../work/clockwise/page.module.css'
 
 export const dynamicParams = false
 
