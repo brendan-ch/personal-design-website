@@ -1,4 +1,4 @@
-// import getWork from './getWork'
+import getWork from './getWork'
 import { Metadata, ResolvingMetadata } from 'next'
 import LayoutContent from './LayoutContent'
 

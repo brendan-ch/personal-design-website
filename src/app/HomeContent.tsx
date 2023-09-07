@@ -1,14 +1,14 @@
 import styles from './HomeContent.module.css'
 import utils from './utils.module.css'
-// import { Frontmatter, Work } from './work/[id]/getWork'
+import { Frontmatter, Work } from './work/[id]/getWork'
 import GalleryItem from './GalleryItem'
 
 interface Props {
-  // columns: any[][],
+  columns: Work<Frontmatter>[][],
   headline: string,
 }
 
-export default function HomeContent({ headline }: Props) {
+export default function HomeContent({ columns, headline }: Props) {
   return (
     <main className={styles.main}>
       <div className={styles.heading}>
@@ -17,16 +17,23 @@ export default function HomeContent({ headline }: Props) {
       </div>
       {/* Wrap the columns with a div */}
       <div className={styles.columns}>
-        {/* @ts-ignore Server component */}
-        <GalleryItem
-          title={"Test"}
-          date={'2023.09.06'}
-          imageSrc={''}
-          imageAlt={`Preview image`}
-          // key={j}
-          href={`/work/clockwise`}
-          description={"Test"}
-        />
+        {columns.map((column, i) => (
+          <div className={styles.column} key={i}>
+            {column.map(({ frontmatter, previewImageSize }, j) => (
+              // @ts-ignore Server Component
+              <GalleryItem
+                title={frontmatter.title}
+                date={frontmatter.date}
+                imageSrc={frontmatter.previewImage}
+                imageAlt={`Preview image for ${frontmatter.title}`}
+                imageSize={previewImageSize}
+                key={j}
+                href={`/work/${columns[i][j].id}`}
+                description={frontmatter.description}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     </main>
   )

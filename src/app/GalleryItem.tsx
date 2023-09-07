@@ -1,12 +1,12 @@
 import Image from "next/image"
-// import { ImageSize } from "./work/[id]/getWork"
+import { ImageSize } from "./work/[id]/getWork"
 import styles from './GalleryItem.module.css'
 import utils from './utils.module.css'
 import Link from "next/link"
 
 interface Props {
   imageSrc: string,
-  // imageSize: ImageSize,
+  imageSize: ImageSize,
   imageAlt: string,
   title: string,
   date: string,
@@ -16,7 +16,7 @@ interface Props {
 
 export default async function GalleryItem({
   imageSrc,
-  // imageSize,
+  imageSize,
   imageAlt,
   title,
   date,
@@ -41,7 +41,7 @@ export default async function GalleryItem({
       </div>
       {/* Image container */}
       <div className={styles.imageContainer} style={{
-        // aspectRatio: `${imageSize.width} / ${imageSize.height}`,
+        aspectRatio: `${imageSize.width} / ${imageSize.height}`,
       }}>
         {/* <div className={styles.imagePlaceholder} style={css}></div> */}
         <Image
