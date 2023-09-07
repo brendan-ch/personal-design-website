@@ -3,6 +3,7 @@ import { ImageSize } from "./work/[id]/getWork"
 import styles from './GalleryItem.module.css'
 import utils from './utils.module.css'
 import Link from "next/link"
+import generatePlaceholder from '@/helpers/generatePlaceholder'
 
 interface Props {
   imageSrc: string,
@@ -23,7 +24,7 @@ export default async function GalleryItem({
   description,
   href,
 }: Props) {
-  // const { base64, css } = await generatePlaceholder(imageSrc, 8)
+  const { base64, css } = await generatePlaceholder(imageSrc, 8)
 
   return (
     <Link className={styles.container} href={href}>
@@ -43,7 +44,7 @@ export default async function GalleryItem({
       <div className={styles.imageContainer} style={{
         aspectRatio: `${imageSize.width} / ${imageSize.height}`,
       }}>
-        {/* <div className={styles.imagePlaceholder} style={css}></div> */}
+        <div className={styles.imagePlaceholder} style={css}></div>
         <Image
           src={imageSrc}
           alt={imageAlt}

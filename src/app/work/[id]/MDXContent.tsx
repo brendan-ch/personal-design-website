@@ -5,7 +5,7 @@ import EmbedFrame from "./EmbedFrame"
 import getPrecompiledWork from "./getPrecompiledWork"
 import { compileMDX } from "next-mdx-remote/rsc"
 import remarkUnwrapImages from 'remark-unwrap-images'
-// import generatePlaceholder from '@/helpers/generatePlaceholder'
+import generatePlaceholder from '@/helpers/generatePlaceholder'
 
 interface MDXContentProps {
   id: string,
@@ -36,13 +36,13 @@ export default async function MDXContent({ id }: MDXContentProps) {
 
       const index = imageSizes.findIndex(({ imagePath }) => imagePath === props.src)
       const dimensions = imageSizes[index]
-      // const { css } = await generatePlaceholder(props.src, 8)
+      const { css } = await generatePlaceholder(props.src, 8)
 
       return (
         <div className={styles.imageContainer} style={{
           aspectRatio: dimensions ? `${dimensions.width} / ${dimensions.height}` : '3 / 2'
         }}>
-          {/* <div className={styles.imagePlaceholder} style={css}></div> */}
+          <div className={styles.imagePlaceholder} style={css}></div>
           <Image
             src={props.src}
             alt={props.alt}
