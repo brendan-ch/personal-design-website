@@ -1,4 +1,4 @@
-// import withPlaiceholder from '@plaiceholder/next'
+import withPlaiceholder from '@plaiceholder/next'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,8 +12,11 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"]
   },
   experimental: {
-    outputFileTracingExcludes: ['./public']
+    outputFileTracingExcludes: {
+      '/*': ['./public/static/work/**/*.png'],
+      '/**': ['./public/static/work/**/*.png'],
+    }
   },
 }
 
-export default nextConfig
+export default withPlaiceholder(nextConfig)
