@@ -2,7 +2,7 @@ import styles from './MDXContent.module.css'
 import Image from "next/image"
 import generateHeadingLink from "@/helpers/generateHeadingLink"
 import EmbedFrame from "./EmbedFrame"
-import getPrecompiledWork from "./getPrecompiledWork"
+// import getPrecompiledWork from "./getPrecompiledWork"
 import { compileMDX } from "next-mdx-remote/rsc"
 import remarkUnwrapImages from 'remark-unwrap-images'
 // import generatePlaceholder from '@/helpers/generatePlaceholder'
@@ -20,7 +20,7 @@ const Nothing = () => <></>
  * @returns
 */
 export default async function MDXContent({ id }: MDXContentProps) {
-  const { raw, imageSizes } = await getPrecompiledWork(id)
+  // const { raw, imageSizes } = await getPrecompiledWork(id)
 
   /**
    * Map of MDX components which map to React components.
@@ -34,20 +34,20 @@ export default async function MDXContent({ id }: MDXContentProps) {
         return <></>
       }
 
-      const index = imageSizes.findIndex(({ imagePath }) => imagePath === props.src)
-      const dimensions = imageSizes[index]
+      // const index = imageSizes.findIndex(({ imagePath }) => imagePath === props.src)
+      // const dimensions = imageSizes[index]
       // const { css } = await generatePlaceholder(props.src, 8)
 
       return (
         <div className={styles.imageContainer} style={{
-          aspectRatio: dimensions ? `${dimensions.width} / ${dimensions.height}` : '3 / 2'
+          // aspectRatio: dimensions ? `${dimensions.width} / ${dimensions.height}` : '3 / 2'
         }}>
           {/* <div className={styles.imagePlaceholder} style={css}></div> */}
           <Image
             src={props.src}
             alt={props.alt}
             fill
-            priority={index === 0}
+            // priority={index === 0}
           />
         </div>
       )
@@ -75,7 +75,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
   }
 
   const { content } = await compileMDX({
-    source: raw,
+    source: '',
     options: {
       parseFrontmatter: true,
       mdxOptions: {

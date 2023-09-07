@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import getWorks from './work/[id]/getWorks'
 import HomeContent from './HomeContent'
 
 export const metadata: Metadata = {
@@ -18,17 +17,17 @@ export const metadata: Metadata = {
   },
 }
 
-const column1 = ['cmes-admin-panel', 'clockwise', 'uhs-planner-cover']
-const column2 = ['headspace-logo-redesign', 'standard-catalog', 'spirit-week-poster']
+// const column1 = ['cmes-admin-panel', 'clockwise', 'uhs-planner-cover']
+// const column2 = ['headspace-logo-redesign', 'standard-catalog', 'spirit-week-poster']
 
-const columns = [column1, column2]
+// const columns = [column1, column2]
 
 export default async function Home() {
-  const workColumns = await Promise.all(columns.map(async (column) => {
-    return await getWorks(column)
-  }))
+  // const workColumns = await Promise.all(columns.map(async (column) => {
+  //   return await getWorks(column)
+  // }))
 
   return (
-    <HomeContent columns={workColumns} headline="Featured Works" />
+    <HomeContent headline="Featured Works" />
   )
 }
