@@ -26,7 +26,7 @@ export default async function GalleryItem({
   // const { base64, css } = await generatePlaceholder(imageSrc, 8)
 
   return (
-    <Link className={styles.container} href={href}>
+    <Link className={styles.container} href={href} prefetch={false}>
       {/* Hover information */}
       <div className={styles.hoverContentWrapper}>
         <div className={styles.headingWrapper}>
