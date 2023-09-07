@@ -5,90 +5,35 @@
 
 const { readFile, readdir, writeFile, mkdir } = require('fs/promises');
 const path = require('path');
-const sizeOf = require('image-size');
+// const sizeOf = require('image-size');
 
 /**
  * Read image size data inside the /public/static folder.
  * @returns {Promise<object>}
  */
 async function getData() {
-  const { serialize } = await import('next-mdx-remote/serialize');
-  const contentDirectory = path.join(process.cwd(), 'src', 'content');
-  const prefixes = ['work', 'document'];
+  // const { serialize } = await import('next-mdx-remote/serialize');
+  // const contentDirectory = path.join(process.cwd(), 'src', 'content');
+  // const prefixes = ['work', 'document'];
 
-  let allFiles = {};
-  
-  await Promise.all(prefixes.map(async (prefix) => {
-    // Read all files, and get file data
-    let files = await readdir(path.join(contentDirectory, prefix));
-    files = files.filter((value) => value.endsWith('.mdx'));
-
-    // Get page data
-    const pages = await Promise.all(files.map(async (file) => {
-      const content = await readFile(path.join(contentDirectory, prefix, file), 'utf-8');
-      const { frontmatter } = await serialize(content, {
-        parseFrontmatter: true,
-      });
-
-      // Compile array of images by reading content
-      const imagePathRegex = /\(\/static\/work\/.+\.(png|jpg|jpeg|gif)/g;
-      const images = [...content.matchAll(imagePathRegex)].map((matchValue) => matchValue[0]);
-
-      const imageSizes = await Promise.all(images.map(async (imagePath) => {
-        // Remove the beginning parenthesis from the file path
-        const validImagePath = imagePath.substring(1);
-
-        // @ts-ignore
-        const { width, height } = await sizeOf(path.join('public', validImagePath));
-
-        return {
-          imagePath: validImagePath,
-          width,
-          height,
-        };
-      }));
-
-      const previewImage = frontmatter.previewImage;
-      let previewImageSize;
-      if (typeof previewImage === 'string') {
-        // @ts-ignore
-        const { width, height } = await sizeOf(path.join('public', previewImage));
-        previewImageSize = {
-          width,
-          height,
-          imagePath: previewImage,
-        }
-      }
-
-      return {
-        id: file.substring(0, file.indexOf('.mdx')),
-        prefix: prefix,
-        allImages: imageSizes,
-        previewImageSize,
-      }
-    }));
-
-    allFiles[prefix] = pages;
-  }));
-
-  return allFiles;
+  return {};
 }
 
 /**
  * Write output into a JSON file in the output/ directory.
  * @param {any} data
  */
-async function writeData(data) {
-  // Check for output directory
-  const exists = (await readdir(path.join(process.cwd(), 'src', 'scripts'))).includes('output');
-  if (!exists) {
-    await mkdir(path.join(process.cwd(), 'src', 'scripts', 'output'));
-  }
+// async function writeData(data) {
+//   // Check for output directory
+//   const exists = (await readdir(path.join(process.cwd(), 'src', 'scripts'))).includes('output');
+//   if (!exists) {
+//     await mkdir(path.join(process.cwd(), 'src', 'scripts', 'output'));
+//   }
 
-  await writeFile(path.join(process.cwd(), 'src', 'scripts', 'output', 'data.json'), JSON.stringify(data));
-}
+//   await writeFile(path.join(process.cwd(), 'src', 'scripts', 'output', 'data.json'), JSON.stringify(data));
+// }
 
-getData()
-  .then((value) => {
-    writeData(value);
-  });
+// getData()
+//   .then((value) => {
+//     writeData(value);
+//   });

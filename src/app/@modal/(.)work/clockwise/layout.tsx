@@ -1,5 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next'
-import LayoutContent from "@/app/work/[id]/LayoutContent"
+import LayoutContent from "@/app/work/clockwise/LayoutContent"
 // import getWork from '@/app/work/[id]/getWork'
 
 interface LayoutProps {
