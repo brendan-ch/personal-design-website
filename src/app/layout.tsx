@@ -1,10 +1,10 @@
 import DesktopSideNavigation, { Page } from './DesktopSideNavigation'
 import MobileNavigationBar from './MobileNavigationBar'
 import { Analytics } from '@vercel/analytics/react'
-import './globals.css'
+import '../globals.css'
 import styles from './layout.module.css'
-import utils from './utils.module.css'
-import { BACKGROUND } from './Constants'
+import utils from '../utils.module.css'
+import { BACKGROUND } from '../Constants'
 
 export const metadata = {
   title: 'Design by Brendan Chen',

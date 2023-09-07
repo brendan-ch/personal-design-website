@@ -1,5 +1,5 @@
 import styles from './HomeContent.module.css'
-import utils from './utils.module.css'
+import utils from '../utils.module.css'
 import { Frontmatter, Work } from './work/[id]/getWork'
 import GalleryItem from './GalleryItem'
 

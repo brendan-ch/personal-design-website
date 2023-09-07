@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { ImageSize } from "./work/[id]/getWork"
 import styles from './GalleryItem.module.css'
-import utils from './utils.module.css'
+import utils from '../utils.module.css'
 import Link from "next/link"
 import generatePlaceholder from '@/helpers/generatePlaceholder'
 

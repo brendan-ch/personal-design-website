@@ -10,7 +10,7 @@ async function getWorkIds() {
   // const filePath = path.join(process.cwd(), 'src', 'content', 'work')
   // const ids = await fs.readdir(filePath)
 
-  const parsed = require('../../scripts/output/data.json')
+  const parsed = require('../../../scripts/output/data.json')
   return parsed.work.map((value: any) => value.id) as string[]
 
   // return ids.map((id) => id.split('.mdx')[0])
@@ -25,7 +25,7 @@ async function getDocumentIds() {
   // const ids = await fs.readdir(filePath)
   // return ids.map((id) => id.split('.mdx')[0])
 
-  const parsed = require('../../scripts/output/data.json')
+  const parsed = require('../../../scripts/output/data.json')
   return parsed.document.map((value: any) => value.id) as string[]
 }
 

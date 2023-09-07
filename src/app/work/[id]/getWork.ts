@@ -67,7 +67,7 @@ const getWork = cache(async (id: string): Promise<Work<Frontmatter>> => {
     throw new Error('No preview image provided')
   }
 
-  const parsedImageSizeData = require('../../../scripts/output/data.json')
+  const parsedImageSizeData = require('../../../../scripts/output/data.json')
   const { allImages, previewImageSize } = parsedImageSizeData.work.find((item: any) => item.id === id)
 
   return {
