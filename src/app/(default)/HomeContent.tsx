@@ -19,16 +19,17 @@ export default function HomeContent({ columns, headline }: Props) {
       <div className={styles.columns}>
         {columns.map((column, i) => (
           <div className={styles.column} key={i}>
-            {column.map(({ frontmatter, previewImageSize }, j) => (
+            {column.map(({ id, frontmatter, previewImageSize }, j) => (
               // @ts-ignore Server Component
               <GalleryItem
+                id={id}
                 title={frontmatter.title}
                 date={frontmatter.date}
                 imageSrc={frontmatter.previewImage}
                 imageAlt={`Preview image for ${frontmatter.title}`}
                 imageSize={previewImageSize}
-                key={j}
-                href={`/work/${columns[i][j].id}`}
+                key={id}
+                href={`/work/${id}`}
                 description={frontmatter.description}
               />
             ))}

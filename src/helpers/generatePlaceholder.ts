@@ -1,37 +1,38 @@
-import fs from 'fs/promises'
-import path from 'path'
-import { getPlaiceholder } from "plaiceholder"
+import { GetPlaiceholderReturn } from "plaiceholder"
 
 const defaultConfig = {
   size: 16,
 }
 
 /**
- * Wrapper around the `getPlaiceholder` function
- * which works for both statically hosted images (in the `public` folder)
- * and remote images.
+ * Get a placeholder for a statically hosted image.
+ * 
+ * The function relies on `/scripts/outputs/data.json` for data about the statically
+ * hosted images. This approach avoids issues with output file tracing
+ * including the `/public` folder.
  * 
  * Should only be used on the server side.
  * @param imageSrc The image source.
- * @param size Size passed to plaiceholder. Defaults to `16`.
+ * @param prefix Indicates the prefix of the document to search.
+ * @param id The ID of the document.
  */
-export default async function generatePlaceholder(imageSrc: string, size?: number) {
-  let plaiceholderConfig = size ? {
-    size,
-  } : defaultConfig
+export default async function generatePlaceholder(imageSrc: string, prefix: 'work' | 'document', id: string): Promise<GetPlaiceholderReturn> {
+  const plaiceholderConfig = defaultConfig
 
-  if (imageSrc.startsWith('/')) {
-    // Image inside `/public` folder
-    const file = await fs.readFile(path.join(process.cwd(), 'public', imageSrc))
-    const placeholder = await getPlaiceholder(file, plaiceholderConfig)
-    return placeholder
+  // Image inside `/public` folder
+  // Use data.json file
+  const parsed = require('../scripts/output/data.json')
+
+  // Find the matching image src
+  const work = parsed[prefix].find((item: any) => item.id === id);
+  if (!work) {
+    throw new Error(`Placeholder lookup failed; unable to find item with prefix ${prefix} and ID ${id}.`)
   }
 
-  // Remote image
-  const buffer = await fetch(imageSrc).then(async (res) =>
-    Buffer.from(await res.arrayBuffer())
-  )
+  const image = work.allImages.find((image: any) => image.imagePath === imageSrc);
+  if (!image) {
+    throw new Error(`Placeholder lookup failed; unable to find image with src ${imageSrc}, prefix ${prefix} and ID ${id}`)
+  }
 
-  const placeholder = await getPlaiceholder(buffer, plaiceholderConfig)
-  return placeholder
+  return image.placeholder;
 }
