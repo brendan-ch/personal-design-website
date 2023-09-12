@@ -5,6 +5,7 @@ import '../globals.css'
 import styles from './layout.module.css'
 import utils from '../utils.module.css'
 import { BACKGROUND } from '../Constants'
+import ScrollControl from './ScrollControl'
 
 export const metadata = {
   title: 'Design by Brendan Chen',
@@ -29,8 +30,10 @@ const pages: Page[] = [
 
 export default function RootLayout({
   children,
+  modal,  // render @modal content separately in layout
 }: {
   children: React.ReactNode,
+  modal: React.ReactNode,
 }) {
   return (
     <html lang="en">
@@ -46,9 +49,11 @@ export default function RootLayout({
       <body>
         <div className={styles.rootContainer}>
           <div className={utils.maxWidthWrapper}>
+            <ScrollControl />
             <MobileNavigationBar pages={pages} />
             <DesktopSideNavigation pages={pages} />
             {children}
+            {modal}
           </div>
 
         </div>
