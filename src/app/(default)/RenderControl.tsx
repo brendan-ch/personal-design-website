@@ -16,7 +16,7 @@ interface Props {
  * @returns
  */
 export default function RenderControl({ className, renderIfPresent, children }: Props) {
-  const [present, setPresent] = useState(false);
+  const [present, setPresent] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function RenderControl({ className, renderIfPresent, children }: 
 
     // Set state accordingly
     setPresent(elements.length > 0)
-  }, [className, renderIfPresent, pathname]);
+  }, [className, renderIfPresent, pathname])
 
   if ((renderIfPresent && present) || (!renderIfPresent && !present)) {
     return <>{children}</>
