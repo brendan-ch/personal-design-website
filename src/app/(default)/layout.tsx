@@ -5,7 +5,6 @@ import '../globals.css'
 import styles from './layout.module.css'
 import utils from '../utils.module.css'
 import { BACKGROUND } from '../Constants'
-import LayoutControl from './LayoutControl'
 
 export const metadata = {
   title: 'Design by Brendan Chen',
@@ -51,9 +50,7 @@ export default function RootLayout({
           <div className={utils.maxWidthWrapper}>
             <MobileNavigationBar pages={pages} />
             <DesktopSideNavigation pages={pages} />
-            <LayoutControl>
-              {children}
-            </LayoutControl>
+            {children}
             {modal}
           </div>
 
