@@ -36,7 +36,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
 
       const index = imageSizes.findIndex(({ imagePath }) => imagePath === props.src)
       const dimensions = imageSizes[index]
-      const { css } = await generatePlaceholder(props.src, 8)
+      const { css } = await generatePlaceholder(props.src, 'work', id)
 
       return (
         <div className={styles.imageContainer} style={{
