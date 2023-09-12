@@ -12,6 +12,8 @@ interface Props {
 export default async function Work({ params }: Props) {
   return (
     <div className={styles.container}>
+      {/* See RenderControl component and HomeContent.tsx L23 */}
+      <div className="workIntercepted"></div>
       {/* @ts-ignore Server Component */}
       <MDXContent id={params.id} />
     </div>
