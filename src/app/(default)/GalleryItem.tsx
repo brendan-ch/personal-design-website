@@ -13,6 +13,7 @@ interface Props {
   date: string,
   description: string,
   href: string,
+  id: string,
 }
 
 export default async function GalleryItem({
@@ -23,8 +24,9 @@ export default async function GalleryItem({
   date,
   description,
   href,
+  id,
 }: Props) {
-  const { base64, css } = await generatePlaceholder(imageSrc, 8)
+  const { css } = await generatePlaceholder(imageSrc, 'work', id)
 
   return (
     <Link className={styles.container} href={href}>
