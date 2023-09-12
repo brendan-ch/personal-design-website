@@ -4,10 +4,10 @@ import HomeContent from "../HomeContent";
 
 
 export const metadata: Metadata = {
-  title: 'UI/UX Design by Brendan Chen',
+  title: 'Graphic Design by Brendan Chen',
   description: "I'm Brendan, a designer, developer, and college student living in Orange, California. This website is a creative outlet for me to showcase my design works.",
   openGraph: {
-    title: 'UI/UX Design by Brendan Chen',
+    title: 'Graphic Design by Brendan Chen',
     description: "I'm Brendan, a designer, developer, and college student living in Orange, California. This website is a creative outlet for me to showcase my design works.",
     images: [
       {
