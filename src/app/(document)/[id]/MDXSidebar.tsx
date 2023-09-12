@@ -5,6 +5,7 @@ import utils from '../../utils.module.css'
 import generateHeadingLink from "@/helpers/generateHeadingLink"
 import { MDXRemote } from "next-mdx-remote"
 import useScrollHighlight from "@/hooks/useScrollHighlight"
+import Link from "next/link"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -33,9 +34,11 @@ export default function MDXSidebar({ source }: MDXContentProps) {
       const generatedLink = generateHeadingLink(props.children as string)
   
       return (
-        <a
+        <Link
+          replace
           href={`#${generatedLink}`}
           className={`${utils.monoText} ${utils.smallText}`}
+          prefetch={false}
         >
           {highlighted === generatedLink ? (
             <b>
@@ -45,7 +48,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
             props.children
           )}
           {/* {props.children} */}
-        </a>
+        </Link>
       )
     },
     p: Nothing,
