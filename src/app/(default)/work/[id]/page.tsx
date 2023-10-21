@@ -17,9 +17,15 @@ export async function generateStaticParams() {
   const files = await fs.readdir(path.join(process.cwd(), 'src', 'content', 'work'))
 
   // Return relevant IDs so they can be prerendered
-  return files.map((file) => ({
+  const relevantIds = files.map((file) => ({
     id: file.split('.')[0],
   }))
+
+  if (process.env.NODE_ENV === 'production') {
+    return relevantIds.filter((obj) => !obj.id.includes('wip'))
+  }
+
+  return relevantIds
 }
 
 export default async function Work({ params }: Props) {
