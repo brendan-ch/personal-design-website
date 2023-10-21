@@ -28,6 +28,13 @@ export async function generateStaticParams() {
   return relevantIds
 }
 
+/**
+ * The Work page renders and displays visual projects using the `MDXContent` component.
+ * Pages are statically generated at build time from th `src/content` folder,
+ * with filenames containing "wip" filtered out at production.
+ * @param param0
+ * @returns
+ */
 export default async function Work({ params }: Props) {
   return (
     <div className={styles.container}>
