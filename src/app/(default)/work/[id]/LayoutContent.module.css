@@ -23,6 +23,15 @@
   border-radius: 4px;
 }
 
+.loadingMockChildren {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 96px;
+  padding-bottom: 144px;
+  gap: 2px;
+}
+
 .contentFadeIn {
   animation-name: moveUpFadeIn;
   animation-duration: 400ms;
@@ -113,6 +122,11 @@
   .contentFadeIn {
     flex-direction: column-reverse !important;
     gap: 16px;
+  }
+
+  .loadingMockChildren {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .leftSidebar {

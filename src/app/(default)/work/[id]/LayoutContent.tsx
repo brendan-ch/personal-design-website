@@ -47,14 +47,7 @@ function LayoutContentLoading() {
           }} />
         </div>
       </div>
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        flex: 1,
-        paddingTop: 96,
-        paddingBottom: 144,
-        gap: 2
-      }}>
+      <div className={styles.loadingMockChildren}>
         <div className="workIntercepted"></div>
         <LoadingSkeletonBar style={{
           height: 800,
