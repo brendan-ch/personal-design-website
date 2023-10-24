@@ -5,6 +5,7 @@ import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
 import ShareCTA, { PageExternalLink } from './ShareCTA'
 import getWork from './getWork'
 import ExitButton from './ExitButton'
+import { CSSProperties, Suspense } from 'react'
 
 interface Props {
   children: React.ReactNode,
@@ -46,7 +47,7 @@ export default async function LayoutContent({
       url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentPath)}`
     },
   ]
-  
+
   return (
     <div className={styles.container}>
       <div className={`${utils.maxWidthWrapper} ${styles.contentFadeIn}`}>
