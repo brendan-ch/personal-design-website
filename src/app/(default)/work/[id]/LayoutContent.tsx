@@ -22,78 +22,6 @@ interface Props {
   goBackOnExit?: boolean,
 }
 
-function LoadingSkeletonBar({ style }: {
-  style: CSSProperties,
-}) {
-  return (
-    <div className={styles.loadingSkeletonBar} style={style}>
-    </div>
-  )
-}
-
-function LayoutContentLoading() {
-  return (
-    <div className={`${utils.maxWidthWrapper} ${styles.contentFadeIn}`}>
-      <div className={styles.leftSidebar}>
-        {/* MDX sidebar with header links */}
-        <div className={styles.tableOfContents}>
-          <LoadingSkeletonBar style={{
-            width: 200,
-            height: 20,
-          }} />
-          <LoadingSkeletonBar style={{
-            width: 200,
-            height: 20,
-          }} />
-        </div>
-      </div>
-      <div className={styles.loadingMockChildren}>
-        <div className="workIntercepted"></div>
-        <LoadingSkeletonBar style={{
-          height: 800,
-        }} />
-        <LoadingSkeletonBar style={{
-          height: 800,
-        }} />
-      </div>
-      <div className={styles.rightSidebar}>
-        {/* Title and description based on frontmatter */}
-        <div className={styles.descriptionContainer}>
-          <div className={styles.titleContainer}>
-            <LoadingSkeletonBar style={{
-              width: 200,
-              height: 20,
-            }} />
-            <LoadingSkeletonBar style={{
-              width: 200,
-              height: 20,
-            }} />
-          </div>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 4,
-          }}>
-            <LoadingSkeletonBar style={{
-              height: 16,
-            }} />
-            <LoadingSkeletonBar style={{
-              height: 16,
-            }} />
-            <LoadingSkeletonBar style={{
-              width: 160,
-              height: 16,
-            }} />
-          </div>
-        </div>
-        {/* Share CTA */}
-        <div className={styles.shareContainer}>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 /**
  * Layout content shared between intercepted route (@modal/(.)work/[id]) and
  * default rout (/work/[id]).
@@ -122,42 +50,40 @@ export default async function LayoutContent({
 
   return (
     <div className={styles.container}>
-      <Suspense fallback={<LayoutContentLoading />}>
-        <div className={`${utils.maxWidthWrapper} ${styles.contentFadeIn}`}>
-          {/* Exit button, positioned relative to container */}
-          <ExitButton goBackOnExit={goBackOnExit} />
-          <div className={styles.leftSidebar}>
-            {/* MDX sidebar with header links */}
-            <div className={styles.tableOfContents}>
-              <MDXSidebar source={serialized} />
-            </div>
+      <div className={`${utils.maxWidthWrapper} ${styles.contentFadeIn}`}>
+        {/* Exit button, positioned relative to container */}
+        <ExitButton goBackOnExit={goBackOnExit} />
+        <div className={styles.leftSidebar}>
+          {/* MDX sidebar with header links */}
+          <div className={styles.tableOfContents}>
+            <MDXSidebar source={serialized} />
           </div>
-          <div className={styles.shareContainerMobile}>
+        </div>
+        <div className={styles.shareContainerMobile}>
+          <ShareCTA
+            copyLink={currentPath}
+            links={sharingLinks}
+          />
+        </div>
+        {children}
+        <div className={styles.rightSidebar}>
+          {/* Title and description based on frontmatter */}
+          <div className={styles.descriptionContainer}>
+            <div className={styles.titleContainer}>
+              <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.title}</p>
+              <p className={`${utils.monoText} ${utils.smallText} ${styles.date}`}>{frontmatter.date}</p>
+            </div>
+            <p className={utils.smallText}>{frontmatter.description}</p>
+          </div>
+          {/* Share CTA */}
+          <div className={styles.shareContainer}>
             <ShareCTA
               copyLink={currentPath}
               links={sharingLinks}
             />
           </div>
-          {children}
-          <div className={styles.rightSidebar}>
-            {/* Title and description based on frontmatter */}
-            <div className={styles.descriptionContainer}>
-              <div className={styles.titleContainer}>
-                <p className={`${utils.monoText} ${utils.smallText}`}>{frontmatter.title}</p>
-                <p className={`${utils.monoText} ${utils.smallText} ${styles.date}`}>{frontmatter.date}</p>
-              </div>
-              <p className={utils.smallText}>{frontmatter.description}</p>
-            </div>
-            {/* Share CTA */}
-            <div className={styles.shareContainer}>
-              <ShareCTA
-                copyLink={currentPath}
-                links={sharingLinks}
-              />
-            </div>
-          </div>
         </div>
-      </Suspense>
+      </div>
     </div>
   )
 }
