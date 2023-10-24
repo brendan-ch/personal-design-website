@@ -16,13 +16,6 @@
   justify-content: center;
 }
 
-.loadingSkeletonBar {
-  width: 100%;
-  background-color: var(--gray4);
-
-  border-radius: 4px;
-}
-
 .loadingMockChildren {
   display: flex;
   flex-direction: column;
