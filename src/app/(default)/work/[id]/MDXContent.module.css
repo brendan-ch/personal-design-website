@@ -26,6 +26,18 @@
   margin-bottom: 8px;
 }
 
+.imageContainer + .paragraph {
+  margin-top: 16px;
+}
+
+.paragraph + .imageContainer {
+  margin-top: 8px;
+}
+
+.paragraph + .anchorWrapper {
+  margin-top: 8px;
+}
+
 .anchor {
   font-size: 16px;
   text-decoration: underline;

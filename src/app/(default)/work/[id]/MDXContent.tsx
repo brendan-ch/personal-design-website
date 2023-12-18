@@ -56,7 +56,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
       const generatedLink = generateHeadingLink(props.children as string)
 
       // Return empty div which can be referred to by ID
-      return <div id={generatedLink} className="anchorWrapper"></div>
+      return <div id={generatedLink} className={`${styles.anchorWrapper} anchorWrapper`}></div>
     },
     h2: Nothing,
     h3: Nothing,
