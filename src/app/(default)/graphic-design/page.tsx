@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
 }
 
-const column1 = ['uhs-planner-cover', 'the-birds']
+const column1 = ['ios-developers-club', 'uhs-planner-cover', 'the-birds']
 const column2 = ['headspace-logo-redesign', 'spirit-week-poster', 'abstract-color-art']
 
 const columns = [column1, column2]
