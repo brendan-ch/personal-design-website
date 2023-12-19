@@ -59,6 +59,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
     img: Nothing,
     hr: Nothing,
     EmbedFrame: Nothing,
+    HorizontalWrapper: Nothing,
     blockquote: Nothing,
   }
 
