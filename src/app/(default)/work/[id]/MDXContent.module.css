@@ -60,9 +60,16 @@
 
 .blockquote {
   margin: 24px;
+  margin-left: 0px;
   padding-left: 16px;
 
   border-left: 2px var(--white) solid;
+}
+
+.paragraph + .blockquote {
+  /* If the block quote appears below a paragraph,
+  downsize the margin */
+  margin-top: 8px;
 }
 
 .blockquote > p {
