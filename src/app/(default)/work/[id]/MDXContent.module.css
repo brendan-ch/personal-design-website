@@ -22,7 +22,20 @@
 
 .paragraph {
   font-size: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.imageContainer + .paragraph {
   margin-top: 16px;
+}
+
+.paragraph + .imageContainer {
+  margin-top: 8px;
+}
+
+.paragraph + .anchorWrapper {
+  margin-top: 8px;
 }
 
 .anchor {
@@ -32,7 +45,7 @@
 }
 
 .list {
-  margin-top: 16px;
+  margin-top: 0px;
   margin-bottom: 0px;
 }
 
@@ -47,9 +60,16 @@
 
 .blockquote {
   margin: 24px;
+  margin-left: 0px;
   padding-left: 16px;
 
   border-left: 2px var(--white) solid;
+}
+
+.paragraph + .blockquote {
+  /* If the block quote appears below a paragraph,
+  downsize the margin */
+  margin-top: 8px;
 }
 
 .blockquote > p {
@@ -57,4 +77,5 @@
   font-style: oblique;
 
   margin-top: 0px;
+  margin-bottom: 0px;
 }
