@@ -26,35 +26,23 @@ const Nothing = () => <></>
 export default function MDXSidebar({ source }: MDXContentProps) {
   const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
 
-  // Force a local refresh when the page hash changes
-  // If the hash is empty, scroll to the top of the page instead of performing
-  // a local refresh (may take a long time)
-  // See https://stackoverflow.com/questions/57656284/browser-scrolling-to-previous-position-instead-of-anchors-when-navigating-back
-  useEffect(() => {
-    window.onhashchange = function() {
-      if (window.location.hash === '' || window.location.hash === '#') {
-        window.scrollTo(0, 0)
-      } else {
-        window.location.href = window.location.href
-      }
-    }
-
-    return () => {
-      window.onhashchange = () => {}
-    }
-  }, [])
-    
   /**
    * Map of MDX components which map to React components.
    */
   const MDXComponents = {
     h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
       const generatedLink = generateHeadingLink(props.children as string)
+
+      function onClick(e: any) {
+        e.preventDefault()
+        window.location.replace(`#${generatedLink}`)
+      }
   
       return (
         <a
           href={`#${generatedLink}`}
           className={`${utils.monoText} ${utils.smallText}`}
+          onClick={onClick}
         >
           {highlighted === generatedLink ? (
             <b>
