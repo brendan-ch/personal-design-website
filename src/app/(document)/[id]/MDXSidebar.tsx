@@ -5,7 +5,7 @@ import utils from '../../utils.module.css'
 import generateHeadingLink from "@/helpers/generateHeadingLink"
 import { MDXRemote } from "next-mdx-remote"
 import useScrollHighlight from "@/hooks/useScrollHighlight"
-import Link from "next/link"
+import { useEffect } from "react"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -25,6 +25,24 @@ const Nothing = () => <></>
 */
 export default function MDXSidebar({ source }: MDXContentProps) {
   const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
+
+  // Force a local refresh when the page hash changes
+  // If the hash is empty, scroll to the top of the page instead of performing
+  // a local refresh (may take a long time)
+  // See https://stackoverflow.com/questions/57656284/browser-scrolling-to-previous-position-instead-of-anchors-when-navigating-back
+  useEffect(() => {
+    window.onhashchange = function() {
+      if (window.location.hash === '' || window.location.hash === '#') {
+        window.scrollTo(0, 0)
+      } else {
+        window.location.href = window.location.href
+      }
+    }
+
+    return () => {
+      window.onhashchange = () => {}
+    }
+  }, [])
     
   /**
    * Map of MDX components which map to React components.
