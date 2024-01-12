@@ -34,11 +34,9 @@ export default function MDXSidebar({ source }: MDXContentProps) {
       const generatedLink = generateHeadingLink(props.children as string)
   
       return (
-        <Link
-          replace
+        <a
           href={`#${generatedLink}`}
           className={`${utils.monoText} ${utils.smallText}`}
-          prefetch={false}
         >
           {highlighted === generatedLink ? (
             <b>
@@ -48,7 +46,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
             props.children
           )}
           {/* {props.children} */}
-        </Link>
+        </a>
       )
     },
     p: Nothing,
