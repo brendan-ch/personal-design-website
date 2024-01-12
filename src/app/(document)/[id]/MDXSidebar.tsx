@@ -5,7 +5,7 @@ import utils from '../../utils.module.css'
 import generateHeadingLink from "@/helpers/generateHeadingLink"
 import { MDXRemote } from "next-mdx-remote"
 import useScrollHighlight from "@/hooks/useScrollHighlight"
-import Link from "next/link"
+import { useEffect } from "react"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -25,20 +25,24 @@ const Nothing = () => <></>
 */
 export default function MDXSidebar({ source }: MDXContentProps) {
   const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
-    
+
   /**
    * Map of MDX components which map to React components.
    */
   const MDXComponents = {
     h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
       const generatedLink = generateHeadingLink(props.children as string)
+
+      function onClick(e: any) {
+        e.preventDefault()
+        window.location.replace(`#${generatedLink}`)
+      }
   
       return (
-        <Link
-          replace
+        <a
           href={`#${generatedLink}`}
           className={`${utils.monoText} ${utils.smallText}`}
-          prefetch={false}
+          onClick={onClick}
         >
           {highlighted === generatedLink ? (
             <b>
@@ -48,7 +52,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
             props.children
           )}
           {/* {props.children} */}
-        </Link>
+        </a>
       )
     },
     p: Nothing,
