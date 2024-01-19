@@ -33,6 +33,7 @@ export default function HomeContent({ columns, headline }: Props) {
                   key={id}
                   href={`/work/${id}`}
                   description={frontmatter.description}
+                  sizes="(max-width: 880px) 80vw, (max-width: 1200px) 50, 33vw"
                 />
               ))}
             </RenderControl>

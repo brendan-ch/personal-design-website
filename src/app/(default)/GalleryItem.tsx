@@ -14,6 +14,7 @@ interface Props {
   description: string,
   href: string,
   id: string,
+  sizes: string,
 }
 
 export default async function GalleryItem({
@@ -25,6 +26,7 @@ export default async function GalleryItem({
   description,
   href,
   id,
+  sizes,
 }: Props) {
   const { css } = await generatePlaceholder(imageSrc, 'work', id)
 
@@ -51,6 +53,7 @@ export default async function GalleryItem({
           src={imageSrc}
           alt={imageAlt}
           fill
+          sizes={sizes}
           className={styles.image}
         />
       </div>
