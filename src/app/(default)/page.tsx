@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   },
 }
 
-const column1 = ['cmes-admin-panel', 'clockwise', 'uhs-planner-cover']
-const column2 = ['ios-developers-club', 'headspace-logo-redesign', 'standard-catalog', 'spirit-week-poster']
+const column1 = ['cmes-admin-panel', 'ios-developers-club', 'headspace-logo-redesign']
+const column2 = ['clockwise', 'standard-catalog', 'uhs-planner-cover']
 
 const columns = [column1, column2]
 
