@@ -15,7 +15,7 @@ export const metadata = {
 // Control pages to display in desktop/mobile navigation bars.
 const pages: Page[] = [
   {
-    title: 'Featured Works',
+    title: 'Select Works',
     href: '/',
   },
   {
