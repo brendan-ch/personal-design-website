@@ -64,6 +64,7 @@ export default function MDXSidebar({ source }: MDXContentProps) {
     hr: Nothing,
     EmbedFrame: Nothing,
     HorizontalWrapper: Nothing,
+    DesktopOnlyWrapper: Nothing,
     blockquote: Nothing,
   }
 

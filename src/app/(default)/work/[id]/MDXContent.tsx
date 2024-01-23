@@ -8,6 +8,7 @@ import { compileMDX } from "next-mdx-remote/rsc"
 import remarkUnwrapImages from 'remark-unwrap-images'
 import generatePlaceholder from '@/helpers/generatePlaceholder'
 import React from 'react'
+import DesktopOnlyWrapper from './DesktopOnlyWrapper'
 
 interface MDXContentProps {
   id: string,
@@ -67,6 +68,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
     h3: Nothing,
     EmbedFrame,
     HorizontalWrapper,
+    DesktopOnlyWrapper,
     blockquote: (props: React.HTMLProps<HTMLQuoteElement>) => {
       return (
         <blockquote className={styles.blockquote}>
