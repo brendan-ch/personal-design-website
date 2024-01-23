@@ -1,14 +1,14 @@
 import styles from './MDXContent.module.css'
 import Image from "next/image"
 import generateHeadingLink from "@/helpers/generateHeadingLink"
-import EmbedFrame from "./EmbedFrame"
-import HorizontalWrapper from './HorizontalWrapper'
+import EmbedFrame from "./mdx/EmbedFrame"
+import HorizontalWrapper from './mdx/HorizontalWrapper'
 import getPrecompiledWork from "./getPrecompiledWork"
 import { compileMDX } from "next-mdx-remote/rsc"
 import remarkUnwrapImages from 'remark-unwrap-images'
 import generatePlaceholder from '@/helpers/generatePlaceholder'
 import React from 'react'
-import DesktopOnlyWrapper from './DesktopOnlyWrapper'
+import DesktopOnlyWrapper from './mdx/DesktopOnlyWrapper'
 
 interface MDXContentProps {
   id: string,
