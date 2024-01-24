@@ -29,6 +29,12 @@ export async function generateMetadata(
   }
 }
 
+/**
+ * Root layout for the work page. Rendered when the user directly
+ * navigates to the project pgae.
+ * @param param0
+ * @returns
+ */
 export default async function WorkLayout({ children, params }: LayoutProps) {
   return (
     // @ts-ignore Server Component

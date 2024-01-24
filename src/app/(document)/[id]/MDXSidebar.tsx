@@ -5,7 +5,6 @@ import utils from '../../utils.module.css'
 import generateHeadingLink from "@/helpers/generateHeadingLink"
 import { MDXRemote } from "next-mdx-remote"
 import useScrollHighlight from "@/hooks/useScrollHighlight"
-import { useEffect } from "react"
 
 interface MDXContentProps {
   source: MDXRemoteSerializeResult,
@@ -16,6 +15,11 @@ interface MDXContentProps {
  */
 const HIGHLIGHT_TOP_MARGIN = 320
 
+/**
+ * Component which renders nothing.
+ * @returns Nothing.
+ * @see https://github.com/kelseyhightower/nocode
+ */
 const Nothing = () => <></>
 
 /**
@@ -27,7 +31,8 @@ export default function MDXSidebar({ source }: MDXContentProps) {
   const highlighted = useScrollHighlight('anchorWrapper', HIGHLIGHT_TOP_MARGIN)
 
   /**
-   * Map of MDX components which map to React components.
+   * Map of MDX components which map to React components,
+   * to display for the document page.
    */
   const MDXComponents = {
     h1: (props: React.HTMLProps<HTMLHeadingElement>) => {

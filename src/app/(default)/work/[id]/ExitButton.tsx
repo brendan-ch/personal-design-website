@@ -8,9 +8,19 @@ import styles from './ExitButton.module.css'
 import { useCallback } from "react"
 
 interface Props {
+  /**
+   * Control whether to call `router.back()` on exit, or to navigate
+   * to the home page.
+   */
   goBackOnExit?: boolean,
 }
 
+/**
+ * Exit button which either navigates to the home page,
+ * or calls `router.back()`, depending on the prop passed.
+ * @param param0
+ * @returns
+ */
 export default function ExitButton({ goBackOnExit }: Props) {
   const router = useRouter()
 

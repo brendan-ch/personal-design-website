@@ -29,6 +29,10 @@ interface Props {
   copyLink: string,
 }
 
+/**
+ * Number of milliseconds to wait until the "Linked copied to clipboard!" text
+ * turns back into "Copy link".
+ */
 const COPY_TIMEOUT = 1000;
 
 /**

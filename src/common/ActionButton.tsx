@@ -2,15 +2,32 @@ import Link from 'next/link';
 import styles from './ActionButton.module.css';
 
 interface Props {
+  /**
+   * Text to display within the action button.
+   */
   text: string,
+  /**
+   * Callback for when the button is clicked.
+   * @returns
+   */
   onClick?: () => any,
+  /**
+   * Link to navigate to when the button is clicked.
+   * Overrides `onClick` if provided.
+   */
   href?: string,
   /**
    * If set to true, the component will render an `<a>` element
    * instead of a Next.js `<Link>` element.
    */
   useRegularLink?: boolean,
+  /**
+   * Whether the action button should be highlighted.
+   */
   highlighted?: boolean,
+  /**
+   * Whether the action button is disabled.
+   */
   disabled?: boolean,
 }
 

@@ -3,10 +3,16 @@
 import InfoOverlay from "@/common/InfoOverlay"
 import Anchor from "@/common/Anchor"
 import ActionButton from "@/common/ActionButton"
-import Link from "next/link"
 
 interface Props {
+  /**
+   * Whether the welcome overlay is visible.
+   */
   visible: boolean,
+  /**
+   * Callback for when the welcome overlay is closed.
+   * @returns
+   */
   onClose: () => any,
 }
 

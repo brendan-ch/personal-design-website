@@ -1,7 +1,10 @@
-import Link from 'next/link';
 import styles from './Footer.module.css';
 
 interface Props {
+  /**
+   * Callback for when the "A note from Brendan" button is clicked.
+   * @returns
+   */
   onNoteOpen: () => any,
 }
 

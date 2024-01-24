@@ -27,6 +27,7 @@ export default async function MDXContent({ id }: MDXContentProps) {
 
   /**
    * Map of MDX components which map to React components.
+   * Displayed as the primary content for the work page.
    */
   const MDXComponents = {
     p: (props: React.HTMLProps<HTMLParagraphElement>) => (

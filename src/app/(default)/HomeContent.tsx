@@ -5,10 +5,24 @@ import GalleryItem from './GalleryItem'
 import RenderControl from './RenderControl'
 
 interface Props {
+  /**
+   * Works to display on the page.
+   * Works are displayed in a two-column layout on desktop,
+   * and scaled down to one column on mobile.
+   */
   columns: Work<Frontmatter>[][],
+  /**
+   * The headline text to display at the top of the page.
+   */
   headline: string,
 }
 
+/**
+ * Content to display on the home page, which may
+ * have different content depending on the section.
+ * @param param0
+ * @returns
+ */
 export default function HomeContent({ columns, headline }: Props) {
   return (
     <main className={styles.main}>
