@@ -11,11 +11,25 @@ import WelcomeOverlay from './WelcomeOverlay';
 import { Page } from './DesktopSideNavigation';
 
 interface ButtonProps {
+  /**
+   * Whether the link should be highlighted.
+   */
   toggled?: boolean,
+  /**
+   * Text to display for the link.
+   */
   text: string,
+  /**
+   * Link to navigate to on click.
+   */
   href: string,
 }
 
+/**
+ * Displays a single navigation link to a page, in `MobileNavigationMenu`.
+ * @param param0
+ * @returns
+ */
 export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
   return (
     (<Link href={href} className={styles.buttonWrapper}>
@@ -33,8 +47,19 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
 }
 
 interface Props {
+  /**
+   * Whether the menu is visible.
+   */
   visible: boolean,
+  /**
+   * Callback for when the menu is closed
+   * (e.g. by clicking the Exit button)
+   * @returns
+   */
   onClose: () => any,
+  /**
+   * Pages to render as links for the menu.
+   */
   pages: Page[],
 }
 
