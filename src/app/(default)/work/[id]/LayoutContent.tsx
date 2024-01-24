@@ -5,11 +5,9 @@ import MDXSidebar from '@/app/(document)/[id]/MDXSidebar'
 import ShareCTA, { PageExternalLink } from './ShareCTA'
 import getWork from './getWork'
 import ExitButton from './ExitButton'
-import { CSSProperties, Suspense } from 'react'
+import { PropsWithChildren, } from 'react'
 
-interface Props {
-  children: React.ReactNode,
-
+interface Props extends PropsWithChildren {
   /**
    * ID of the work page.
    */
@@ -23,8 +21,8 @@ interface Props {
 }
 
 /**
- * Layout content shared between intercepted route (@modal/(.)work/[id]) and
- * default rout (/work/[id]).
+ * Layout content shared between intercepted route (`@modal/(.)work/[id]`) and
+ * default route (`/work/[id]`).
  * @param param0
  * @returns
  */
