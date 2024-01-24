@@ -28,6 +28,12 @@ const pages: Page[] = [
   },
 ]
 
+/**
+ * Root layout of the (default) route group.
+ * @param param0
+ * @returns
+ * @see https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required
+ */
 export default function RootLayout({
   children,
   modal,  // render @modal content separately in layout
