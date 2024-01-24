@@ -1,9 +1,16 @@
+import { PropsWithChildren } from 'react';
 import styles from './InfoOverlay.module.css';
 
-interface Props {
+interface Props extends PropsWithChildren {
+  /**
+   * Whether the information overlay is visible.
+   */
   visible: boolean,
+  /**
+   * Callback for when the info overlay is closed (i.e. by clicking outside)
+   * @returns
+   */
   onClose: () => any,
-  children?: React.ReactNode,
 }
 
 /**
