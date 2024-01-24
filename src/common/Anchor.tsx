@@ -2,8 +2,13 @@ import styles from './Anchor.module.css';
 import utils from '../app/utils.module.css';
 
 interface Props {
+  /**
+   * Text to display for the anchor component.
+   */
   text: string,
-  // href?: string,
+  /**
+   * Whether the upper border should be hidden.
+   */
   hideBorder?: boolean,
 
   /**
@@ -27,7 +32,6 @@ interface Props {
  */
 export default function Anchor({
   text,
-  // href,
   hideBorder,
   id,
   style,
